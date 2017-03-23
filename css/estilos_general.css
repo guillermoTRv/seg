@@ -1,0 +1,29 @@
+body{font-family: 'Nunito Sans', sans-serif;background-color:#eee}
+p{font-size:.93em}
+a.select_a{text-decoration: none}
+a.select_a:hover{text-decoration: none}
+a:focus{text-decoration: none}
+a.link_black{color: black;text-decoration:none}
+a.link_black:hover{color:black;text-decoration:none}
+.select{margin:10px;background-color:#dff0d8} 
+.panel_cl{margin:10px;background-color:#fff;}
+.div_blanco{background-color:#fff}
+.ul_menu{
+		
+	}
+	.ul_menu  li{
+		display:block;
+		width: 180px;
+		border:1px #fff solid;
+		padding:4px;
+	}
+	    a.select_a {text-decoration: none;color:black}
+        a.select_a:hover{text-decoration: none;color:black;}
+        a:select{text-decoration:none}
+    .control_li{
+    	background-color:#6E6E6E;
+    }
+
+    .ul_menu > li:hover {
+    	background-color:#6E6E6E;
+    }

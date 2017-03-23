@@ -1,0 +1,14 @@
+	.select{margin:10px;background-color:#dff0d8} 
+	.panel_cl{margin:10px;background-color:#fff;}
+    a{text-decoration: none; color:black;}
+    .title_a{font-size: 1.2em;height:50px;cursor: pointer}
+    
+	.list_nav{
+    	display:none;
+    	list-style:none;color:#fff;
+    }
+
+
+    .lista_nav li a:hover{
+    	background-color:green;
+    }
