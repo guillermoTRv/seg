@@ -3,7 +3,11 @@
 </script>
 <div class="row">
   <div class="col-md-10">
-    <p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>
+    <h3>Inmuebles para <?php echo $name_cliente ?></h3>
+    <br>
+  </div>
+  <div class="col-md-10">
+    <!--<p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>-->
     <div class="div_blanco" style="background-color:#fff">  
         <table class="table table-hover">
             <thead>

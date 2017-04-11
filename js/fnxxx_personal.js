@@ -27,7 +27,7 @@ function select_slc (ajax_funcion_uno,ajax_funcion_two){
 
 	    	});
 
-	    	ajax_funcion()
+	    	ajax_funcion_uno()
 	    	
 
 	});

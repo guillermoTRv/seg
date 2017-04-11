@@ -2,37 +2,273 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>--</title>
-	    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>construyendo un nuevo formulario</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="ico/style.css">
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<style>
+	li.li_select{display:inline-block;margin-bottom:10px;width:74%}
+	p.p_select{margin-bottom:0px;padding:3px 6px 3px 6px;border:solid 1px #E6E6E6;border-radius:3px;font-size:1.1em;cursor:pointer; cursor: hand}
+	ul.ul_menu{display:none; position: absolute; list-style:none;background-color:#fff;padding:0px;border: 1px solid #f2f2f2;}
+	.ul_menu li{padding:5px 7px 5px 7px; cursor:pointer; cursor: hand}
+	.ul_menu li:hover{background-color:#f2f2f2}
+	
+	.my_control label{max-width:90%;}
+	.control_inline{display:block;margin-bottom:20px}
+	.label_inline{width:17%;display:inline-block;}
 
-	<script>	
+
+	.input_inline{width:74%;background-color:#fff;border:solid 1px #bbbbbb;padding:6px;border-radius:4px;}
+	.input_inline:focus {
+				box-shadow: 3px 3px 3px #b3e5fa;
+				-webkit-box-shadow: 3px 3px 3px #b3e5fa; 
+				-moz-box-shadow: 3px 3px 3px #b3e5fa;
+				}
+	.element_sl{background-color:#dff0d8}
+
+</style>
+<script>
 
 	$(document).ready(function(){
-		function uno(){
-			alert("hola")
-		}
+		
+		$(".my_control .element_ol:first").addClass("element_sl").focus()
 
-		function two(pasa){
-			pasa()
-		}
+		$(".p_select").click(function(){
+	    	//$(this).next().show()
+	    	var control_sl = $(".control_sl").length 
+	    	if (control_sl == 0) {
+	    		$(this).next().show()
+	    		$(this).addClass("control_sl")
+	    		return false
+	    	}
+	    	if (control_sl == 1) {
+	    		alert(12)
+	    		$(".control_sl").next().hide()
+	    		$(".control_sl").removeClass("control_sl")
+	    		$(this).next().show()
+	    		$(this).addClass("control_sl")
+	    		return false
+	    	}
 
-		two(uno)
+	    });
+
+		$(".ul_menu li").click(function(){
+			$(".ul_menu").hide()
+			$("element_sl").removeClass("element_sl")
+			var select = $(this).children().html()
+			$(this).parent().prev().html("<span class='icon-circle-down'></span> "+select)
+			return false
+		});
+
+	    $(".element_ol").click(function(){
+			$(".element_sl").removeClass("element_sl")
+			var seleccionado = $(this).addClass("element_sl")
+			return false
+		});
+
+		$("input.element_ol").click(function(){
+			$(".ul_menu").hide()
+			$(".control_sl").removeClass("control_sl")
+		});
+
+	    $(document).click(function(){
+			var control_sll = $(".control_sl").length
+			var element_sll = $(".element_sl").length
+			if (control_sll > 0) {
+				$(".ul_menu").hide()
+				$(".p_select").removeClass("control_sl")
+			}
+			if (element_sll == 1) {
+				$(".element_sl").removeClass("element_sl").blur()
+			}
+
+		});
+	});
+	$(document).keydown(function(event){
+		var element_sl = $(".element_sl").length
+		if (event.which == 38) {
+			if (element_sl == 0) {
+				$(".my_control .element_ol:last").addClass("element_sl").focus()
+				return false
+			}
+			if (element_sl == 1) {
+				var prevv = $(".element_sl").parent().parent().prev().children().next().children(".element_ol")
+				$(".element_sl").removeClass("element_sl").blur()
+				prevv.addClass("element_sl").focus()
+				return false
+			}
+		}
+		if (event.which == 40) {
+			if (element_sl == 0) {
+				$(".my_control .element_ol:first").addClass("element_sl").focus()
+				return false
+			}
+			if (element_sl == 1) {
+				var nextt = $(".element_sl").parent().parent().next().children().next().children(".element_ol")
+				$(".element_sl").removeClass("element_sl").blur()
+				nextt.addClass("element_sl").focus()
+				return false
+				
+				
+			}
+		}
+		if (event.which == 37) {
+			var element_sl = $("p.element_sl").length
+			if (element_sl == 1) {
+				$(".element_sl").removeClass("control_sl")
+				$(".element_sl").next().hide()
+			}
+		}
+		if (event.which == 39) {
+			var element_sl = $("p.element_sl").length
+			if (element_sl == 1) {
+				$(".element_sl").addClass("control_sl")
+				$(".element_sl").next().show()
+			}
+			
+		}
+		if (event.which == 13) {
+			nextt = $(".element_sl").parent().parent().next().children().next().children(".element_ol")
+			$(".element_sl").removeClass("element_sl").blur()
+			nextt.addClass("element_sl").focus()
+			return false
+		}
 	});
 
-		
-	
-	</script>
-</head>
+
+
+	//si el primer elemento del form es un input que se marco en automatico y no tenerle que poner el autofucos en html
+</script>
 <body>
-	<li style="display:inline-block;">
-				<p style="background-color:#fff;padding:3px 6px 3px 6px;border:solid 1px #E6E6E6;border-radius:3px;font-size:1.1em"><a href="" class="select_a">Seleccione un inmueble(shift) <span class="icon-circle-down"></span></a></p>
-				<ul class="ul_menu" style="display:none; position: absolute; list-style:none;background-color:#f2f2f2;padding:0px;">
-					<li><a href="">asas</a></li>
-					<li><a href="">asas</a></li>
-					<li><a href="">asas</a></li>
-					<li><a href="">asas</a></li>
-					<li><a href="">asas</a></li>
-				</ul>
-			</li>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2" style="margin-top:100px">
+			
+			
+				<form class="my_control">
+					
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Seleccione un inmueble</label>	
+							</div>
+							<li class="li_select">
+									<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione un inmueble(shift)</p>
+									<ul class="ul_menu">
+										<li><p>Memo</p></li>
+										<li><p>hjs kjasf</p></li>
+										<li><p>hjsssskjasf</p></li>
+										<li><p>hjskja    sf</p></li>
+										<li><p>hjskjasf</p></li>
+									</ul>
+							</li>	
+
+					</div>
+
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Seleccione un inmueble</label>	
+							</div>
+							<li class="li_select">
+									<p class="p_select element_ol">Seleccione un inmueble(shift)</p>
+									<ul class="ul_menu">
+										<li><p>Memo</p></li>
+										<li><p>hjs kjasf</p></li>
+										<li><p>hjsssskjasf</p></li>
+										<li><p>hjskja    sf</p></li>
+										<li><p>hjskjasf</p></li>
+									</ul>
+							</li>	
+
+					</div>
+					
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Seleccione un municipio</label>	
+							</div>
+							<li class="li_select">
+									<p class="p_select element_ol">Seleccione un inmueble(shift)</p>
+									<ul class="ul_menu">
+										<li><p>hjskjasf</p></li>
+										<li><p>hjs      kjasf</p></li>
+										<li><p>h     jskjasf</p></li>
+										<li><p>hjskjasf</p></li>
+										<li><p>hjsk jasf</p></li>
+									</ul> 
+							</li>	
+
+					</div>
+
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+					<div class="control_inline">
+							<div class="label_inline">
+								<label> Nombre</label>	
+							</div>		
+							<div style="display:inline;">
+								<input type="text" class="input_inline element_ol">		
+							</div>
+							
+					</div>
+
+					
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

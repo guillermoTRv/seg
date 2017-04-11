@@ -9,7 +9,7 @@
 		}
 	});
 
-	function ajax_select_click(){
+	function ajax_select_click(event){
 	$(".ul_menu li").click(function(event){	    		
 	event.preventDefault()
 	var valor_ajax = $(this).attr("id")
@@ -133,6 +133,15 @@
 									</tr>	
 						           ";
 							}
+							echo "
+							<script>
+							$(document).ready(function(){
+						        $('tbody tr').dblclick(function(){
+						          var ruta = $(this).attr('id')
+						          window.location.href = '?pr=info&val='+ruta+''
+						        });
+						    });
+							</script>";
 						}
 					?>						
 					</tbody>

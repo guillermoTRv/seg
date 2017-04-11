@@ -1,4 +1,8 @@
-<?php include("funciones.php");include("get.php"); session_start(); $id_cliente   = $_SESSION['cliente'];?>
+<?php 
+    include("funciones.php");include("get.php"); 
+    session_start(); $id_cliente   = $_SESSION['cliente'];
+    $name_cliente = consulta_tx("SELECT name_cliente FROM clientes WHERE id_cliente = '$id_cliente'","name_cliente");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +16,19 @@
     <title>Nombre cliente</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/simple-sidebar.css">
     <link rel="stylesheet" href="css/estilos_general.css">
     <link rel="stylesheet" href="ico/style.css">
     <link rel="stylesheet" href="css/estilos_clientes.css">
+    <link rel="stylesheet" href="css/estilos_form.css">
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script  type="text/javascript" src="js/fnssss_personal.js"></script>
+    <script  type="text/javascript" src="js/jquery.js"></script>
+    <script  type="text/javascript" src="js/fnxxx_personal.js"></script>
     <script  type="text/javascript" src="js/fnss_tabla.js"></script>
     <script  type="text/javascript" src="js/fns_atajos.js"></script>
+    <script  type="text/javascript" src="js/fns_form.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet"> -->
     <!--  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> -->
     <!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
@@ -265,8 +273,8 @@
                         <a  class="title_a" data="?inm=listado"><span class="icon-office"></span> Inmuebles (i)</a>
                         <ul class="list_nav">
                             <li><a href="?inm=listado">Listado de inmuebles</a> </li>
-                            <li><a href="">Alta inmueble</a> </li>
-                            <li><a href="">Baja inmueble</a> </li>
+                            <li><a href="?inm=alta">Alta inmueble</a> </li>
+                            <li><a href="?inm=baja">Baja inmueble</a> </li>
                         </ul>
                     </li>
                     <li class="li_nav">

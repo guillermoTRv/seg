@@ -10,10 +10,12 @@
     <meta name="author" content="">
     <title>Menu inicial</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/estilos_general.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300" rel="stylesheet"> 
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="js/jquery.js"></script>
     <script  type="text/javascript" src="js/fns_menu.js"></script>
 </head>
 

@@ -28,7 +28,7 @@
 	$(document).ready(function(){
         $("tbody tr").dblclick(function(){
           var ruta = $(this).attr("id")
-          window.location.href = "?pr="+ruta+""
+          window.location.href = "?pr=info&val="+ruta+""
         });
     });
 </script>
