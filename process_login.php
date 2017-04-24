@@ -1,7 +1,11 @@
-<?php 
+<?php
 	include("funciones.php");
 	$usuario = sanitizar("user_txt");
 	$pass    = sanitizar("pass_txt");
+
+	session_start();
+	$_SESSION['type_user'] = "admi";
+
 
 	if ($usuario == "root" && $pass == "123qwe") {
 		?><script>window.location.href = "menu_inicial.php";</script> <?php

@@ -28,11 +28,16 @@
     <script  type="text/javascript" src="js/fnxxx_personal.js"></script>
     <script  type="text/javascript" src="js/fnss_tabla.js"></script>
     <script  type="text/javascript" src="js/fns_atajos.js"></script>
-    <script  type="text/javascript" src="js/fns_form.js"></script>
+    <script  type="text/javascript" src="js/fns_formm.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet"> -->
     <!--  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> -->
     <!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300" rel="stylesheet"> 
+    <style>
+        .blue{color:#0489B1;}
+        .content{background-color:#fff;margin-top:15px}
+        .info_repo{display: inline;font-size:1.1em}
+    </style>
     <script>
 
     $(document).keydown(function(event){
@@ -43,7 +48,8 @@
 
 
         var activo_menu = $(".activo_menu").length;
-          if (event.which == 17) {
+          if (event.which == 225) {
+            event.preventDefault()
             if (activo_menu == 0) {
                 $("#jaja").html("Control de menu: Activado")
                 $("#jaja").addClass("activo_menu")
@@ -256,7 +262,10 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav navbar">
-                <h2 style="color:white;margin-left:5px;font-weight: lighter">EMPRESA S.A C.V</h2>
+                <div style="margin:9px 17px 9px 8px;">
+                    <img src="ico/logo.png" class="img-responsive" style="margin-right:20px">    
+                </div>
+                
                 <hr>
 
                 <div class="menu_pr">
@@ -264,8 +273,9 @@
                         <a class="title_a" data="?pr=listado"><span class="icon-users"></span> Personal (p)</a>
                         <ul class="list_nav">
                             <li><a href="?pr=listado">Listado del personal</a> </li>
-                            <li><a href="?pr=alta">Alta personal</a></li>
+                            <li><a href="?pr=opciones_alta">Alta personal</a></li>
                             <li><a href="?pr=baja">Baja personal</a> </li>
+                            <li><a href="?pr=modificar_personal">Modificar personal</a> </li>
                             <li><a href="?pr=horarios">Administacion de horarios</a> </li>
                         </ul>
                     </li>
@@ -286,12 +296,15 @@
                         </ul>
                     </li>
                     <li class="li_nav">
-                        <a class="title_a" data="?rep=listado"><span class="icon-table"></span> Manejo de reportes (r)</a>
+                        <a class="title_a" data="?rep=todos"><span class="icon-table"></span> Manejo de reportes (r)</a>
                         <ul class="list_nav">
-                            <li><a href="">Reportes en general</a> </li>
-                            <li><a href="">Reportes de personal</a> </li>
-                            <li><a href="">Reportes inmuebles</a> </li>
-                            <li><a href="">Reportes costos</a> </li>
+                            <li><a href="?rep=todos">Todos los reportes</a> </li>
+                            <li><a href="?rep=general">Reportes en general</a> </li>
+                            <li><a href="?rep=personal">Reportes del personal</a> </li>
+                            <li><a href="?rep=personal">Reportes individuales <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; del personal</a> </li>
+                            <li><a href="?rep=inmuebles">Reportes de incidentes <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; en general</a> </li>
+                            <li><a href="?rep=inmuebles">Reportes de incidentes <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; por inmueble</a> </li>
+                            <li><a href="?rep=costos">Historial de reportes</a> </li>
                         </ul>
                     </li>
                     <li>

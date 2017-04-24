@@ -14,8 +14,9 @@
                           <thead>
                               <tr>
                                 <th>Inmueble</th>
+                                <th>Identificador</th>
                                 <th>Dirección</th>
-                                <th>#Personal</th>
+                                <th>No.Personal</th>
                                 <th>#Reportes</th>
                               </tr>
                           </thead>
@@ -31,13 +32,16 @@
                                   $num_exterior  = $array['num_exterior'];
                                   $entidad       = $array['entidad'];
                                   $demarcacion   = $array['demarcacion'];
+                                  $identificador = $array['identificador'];
 
                                   $direccion     = $calle." #".$num_exterior." ".$colonia." ".$demarcacion." ".$entidad;
                                   
                                   $conteo        = consulta_val("SELECT id_usuario FROM usuarios WHERE inmueble_asign='$id_inmueble'");
+                                    
                                   echo "
                                     <tr id='$id_inmueble'>
                                       <td>$name_inmueble</td>
+                                      <td>$identificador</td>
                                       <td>$direccion</td>
                                       <td>$conteo</td>
                                       <td>#Reportes</td>

@@ -27,6 +27,8 @@
 	<div class="col-md-7" >
 		<h4><strong>Nombre del elemento:</strong> <?php echo $nombre_completo ?></h4>
 		<h4><strong>Inmueble Asignado:</strong> <?php echo $name_inmueble ?></h4>
+		<h4><strong>Numero identificador:</strong> 12987</h4>
+		
 		<h4>Domicilio: <?php echo $direccion ?></h4>
 		<h4>Nombre de usuario en el sistema: <?php echo $usuario?></h4>
 		<h4>Fecha de ingreso: <?php echo $fecha_inicio_contrato ?></h4>

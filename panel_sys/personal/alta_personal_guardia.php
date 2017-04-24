@@ -1,8 +1,8 @@
 <div class="row" style="margin-right:40px">
-		<h2>Alta de personal para el cliente - <?php echo $name_cliente?></h2>
+		<h2>Alta de Guardia para el cliente - <?php echo $name_cliente?></h2>
 </div>
 <script>
-	formulario_control_secuencia("panel_sys/inmuebles/process_altaInm.php")
+	formulario_control_secuencia("panel_sys/personal/process_alta_personal.php",5)
 	$(document).ready(function(){
 		$(".boton_sig").click(function(){
 			var fr = parseInt($(".fr").attr("id"))
@@ -38,8 +38,9 @@
 </script>
 <div class="row">
 	<div class="col-md-10">
-		<form class="control_inline">
+		<form method="post" enctype="multipart/form-data" class="control_inline">
 			<div id="1" class="fr">
+
 				<h3 style="margin-bottom:0px">Datos Generales</h3><hr style="border-color:#686868;width:91.3%;float:left;margin-bottom:25px ">
 				<div class="group_inline">
 					<div class="label_inline">
@@ -154,11 +155,11 @@
 					<li class="li_select">
 						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
 						<ul class="ul_menu">
-							<li><p>Memorias</p></li>
-							<li><p>hjs kjasf</p></li>
-							<li><p>hjsssskjasf</p></li>
-							<li><p>hjskja    sf</p></li>
-							<li><p>hjskjasf</p></li>
+							<li><p>Estado 1</p></li>
+							<li><p>Estado 2</p></li>
+							<li><p>Estado 3</p></li>
+							<li><p>Estado 4</p></li>
+							<li><p>Estado 5</p></li>
 						</ul>
 						<input type="hidden" name="entidad_txt" value="">
 					</li>	
@@ -170,11 +171,11 @@
 					<li class="li_select">
 						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
 						<ul class="ul_menu">
-							<li><p>Memorias</p></li>
-							<li><p>hjs kjasf</p></li>
-							<li><p>hjsssskjasf</p></li>
-							<li><p>hjskja    sf</p></li>
-							<li><p>hjskjasf</p></li>
+							<li><p>Municipio 1</p></li>
+							<li><p>Municipio 2</p></li>
+							<li><p>Municipio 3</p></li>
+							<li><p>Municipio 4</p></li>
+							<li><p>Municipio 5</p></li>
 						</ul>
 						<input type="hidden" name="demarcacion_txt" value="">
 					</li>	
@@ -213,7 +214,7 @@
 						<label>Fotografia del elemento(Solo formato jpg menor a 4mb)</label>
 					</div>
 					<div class="label_inline">
-						<input type="file" id="files" name="files" style="" />
+						<input type="file" id="files" name="files"/>
 				      	<output id="list"></output>
 					</div>
 				</div>
@@ -238,11 +239,13 @@
 					<li class="li_select">
 						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
 						<ul class="ul_menu">
-							<li><p>Memorias</p></li>
-							<li><p>hjs kjasf</p></li>
-							<li><p>hjsssskjasf</p></li>
-							<li><p>hjskja    sf</p></li>
-							<li><p>hjskjasf</p></li>
+							<?php 
+								$q_inmuebles = mysqli_query($q_sec,"SELECT name_inmueble FROM inmuebles WHERE cliente = '$id_cliente'");
+								while ($q_array = mysqli_fetch_array($q_inmuebles)) {
+									$name_inmueble = $q_array['name_inmueble'];
+									echo "<li><p>$name_inmueble</p></li>";
+								}
+							?>
 						</ul>
 						<input type="hidden" name="inmueble_txt" value="">
 					</li>	
@@ -254,11 +257,9 @@
 					<li class="li_select">
 						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
 						<ul class="ul_menu">
-							<li><p>Memorias</p></li>
-							<li><p>hjs kjasf</p></li>
-							<li><p>hjsssskjasf</p></li>
-							<li><p>hjskja    sf</p></li>
-							<li><p>hjskjasf</p></li>
+							<li><p>8 Horas fjo</p></li>
+							<li><p>12 Horas variable</p></li>
+							<li><p>12 Horas fijo</p></li>
 						</ul>
 						<input type="hidden" name="jornada_txt" value="">
 					</li>	
@@ -268,7 +269,7 @@
 						<label>Fecha de Inicio del Contrato</label>
 					</div>
 					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="num_ext_txt">
+						<input type="text" class="input_inline element_ol" name="fecha_inicio_txt">
 					</div>
 				</div>
 				<div class="group_inline">
@@ -276,7 +277,7 @@
 						<label>Fecha de Finalizacion <br> del Contrato</label>
 					</div>
 					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="fecha_inicio_txt">
+						<input type="text" class="input_inline element_ol" name="fecha_fin_txt">
 					</div>
 				</div>
 				<div class="group_inline">
@@ -292,7 +293,7 @@
 						<label>Codigo Autorización</label>
 					</div>
 					<div class="type_inline">
-						<input type="password" class="input_inline element_ol" name="fecha_fin_txt">
+						<input type="password" class="input_inline element_ol" name="codigo_txt">
 					</div>
 				</div>
 				<div class="group_inline">

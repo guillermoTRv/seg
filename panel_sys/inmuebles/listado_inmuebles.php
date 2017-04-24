@@ -2,20 +2,22 @@
   tabla("?inm=info&val=")
 </script>
 <div class="row">
-  <div class="col-md-10">
-    <h3>Inmuebles para <?php echo $name_cliente ?></h3>
+  <div class="col-md-11">
+    <h2><span class="icon-office"></span> Inmuebles para <?php echo $name_cliente ?></h2>
     <br>
   </div>
-  <div class="col-md-10">
+  <div class="col-md-11">
     <!--<p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>-->
     <div class="div_blanco" style="background-color:#fff">  
         <table class="table table-hover">
             <thead>
                 <tr>
                   <th>Inmueble</th>
+                  <th>Identificador</th>
                   <th>Dirección</th>
-                  <th>#Personal</th>
+                  <th><center>#Personal</center></th>
                   <th>#Reportes</th>
+                  <th><center>Modificar</center></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,15 +33,22 @@
                                   $entidad       = $array['entidad'];
                                   $demarcacion   = $array['demarcacion'];
 
+                                  $identificador = $array['identificador'];
                                   $direccion     = $calle." #".$num_exterior." ".$colonia." ".$demarcacion." ".$entidad;
                                   
                                   $conteo        = consulta_val("SELECT id_usuario FROM usuarios WHERE inmueble_asign='$id_inmueble'");
                                   echo "
                                     <tr id='$id_inmueble'>
                                       <td>$name_inmueble</td>
+                                      <td>$identificador</td>
                                       <td>$direccion</td>
-                                      <td>$conteo</td>
+                                      <td><center>$conteo</center></td>
                                       <td>#Reportes</td>
+                                      <td>
+                                        <center>
+                                            <a href='#' style='color:#5296E9'><span class=' icon-cog'></span></a>
+                                        </center>
+                                      </td>
                                     </tr>
                                   ";
                                 }
@@ -47,5 +56,6 @@
             </tbody>
         </table>
     </div>
+    <br><br>
   </div>
 </div>

@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-md-10">
 		<br>
-		<form class="control_inline">
+		<form method="post" enctype="multipart/form-data" class="control_inline">
 			<div class="group_inline">
 				<div class="label_inline">
 					<label>Nombre del inmueble</label>

@@ -24,7 +24,9 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav">
-                <h2 style="color:white;margin-left:5px;font-weight: lighter">EMPRESA S.A C.V</h2>
+                <div style="margin:9px 17px 9px 8px;">
+                    <img src="ico/logo.png" class="img-responsive" style="margin-right:20px">    
+                </div>
                 <hr>
             </ul>
         </div>
