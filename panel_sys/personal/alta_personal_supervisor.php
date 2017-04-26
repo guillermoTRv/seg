@@ -1,8 +1,12 @@
+<style>
+	.element_inm{margin-top:7px;margin-bottom:7px;display:inline-block;}
+	.element_can{margin-top:7px;margin-bottom:7px;margin-left:10px;display:inline-block;}
+</style>
 <div class="row" style="margin-right:40px">
 		<h2>Alta de Supervisor para el cliente - <?php echo $name_cliente?></h2>
 </div>
 <script>
-	formulario_control_secuencia("panel_sys/personal/process_alta_personal.php",6)
+	formulario_control_secuencia("panel_sys/personal/process_alta_supervisor.php",6)
 	$(document).ready(function(){
 		$(".boton_sig").click(function(){
 			var fr = parseInt($(".fr").attr("id"))
@@ -47,15 +51,45 @@
 	        	    }
 	        	});
 	        	if (control_inm == 0) {
-	        		
-	        		$(".lista_inmuebles").append("<div class='element_inm'>"+sq+"</div>")	
+	        		$.ajax({
+						type:"GET",
+						url:"panel_sys/personal/process_alta_supervisor.php?get_inm="+sq+"",
+						dataType:"json",
+						success:function(data){
+							if (data.uno == 0) {
+								$(".lista_inmuebles").append("<div><div class='element_inm'>"+sq+"</div><div class='element_can' id='"+data.two+"'><a class='blue' href=''>Cancelar</a></div></div>")
+								var valores_inm = $(".inmuebles_txt").val();
+								var new_val = $(".inmuebles_txt").val(valores_inm+data.two)
+							}
+							if (data.uno == 1) {
+								$(".lista_inmuebles").append("<div style='margin-top:7px;'>El inmueble "+sq+" ya esta en supervision. Si desea continuar la supervision cambiara y estara a cargo del nuevo supervisor que esta creando </div><div class='element_inm'>"+sq+"</div><div class='element_can' id='"+data.two+"' data='span'><a class='blue' href=''>Cancelar</a></div>")
+								var valores_inm = $(".inmuebles_txt").val();
+								var new_val = $(".inmuebles_txt").val(valores_inm+data.two)
+							}
+						}
+					});
+					return false;	
 	        	}
 			}
 			else{
 				$(".lista_inmuebles").html(sq)
+				var valores_inm = $(".inmuebles_txt").val("--");
 			}
 		});
-		
+		$(document).on("click",".element_can",function(event){
+			event.preventDefault()
+			var valor_inm_can = $(this).attr("id") 
+			if ($(this).attr("data")=="span") {
+				$(this).prev().prev().remove()
+			}
+			$(this).prev().remove()
+			$(this).remove()
+			var valores_inm = $(".inmuebles_txt").val();
+			alert(valor_inm_can)
+			var nuevo_val = valores_inm.replace(valor_inm_can,"")
+			alert(nuevo_val)
+			$(".inmuebles_txt").val(nuevo_val)
+		});
 	});
 </script>
 <div class="row">
@@ -273,6 +307,7 @@
 							?>
 						</ul>
 						<input type="hidden" class="inmueble_txt" value="">
+						<input type="hidden" class="inmuebles_txt" name="inmuebles_txt" value="">
 					</li>	
 				</div>
 				<div class="group_inline" style="margin-top:-10px">
@@ -299,6 +334,8 @@
 				</div>
 			</div>
 			<div id="5" style="display:none">
+				<h3 style="margin-bottom:0px">Informacion laboral</h3>
+				<hr style="border-color:#414141;width:91.3%;float:left;margin-bottom:25px ">
 				<div class="group_inline">
 					<div class="label_inline">
 						<label>Tipo de jornada de trabajo</label>

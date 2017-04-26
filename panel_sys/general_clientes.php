@@ -6,7 +6,7 @@
     tabla("?inm=info&val=");
 </script>
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-11">
                 <p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>
                 <h3 style="margin-bottom:20px">Información en general del cliente <?php echo $name_cliente ?></h3>
                 <div style="background-color:#fff">
@@ -16,8 +16,15 @@
                                 <th>Inmueble</th>
                                 <th>Identificador</th>
                                 <th>Dirección</th>
-                                <th>No.Personal</th>
-                                <th>#Reportes</th>
+                                <th>Supervisor</th>
+                                <th>
+                                    Personal.Act    
+                                </th>
+                                <th>
+                                  <center>
+                                    &nbsp;&nbsp;Estado&nbsp;&nbsp;
+                                  </center>
+                                </th>
                               </tr>
                           </thead>
                           <tbody>
@@ -34,17 +41,36 @@
                                   $demarcacion   = $array['demarcacion'];
                                   $identificador = $array['identificador'];
 
-                                  $direccion     = $calle." #".$num_exterior." ".$colonia." ".$demarcacion." ".$entidad;
+                                  $direccion     = "Calle ".$calle." #".$num_exterior." Colonia".$colonia." ".$demarcacion." ".$entidad;
                                   
                                   $conteo        = consulta_val("SELECT id_usuario FROM usuarios WHERE inmueble_asign='$id_inmueble'");
                                     
+                                  $supervisor_inm  = $array['supervisor'];
+                                  if($supervisor_inm != 'Aun no cuenta'){
+                                      $supervisor_name = consulta_array("SELECT nombre,apellido_p,apellido_m FROM usuarios WHERE id_usuario = '$supervisor_inm'");  
+                                      $nombre = $supervisor_name['nombre'];
+                                      $apellido_p = $supervisor_name['apellido_p'];
+                                      $apellido_m = $supervisor_name['apellido_m'];
+                                      $supervisor_inm = $nombre." ".$apellido_p." ".$apellido_m;
+                                      
+                                  }
+                                  
                                   echo "
                                     <tr id='$id_inmueble'>
                                       <td>$name_inmueble</td>
                                       <td>$identificador</td>
                                       <td>$direccion</td>
-                                      <td>$conteo</td>
-                                      <td>#Reportes</td>
+                                      <td> $supervisor_inm </td>
+                                      <td>
+                                        
+                                          #$conteo Elementos 
+                                        
+                                      </td>
+                                      <td>
+                                        <center>
+                                          &nbsp;&nbsp;&nbsp;<span class='icon-radio-checked' style='color:green'></span>&nbsp;&nbsp;&nbsp;
+                                        </center>
+                                      </td>
                                     </tr>
                                   ";
                                 }
@@ -57,7 +83,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-10">
+    <!--<div class="col-md-10">
       <h3>Otros datos</h3>
-    </div>
+    </div>-->
 </div>

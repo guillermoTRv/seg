@@ -15,9 +15,14 @@
                   <th>Inmueble</th>
                   <th>Identificador</th>
                   <th>Dirección</th>
-                  <th><center>#Personal</center></th>
-                  <th>#Reportes</th>
+                  <th>Supervisor</th>
+                  <th>Personal.Act&nbsp;&nbsp;&nbsp;&nbsp;  </th>
                   <th><center>Modificar</center></th>
+                  <th>
+                    <center>
+                      &nbsp;&nbsp;Estado&nbsp;&nbsp;
+                    </center>
+                  </th>
                 </tr>
             </thead>
             <tbody>
@@ -37,16 +42,31 @@
                                   $direccion     = $calle." #".$num_exterior." ".$colonia." ".$demarcacion." ".$entidad;
                                   
                                   $conteo        = consulta_val("SELECT id_usuario FROM usuarios WHERE inmueble_asign='$id_inmueble'");
+                                  $supervisor_inm  = $array['supervisor'];
+                                  if($supervisor_inm != 'Aun no cuenta'){
+                                      $supervisor_name = consulta_array("SELECT nombre,apellido_p,apellido_m FROM usuarios WHERE id_usuario = '$supervisor_inm'");  
+                                      $nombre = $supervisor_name['nombre'];
+                                      $apellido_p = $supervisor_name['apellido_p'];
+                                      $apellido_m = $supervisor_name['apellido_m'];
+                                      $supervisor_inm = $nombre." ".$apellido_p." ".$apellido_m;
+                                      
+                                  }
+
                                   echo "
                                     <tr id='$id_inmueble'>
                                       <td>$name_inmueble</td>
                                       <td>$identificador</td>
                                       <td>$direccion</td>
-                                      <td><center>$conteo</center></td>
-                                      <td>#Reportes</td>
+                                      <td>$supervisor_inm</td>
+                                      <td>#$conteo Elementos</td>
                                       <td>
                                         <center>
-                                            <a href='#' style='color:#5296E9'><span class=' icon-cog'></span></a>
+                                            <a href='?inm=modificar_inmueble&val=$id_inmueble' style='color:#5296E9'><span class=' icon-cog'></span></a>
+                                        </center>
+                                      </td>
+                                      <td>
+                                        <center>
+                                          &nbsp;&nbsp;&nbsp;<span class='icon-radio-checked' style='color:green'></span>&nbsp;&nbsp;&nbsp;
                                         </center>
                                       </td>
                                     </tr>

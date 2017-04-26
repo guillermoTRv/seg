@@ -53,6 +53,9 @@
 		if ($inmuebles_get == 'baja') {
 			include("panel_sys/inmuebles/baja_inmueble.php");
 		}
+		if ($inmuebles_get == 'modificar_inmueble') {
+			include("panel_sys/inmuebles/modificar_inmueble.php");
+		}
 	}
 	if ($checklist_get != '') {
 		if ($checklist_get == 'listado') {
