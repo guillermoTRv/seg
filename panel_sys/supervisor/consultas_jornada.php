@@ -30,7 +30,7 @@
 			$mes_entrada = substr($mes_entrada,0,-3)
 			?>
 			<tr class="active"> 
-				<td>--</td>
+				<td>Por definir</td>
 				<td><?php saber_dia($fecha_calendario);echo $secuencia ?></td>
 				<td><?php mes_castellano($month) ?></td>
 				<td>Por <?php echo $mes_entrada ?></td>
@@ -42,10 +42,10 @@
 			include("panel_sys/supervisor/modal_form_horario_uno.php");	
 		}
 		if ($consulta_jornada == 2){
-			#se repite una fila para esa fecha
+			include("panel_sys/supervisor/section_jornada_doble.php");	
 		}
 		if ($consulta_jornada == 1) {
-			
+	    	include("panel_sys/supervisor/section_jornada_normal.php");	
 		}
 
 	}	

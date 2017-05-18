@@ -65,6 +65,7 @@
 				<thead>
 					<tr>
 						<th>Jornada</th>
+						<!--<th>Jornada</th>-->
 						<th>Dia</th>
 						<th>Mes</th>
 						<th>Entrada</th>
@@ -200,14 +201,26 @@
     $(document).on("click",".btn-aceptar",function(){ 
 	    form_horario = $(this).parent().prev().children(".form_horario")
 	    mensaje_mv   = $(this).parent().prev().children(".m_v")
-	    $.ajax({
-			type:"POST",
-			url:"panel_sys/supervisor/process_horario.php",
-			data:form_horario.serialize(),
-			success:function(data){
-				mensaje_mv.html(data)
-			}
-		});
+	    
+	    select_horario   = $(this).parent().prev().find(".select_horario").val()
+ 	    select_hora_entr = $(this).parent().prev().find(".select_hora_entr").val()
+	    pass             = $(this).parent().prev().find(".pass").val()
+
+	    if (select_horario != '' && select_hora_entr != '' && pass != '') {
+	    	$.ajax({
+				type:"POST",
+				url:"panel_sys/supervisor/process_horario.php",
+				data:form_horario.serialize(),
+				success:function(data){
+					mensaje_mv.html(data)
+				}
+			});
+	    }
+	    else{
+	    	alert("Llene todos los campos del formulario")
+	    }
+
+	    
 	});
 		
 </script>
