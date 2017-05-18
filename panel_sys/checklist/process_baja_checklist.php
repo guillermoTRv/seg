@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	error_reporting(E_ALL ^ E_NOTICE);
-	if ($_SESSION['type_user']=="admi") {
+	if ($_SESSION['type_user']=="admi" or isset($_SESSION['supervisor'])) {
 		include("../../funciones.php");
 		$valor_id = sanitizar_get("val_id");
 		$valor_data = sanitizar_get("val_data");

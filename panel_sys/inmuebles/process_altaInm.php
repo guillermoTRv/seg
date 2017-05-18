@@ -49,7 +49,7 @@
 					'$entidad',
 					'$demarcacion',
 					'--',
-					'--',
+					'Aun no cuenta',
 					'$fecha',
 					'$fecha',
 					'00',

@@ -38,7 +38,7 @@
 						<!--antiguedad del elemento-->
 						<h4>Inmueble de labores: <strong> <?php echo $name_inmueble ?></strong></h4>
 						<h4>Domicilio: <strong><?php echo $direccion ?></strong></h4>
-						<a class="btn btn-primary" href="?pr=opciones_modificar_guardia&val=<?php echo $id_usuario ?>" >Modificar datos del elemento</a>	
+						<a class="btn btn-primary" href="?pr=opciones_modificar_usuario&val=<?php echo $id_usuario ?>" >Modificar datos del elemento</a>	
 						
 					<?php
 
@@ -85,7 +85,7 @@
 						<!--antiguedad del elemento-->
 						<h4>Inmueble de labores: <strong> <?php echo $name_inmueble ?></strong></h4>
 						<h4>Domicilio: <strong><?php echo $direccion ?></strong></h4>
-						<a class="btn btn-primary" href="?pr=opciones_modificar_guardia&val=<?php echo $id_usuario ?>" >Modificar datos del elemento</a>
+						<a class="btn btn-primary" href="?pr=opciones_modificar_usuario&val=<?php echo $id_usuario ?>" >Modificar datos del elemento</a>
 						<a class="btn btn-default regresar" id="<?php echo $identificador ?>" >Regresar al listado de opciones</a>	
 					<?php
 					echo "</div>";

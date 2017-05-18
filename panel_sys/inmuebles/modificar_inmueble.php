@@ -125,7 +125,8 @@
 				</div>
 			</div>
 		</form>
-	<a href="?inm=listado" class="blue"><span class="icon-undo2"></span> Regresar al listado de inmuebles para el cliente <?php echo $name_cliente ?></a>
+	<a href="?inm=listado" class="blue"><span class="icon-undo2"></span> Regresar al listado de inmuebles para el cliente <?php echo $name_cliente ?></a><br>
+	<a href="?inm=listado" class="blue"><span class="icon-undo2"></span> Regresar al panel de busquedas de inmuebles para su modficación</a>
 	<br><br><br><br>
 	</div>
 </div>

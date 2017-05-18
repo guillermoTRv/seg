@@ -57,37 +57,21 @@
 				</div>
 			</div>
 			<div class="group_inline">
-				<div class="label_inline">
-					<label>Entidad Federativa</label>
+					<div class="label_inline">
+						<label>Entidad Federativa</label>
+					</div>
+					<div class="type_inline">
+						<input type="text" class="input_inline element_ol" name="entidad_txt">
+					</div>
 				</div>
-				<li class="li_select">
-					<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
-					<ul class="ul_menu">
-						<li><p>Memorias</p></li>
-						<li><p>hjs kjasf</p></li>
-						<li><p>hjsssskjasf</p></li>
-						<li><p>hjskja    sf</p></li>
-						<li><p>hjskjasf</p></li>
-					</ul>
-					<input type="hidden" name="entidad_txt" value="">
-				</li>	
-			</div>
-			<div class="group_inline">
-				<div class="label_inline">
-					<label>Municipio/Delegación</label>
+				<div class="group_inline">
+					<div class="label_inline">
+						<label>Municipio/Delegación</label>
+					</div>
+					<div class="type_inline">
+						<input type="text" class="input_inline element_ol" name="demarcacion_txt">
+					</div>
 				</div>
-				<li class="li_select">
-					<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
-					<ul class="ul_menu">
-						<li><p>Memorias</p></li>
-						<li><p>hjs kjasf</p></li>
-						<li><p>hjsssskjasf</p></li>
-						<li><p>hjskja    sf</p></li>
-						<li><p>hjskjasf</p></li>
-					</ul>
-					<input type="hidden" name="demarcacion_txt" value="">
-				</li>	
-			</div>
 			<div class="group_inline">
 				<div class="label_inline">
 					<label>Referencias</label>

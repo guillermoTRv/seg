@@ -98,17 +98,28 @@
 				<p style="background-color:#fff;padding:3px 6px 3px 6px;border:solid 1px #E6E6E6;border-radius:3px;font-size:1.1em"><a href="" class="select_a">Seleccione un inmueble(shift) <span class="icon-circle-down"></span></a></p>
 				<ul class="ul_menu" style="display:none; position: absolute; list-style:none;background-color:#f2f2f2;padding:0px;">
 					<?php 
-						$q_sentencia = "SELECT id_inmueble, name_inmueble FROM inmuebles WHERE cliente='$id_cliente' order by id_inmueble ASC";
-						
-						$q_conteo    = consulta_val($q_sentencia);
-						if ($q_conteo == 0) {
-							echo "<li>No tiene inmuebles asignados para este inmueble</li>";
+						if (isset($usuario)) {
+							$q_inmuebles = mysqli_query($q_sec,"SELECT * FROM inmuebles WHERE supervisor = '$num_user'");
+							while ($array_inm = mysqli_fetch_array($q_inmuebles)) {
+								$name_inmueble = $array_inm['name_inmueble'];
+								$id_inmueble    = $array_inm['id_inmueble'];
+								echo "<li id='$id_inmueble'>$name_inmueble</li>";
+							}
+
 						}
-						$q_inmuebles = mysqli_query($q_sec,$q_sentencia);
-						while ($array = mysqli_fetch_array($q_inmuebles)) {
-							$id_inmueble    =  $array['id_inmueble'];
-							$name_inmueble	=  $array['name_inmueble'];
-							echo "<li id='$id_inmueble'> <a href='#'> $name_inmueble </a> </li>";		
+						else{
+							$q_sentencia = "SELECT id_inmueble, name_inmueble FROM inmuebles WHERE cliente='$id_cliente' order by id_inmueble ASC";
+							
+							$q_conteo    = consulta_val($q_sentencia);
+							if ($q_conteo == 0) {
+								echo "<li>No tiene inmuebles asignados para este cliente</li>";
+							}
+							$q_inmuebles = mysqli_query($q_sec,$q_sentencia);
+							while ($array = mysqli_fetch_array($q_inmuebles)) {
+								$id_inmueble    =  $array['id_inmueble'];
+								$name_inmueble	=  $array['name_inmueble'];
+								echo "<li id='$id_inmueble'> <a href='#'> $name_inmueble </a> </li>";		
+							}
 						}		
 					?>
 				</ul>

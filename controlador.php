@@ -33,11 +33,23 @@
 		if ($personal_get == 'modificar_personal') {
 			include("panel_sys/personal/modificar_busqueda.php");
 		}
-		if ($personal_get == 'opciones_modificar_guardia') {
-			include("panel_sys/personal/opciones_modificar_guardia.php");	
+		if ($personal_get == 'opciones_modificar_usuario') {
+			include("panel_sys/personal/opciones_modificar_usuario.php");	
 		}
-		if ($personal_get == 'mod_datos_generales_guardia') {
-			include("panel_sys/personal/modificar_generales_guardia.php");	
+		if ($personal_get == 'mod_datos_generales_usuario') {
+			include("panel_sys/personal/modificar_generales_usuario.php");	
+		}
+		if ($personal_get == 'mod_fotografia_usuario') {
+			include("panel_sys/personal/modificar_fotografia_usuario.php");	
+		}
+		if ($personal_get == 'mod_puesto_usuario') {
+			include("panel_sys/personal/modificar_puesto_usuario.php");	
+		}
+		if ($personal_get == 'mod_inmuebles_usuario') {
+			include("panel_sys/personal/modificar_inmuebles_usuario.php");	
+		}
+		if ($personal_get == 'mod_password_usuario') {
+			include("panel_sys/personal/modificar_password_usuario.php");	
 		}
 	}
 	if ($inmuebles_get != '') {
@@ -53,9 +65,13 @@
 		if ($inmuebles_get == 'baja') {
 			include("panel_sys/inmuebles/baja_inmueble.php");
 		}
+		if ($inmuebles_get == 'modificar_busqueda') {
+			include("panel_sys/inmuebles/modificar_busqueda.php");
+		}
 		if ($inmuebles_get == 'modificar_inmueble') {
 			include("panel_sys/inmuebles/modificar_inmueble.php");
 		}
+
 	}
 	if ($checklist_get != '') {
 		if ($checklist_get == 'listado') {
@@ -86,6 +102,5 @@
 		}
 	}
 	if ($costos_get != '') {
-		include("panel_sys/costos/principal.php");
 	}
 ?>

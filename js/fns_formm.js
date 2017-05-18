@@ -79,6 +79,7 @@ $(document).ready(function(){
 			if (contador == 1) {
 				alert("Existen campos vacios en el formulario")
 			}
+
 			else{
 				var r = confirm("La informacion ingresada sera enviada y procesada");
 				if (r == true) {	
@@ -337,10 +338,13 @@ $(document).ready(function(){
 					    if (r == true) {
 					    	
 						    	
+							    	var formData = new FormData($(".control_inline")[0]);
 							    	$.ajax({
 							            type:"POST",
 							            url:ruta_fr,
-							            data:$(".control_inline").serialize(),
+							            data: formData,
+					                    contentType: false,
+					                    processData: false,
 							            success:function(data){
 							              	alert(data)
 							            }
@@ -511,11 +515,13 @@ $(document).keydown(function(event){
 						var r = confirm("La información ingresada sera enviada y procesada");
 					    if (r == true) {
 					    	
-						    	
+						    		var formData = new FormData($(".control_inline")[0]);
 							    	$.ajax({
 							            type:"POST",
 							            url:ruta_fr,
-							            data:$(".control_inline").serialize(),
+							            data: formData,
+					                    contentType: false,
+					                    processData: false,
 							            success:function(data){
 							              	alert(data)
 							            }

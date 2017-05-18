@@ -2,7 +2,7 @@
 		<h2>Alta de Guardia para el cliente - <?php echo $name_cliente?></h2>
 </div>
 <script>
-	formulario_control_secuencia("panel_sys/personal/process_alta_personal.php",5)
+	formulario_control_secuencia("panel_sys/personal/process_alta_guardia.php",5)
 	$(document).ready(function(){
 		$(".boton_sig").click(function(){
 			var fr = parseInt($(".fr").attr("id"))
@@ -152,33 +152,17 @@
 					<div class="label_inline">
 						<label>Entidad Federativa</label>
 					</div>
-					<li class="li_select">
-						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
-						<ul class="ul_menu">
-							<li><p>Estado 1</p></li>
-							<li><p>Estado 2</p></li>
-							<li><p>Estado 3</p></li>
-							<li><p>Estado 4</p></li>
-							<li><p>Estado 5</p></li>
-						</ul>
-						<input type="hidden" name="entidad_txt" value="">
-					</li>	
+					<div class="type_inline">
+						<input type="text" class="input_inline element_ol" name="entidad_txt">
+					</div>
 				</div>
 				<div class="group_inline">
 					<div class="label_inline">
 						<label>Municipio/Delegación</label>
 					</div>
-					<li class="li_select">
-						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
-						<ul class="ul_menu">
-							<li><p>Municipio 1</p></li>
-							<li><p>Municipio 2</p></li>
-							<li><p>Municipio 3</p></li>
-							<li><p>Municipio 4</p></li>
-							<li><p>Municipio 5</p></li>
-						</ul>
-						<input type="hidden" name="demarcacion_txt" value="">
-					</li>	
+					<div class="type_inline">
+						<input type="text" class="input_inline element_ol" name="demarcacion_txt">
+					</div>
 				</div>
 				<div class="group_inline">
 					<div class="label_inline">

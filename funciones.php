@@ -1,25 +1,39 @@
 <?php 
-	$ruta = "http://localhost/seg/";
-	/**Datos de conexion a la base de datos---------------------------------------**/
 	
-	$servidor    = "localhost";
-	$usuario     = "root";
+	$type_produccion = "local";
 
-	$password    = "123qwezxc";
-	$bd_s        = "security";
+	if ($type_produccion == "local") {
+		$ruta = "http://localhost/seg/";
+		/**Datos de conexion a la base de datos---------------------------------------**/
+		
+		$servidor    = "localhost";
+		$usuario_s   = "root";
+
+		$password_s  = "123qwezxc";
+		$bd_s        = "security";
+	}
+
+	if ($type_produccion == "serv") {
+		$servidor      = "gruposelta.com.mx";
+		$usuario_s     = "gruposel_dev";
+
+		$password_s    = "123qweaszxc";
+		$bd_s          = "gruposel_security";
+	}
+
 
 
 
 	global $q_sec;
-	$q_sec = mysqli_connect($servidor,$usuario,$password,$bd_s);
+	$q_sec = mysqli_connect($servidor,$usuario_s,$password_s,$bd_s);
 
 
 	/**Control de errores en el sistema-------------------------------------------**/
 
-	#error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+	error_reporting(E_ALL ^ E_NOTICE);
 	$mens_error = "Surgió un error interno; si esto persiste contactar a sistemas";
 
-
+	$permiso = "1234";
 	/**Sentencias prehechas-------------------------------------------------------**/
 
 	function consulta_val($sentencia){
@@ -66,7 +80,8 @@
 
 	date_default_timezone_set('America/Mexico_City');
     $fecha                =  date("Y-m-d");
-
+    $fecha_hora           =  date("Y-m-d H:i:s");
+    $hora                 =  date("H:i:s");
 
     /**Funcion para sanitizar variables de entrada-----------------------------------**/
 

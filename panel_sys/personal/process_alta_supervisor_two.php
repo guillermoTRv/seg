@@ -132,9 +132,11 @@
 					$serie_aleatorios = rand($valor_menor,$valor_mayor);
 					$identificador = $id_usuario."-".$serie_aleatorios;
 
+					$pass_xc = rand(10000,95000);
+					
 					$nombreMinusculas      = strtolower($nombre);
 					$nombreUsuario         = $nombreMinusculas."-".$id_usuario;
-					$insertar_datos = consulta_gen("UPDATE usuarios SET identificador = '$identificador',usuario = '$nombreUsuario' WHERE id_usuario = '$id_usuario'");
+					$insertar_datos = consulta_gen("UPDATE usuarios SET identificador = '$identificador',usuario = '$nombreUsuario',pass_xc='$pass_xc' WHERE id_usuario = '$id_usuario'");
 
 					$inmuebles = sanitizar("inmuebles_txt");
 						$cadena = $inmuebles;
@@ -152,8 +154,24 @@
 							}	
 
 					}
-					echo "El nuevo supervisor ah sido registrado exitosamente junto a los inmuebles que estara supervisando";
+					echo "El nuevo supervisor ah sido registrado exitosamente junto a los inmuebles que estara supervisando - Contraseña: $pass_xc";
 					
+					$tipo_img=$_FILES[$key]['type'];
+						if ($tipo_img == 'png') {$type_imagen = 'png';}
+						if ($tipo_img == 'jpeg') {$type_imagen = 'jpg';}
+						$resultado = @move_uploaded_file($_FILES['files']["tmp_name"], "personal_img/".$identificador.$tipo_imagen);
+						if ($resultado) {
+							
+						}
+						else{
+							echo "La fotografia no pudo subirse tendra que subirla aparte";
+						}
+						include("../../qr/phpqrcode/qrlib.php");
+ 
+					$url = "https://gruposelta.com.mx/security/personal.php?acceso_qr=$identificador";
+					$ruta_qr = "personal_img/qr_$identificador.png";
+
+					QRcode::png($url,$ruta_qr);
 
 			}
 			else {
@@ -161,11 +179,5 @@
 			}
 
 
-			$resultado = @move_uploaded_file($_FILES['files']["tmp_name"], "personal_img/".$curp.".jpg");
-			if ($resultado) {
-				echo $_FILES["files"]["name"];	
-			}
-			else{
-				#echo "string";
-			}
+			
 ?>

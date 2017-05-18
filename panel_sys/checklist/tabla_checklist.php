@@ -12,12 +12,12 @@
 								   if ($consulta_val == 0) {
 								   		echo "
 										<tr id=''>
-											<td>$categoria</td>
+											<td id='$id_categoria'>$categoria</td>
 											<td>--</td>
 											<td>Falta situación</td>
 											<td>
 		                                        <center>
-		                                            <a href='#' style='color:#5296E9'><span class='icon-cog'></span></a>
+		                                            <a href='' class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a>
 		                                        	<a href='#' style='color:#FE2E2E'><span class='icon-cancel-circle'></span></a>
 		                                        </center>
 		                                    </td>
@@ -28,16 +28,16 @@
 									    $q_situacion = mysqli_query($q_sec,$sentencia_situacion);
 									    while ($array_st = mysqli_fetch_array($q_situacion)) {
 									   		$id_situacion = $array_st["id_situacion"];
-									   		$situacion = $array_st["situacion"];
+									   		$situacion    = $array_st["situacion"];
 									   		echo "
 											<tr id=''>
-												<td>$categoria</td>
-												<td>$situacion</td>
+												<td id='$id_categoria'>$categoria</td>
+												<td class='st_$id_situacion' id='$id_situacion'>$situacion</td>
 												<td>Activo</td>
 												<td>
 		                                           <center>
-		                                              <a href='#' style='color:#5296E9'><span class=' icon-cog'></span></a>
-		                                           	  <a href='#' style='color:#FE2E2E'><span class='icon-cancel-circle'></span></a>
+		                                              <a href='' class='btn_cambio' style='color:#5296E9'><span class=' icon-cog'></span></a>
+		                                           	  <a href='' class='btn_delete'  style='color:#FE2E2E'><span class='icon-cancel-circle'></span></a>
 		                                           </center>
 		                                        </td>
 											</tr>	

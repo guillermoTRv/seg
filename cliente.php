@@ -1,6 +1,8 @@
 <?php 
-    include("funciones.php");include("get.php"); 
-    session_start(); $id_cliente   = $_SESSION['cliente'];
+    include("funciones.php");
+    include("get.php"); 
+    session_start(); 
+    $id_cliente   = $_SESSION['cliente'];
     $name_cliente = consulta_tx("SELECT name_cliente FROM clientes WHERE id_cliente = '$id_cliente'","name_cliente");
 ?>
 <!DOCTYPE html>
@@ -26,7 +28,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script  type="text/javascript" src="js/jquery.js"></script>
     <script  type="text/javascript" src="js/fnxxx_personal.js"></script>
-    <script  type="text/javascript" src="js/fnss_tabla.js"></script>
+    <script  type="text/javascript" src="js/fns_tabla.js"></script>
     <script  type="text/javascript" src="js/fns_atajos.js"></script>
     <script  type="text/javascript" src="js/fns_formm.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet"> -->
@@ -196,10 +198,10 @@
              e.preventDefault();
              window.location.href = "cliente.php";
           }
-          if(e.shiftKey && e.keyCode==80){
+          /**if(e.shiftKey && e.keyCode==80){
              e.preventDefault();
              window.location.href = "asasf.php";
-          }
+          }**/
           
        });
     });
@@ -284,6 +286,7 @@
                         <ul class="list_nav">
                             <li><a href="?inm=listado">Listado de inmuebles</a> </li>
                             <li><a href="?inm=alta">Alta inmueble</a> </li>
+                            <li><a href="?inm=modificar_busqueda">Modificar inmueble</a> </li>
                             <li><a href="?inm=baja">Baja inmueble</a> </li>
                         </ul>
                     </li>

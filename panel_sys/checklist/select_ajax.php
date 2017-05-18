@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	if ($_SESSION['type_user'] == "admi") {
+	if ($_SESSION['type_user'] == "admi" or isset($_SESSION['supervisor'])) {
 		
 		include("../../funciones.php");
 		$inmueble = sanitizar("elegid");
