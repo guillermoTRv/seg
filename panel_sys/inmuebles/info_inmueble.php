@@ -30,25 +30,32 @@
                                       
             }
             $identificador = $array['identificador'];
+			$status = $array['status'];
+			$status = $array['status'];
+            if ($status == 11) {
+                $color = "#f0ad4e";
+            }
+            else{
+            	$color = "green";
+            }
 		?>
-		<h3 style="display:inline;"><strong>Inmueble:</strong> <?php echo $name_inmueble ?></h3>
-		<h3 style="display:inline;margin-left:20px"><strong>Empresa:</strong> <?php echo $name_cliente ?></h3>		
-		<h3 style="display:inline;margin-left:20px"><strong>Supervisor:</strong> <?php echo $supervisor_inm ?></h3>
-		<h3>Identificador: <?php echo $identificador ?></h3>
-		<h3>Direccion: <?php echo $direccion ?></h3>
-		<h3>Plantilla: #<?php echo $conteo ?> Elementos</h3>
-		<h3>Referencia: <?php echo $referencia ?></h3>
-		<h3><strong>Estado:</strong> <span class='icon-radio-checked' style='color:green;font-size:.8em'></span> </h3>
-		<hr>
-		<li style="display:inline-block;">
-				<p style="background-color:#fff;padding:3px 6px 3px 6px;border:solid 1px #E6E6E6;border-radius:3px;font-size:1.1em"><a href="" class="select_a">Seleccione un tipo de reporte(shift) <span class="icon-circle-down"></span></a></p>
-				<ul class="ul_menu" style="display:none; position: absolute; list-style:none;background-color:#f2f2f2;padding:0px;">
-					<li><a href="#">Reportes extraordinarios</a></li>
-					<li><a href="#">Reportes de personal</a></li>
-					<li><a href="#">Reportes Checklist</a></li>
-				</ul>
-		</li>
-		<a class="btn btn-default" href="?inm=listado" role="button" style="margin-bottom:5px;margin-left:10px ">Regresar a listado de inmuebles (tecla <span class="glyphicon glyphicon-arrow-left"></span> )</a>
+		<h4 style="display:inline;"><strong>Inmueble:</strong> <?php echo $name_inmueble ?></h4>
+		<h4 style="display:inline;margin-left:20px"><strong>Empresa:</strong> <?php echo $name_cliente ?></h4>		
+		<h4 style="display:inline;margin-left:20px"><strong>Supervisor:</strong> <?php echo $supervisor_inm ?></h4>
+		<h4>Identificador: <?php echo $identificador ?></h4>
+		<h4>Direccion: <?php echo $direccion ?></h4>
+		<h4>Plantilla: #<?php echo $conteo ?> Elementos</h4>
+		<h4>Referencia: <?php echo $referencia ?></h4>
+		<h4><strong>Estado:</strong> <span class='icon-radio-checked' style='color:<?php echo $color ?>;font-size:.8em'></span> </h4>
+		<!--<a href="" class="blue"><h4>Ver historial de Checklist generados</h4></a>-->
+		<!--<a href="" class="blue"><h4><span class="icon-file-text"></span> Ver historial de reportes extraordinarios</h4></a>-->
+		<br>
+		<?php 
+			if ($status == '11') {
+				include("panel_sys/inmuebles/estatus_inmueble.php");
+			}
+		?>
+		<a class="btn btn-default" href="?inm=listado" role="button">Regresar a listado de inmuebles (tecla <span class="glyphicon glyphicon-arrow-left"></span> )</a>
 
 	</div>
 </div>

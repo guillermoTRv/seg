@@ -1,7 +1,14 @@
 <?php 
     include("funciones.php");
     session_start();
-    
+    if ($_SESSION['type_user'] == 'guardia' or $_SESSION['type_user'] == 'supervisor' or $_SESSION['type_user'] == 'Us-cliente') {
+        #header("Location: ./");
+    }
+    else{
+        header("Location: ./");
+    }
+
+
     $type_personal_name = ucwords($_SESSION['type_user']);
     $type_personal      = $_SESSION['type_user'];
     $identificador      = $_SESSION['identificador'];
@@ -67,8 +74,8 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav navbar">
-                <div style="margin:9px 17px 9px 8px;">
-                    <img src="ico/logo.png" class="img-responsive" style="margin-right:20px">    
+                <div style="margin:12px 20px 12px 12px;">
+                    <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
                 </div>
                 
                 <hr>
@@ -121,7 +128,7 @@
                             <strong>
                                 <span class="glyphicon glyphicon-user"></span> <?php echo $type_personal_name." ".$usuario ?> &nbsp;&nbsp;&nbsp;&nbsp; 
                                 <span class="glyphicon glyphicon-calendar"></span> <?php echo $fecha ?> &nbsp;&nbsp;&nbsp;&nbsp; 
-                                <span class="glyphicon glyphicon-search"></span> <input type="text" style="height:25px;border-top:solid 1px #fff;border-left:solid 1px #fff;border-right:solid 1px #fff;" placeholder="buscar ...">
+                                <!--<span class="glyphicon glyphicon-search"></span> <input type="text" style="height:25px;border-top:solid 1px #fff;border-left:solid 1px #fff;border-right:solid 1px #fff;" placeholder="buscar ...">-->
                             </strong>
                             </p>    
                         </div>

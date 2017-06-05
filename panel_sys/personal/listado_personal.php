@@ -50,13 +50,18 @@
 	$(function(){
 		$(document).on("click","#g_pestana",function(event){
 			$(".select").removeClass("select")
-			$(".supervisor").removeClass("tb_s")
+			$(".tb_s").removeClass("tb_s")
 			$(".mens").addClass("tb_s")
 		});
 		$(document).on("click","#s_pestana",function(event){
 			$(".select").removeClass("select")
-			$(".mens").removeClass("tb_s")
+			$(".tb_s").removeClass("tb_s")
 			$(".supervisor").addClass("tb_s")
+		});
+		$(document).on("click","#c_pestana",function(event){
+			$(".select").removeClass("select")
+			$(".tb_s").removeClass("tb_s")
+			$(".us_cliente").addClass("tb_s")
 		});
 	});
 
@@ -67,7 +72,7 @@
 		  <ul class="nav nav-tabs" role="tablist">
 		  	<li role="presentation" id="g_pestana" class="active"><a href="#guardias" role="tab" data-toggle="tab">Listado de Guardias</a></li>
 		    <li role="presentation" id="s_pestana"><a href="#supervisores" class="active" aria-controls="home" role="tab" data-toggle="tab">Listado de Supervisores</a></li>
-		    <li role="presentation" class="pestana"><a href="#clientes" aria-controls="messages" role="tab" data-toggle="tab">Listado de Clientes</a></li>
+		    <li role="presentation" id="c_pestana" class="pestana"><a href="#clientes" aria-controls="messages" role="tab" data-toggle="tab">Listado de Clientes</a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -189,7 +194,7 @@
 					Listado de Supervisores para 
 					<?php echo " $name_cliente";?>
 				</h3>
-					<div class="content">
+				<div class="content">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -258,10 +263,82 @@
 							?>						
 							</tbody>
 						</table>
-					</div>
+				</div>
 	
 		    </div>
-		    <div role="tabpanel" class="tab-pane" id="clientes">...</div>
+		    <div role="tabpanel" class="tab-pane" id="clientes">
+		    	<br>
+		    	<p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>
+		    	<h3 style="display:inline;margin-left:10px;margin-top:2px">
+					Listado de Usuarios Clientes para 
+					<?php echo " $name_cliente";?>
+				</h3>
+				<div class="content">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Nombre</th>
+									<th>Identificador</th>
+									<th>Nom.Usuario</th>
+									<th>Edad</th>
+									<th>Domicilio</th>
+									<th><center>Modificar</center></th>
+								</tr>
+							</thead>
+							<tbody class="us_cliente">
+							<?php 
+								$q_usuario  = mysqli_query($q_sec,"SELECT * FROM usuarios WHERE puesto = 'Us-cliente' and empresa='$id_cliente'  order by id_usuario asc");
+									while ($array = mysqli_fetch_array($q_usuario)) {
+										   $id_usuario = $array["id_usuario"];
+										   $nombre     = $array['nombre'];
+										   $apellido_p = $array['apellido_p'];
+										   $apellido_m = $array['apellido_m'];
+										   $calle      = $array['calle'];
+										   $colonia    = $array['colonia'];
+										   $num_exterior  = $array['num_exterior'];
+										   $entidad       = $array['entidad'];
+								           $demarcacion   = $array['demarcacion'];
+								           
+								           $identificador = $array['identificador'];
+								           $usuario       = $array['usuario'];
+
+								           $fecha_nacimiento = $array['fecha_nacimiento'];
+								           $segundos= strtotime('now')-strtotime($fecha_nacimiento);
+										   $diferencia_dias=intval($segundos/60/60/24);
+										   $date_edadNON = $diferencia_dias/365;
+										   $edad   = substr($date_edadNON, 0,2);
+
+
+								           echo "
+											<tr id='$id_usuario'>
+												<td>$nombre $apellido_p $apellido_m</td>
+												<td>$identificador</td>
+												<td>$usuario</td>
+												<td>$edad años</td>
+												<td>Calle $calle #$num_exterior Colonia $colonia $demarcacion $entidad</td>
+												<td>
+											        <center>
+											            <a href='?pr=opciones_modificar_usuario&val=$id_usuario' style='color:#5296E9'><span class=' icon-cog'></span></a>
+											        </center>
+											    </td>
+											</tr>	
+								           ";
+									}
+									echo "
+									<script>
+									$(document).ready(function(){
+								        $('tbody tr').dblclick(function(){
+								          var ruta = $(this).attr('id')
+								          window.location.href = '?pr=info&val='+ruta+''
+								        });
+								    });
+									</script>";
+							?>
+							</tbody>
+						</table>
+				</div>
+		    </div>
+				
 		  </div>
 		  <br><br>
 

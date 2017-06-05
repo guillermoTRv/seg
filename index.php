@@ -18,7 +18,7 @@
 
     </head>
 
-    <body>
+    <body > 
 
         <!-- Top content -->
         <div class="top-content">

@@ -33,19 +33,27 @@
 <div class="row" style="border-bottom:2px solid #6E6E6E;margin-right:25px">
 	<div class="col-md-7" style="border-right:2px solid #6E6E6E;" >
 		<h4><strong>Nombre del elemento:</strong> <?php echo $nombre_completo ?></h4>
-		<h4><strong>Numero identificador:</strong> <?php echo $identificador ?></h4>
+		<h4><strong>Número identificador:</strong> <?php echo $identificador ?></h4>
 		<?php 
 			if($puesto == "guardia"){
 				?><h4><strong>Inmueble Asignado:</strong> <?php echo $name_inmueble ?> con <?php echo $diferencia_dias ?> dias </h4><?php
 			} 
 		?>
 		<h4><strong>Nombre de usuario:</strong> <?php echo $usuario ?></h4>	
+		<h4><strong>Puesto:</strong> <?php echo ucwords($puesto) ?></h4>
 		<h4>Domicilio: <?php echo $direccion ?></h4>
 		<h4>Fecha de ingreso: <?php echo $fecha_inicio_contrato ?></h4>
 		<h4>Finalización de contrato</h4>
 		<h4>Número de telefono: <?php echo $num_movil; ?></h4>
-		<a href="" class="blue"><h4>Ver historial de reportes de este elemento</h4></a>
-		<a href="" class="blue"><h4>Ver historial de asistencia de este elemento</h4></a>
+		<?php  
+			if ($puesto != "Us-cliente") {
+				?>
+				<a href="?pr=historial_reportes&val=<?php echo $identificador ?>" class="blue"><h4>Ver historial de reportes de este elemento</h4></a>
+				<a href="" class="blue"><h4>Ver historial de asistencia de este elemento</h4></a>
+				<?php
+			}
+		?>
+		
 		
 		<hr>
 	</div>
@@ -83,7 +91,13 @@
 		<a href="?pr=mod_datos_generales_usuario&val=<?php echo $val ?>" class="blue"><h4>Editar datos generales</h4></a>
 		<a href="?pr=mod_fotografia_usuario&val=<?php echo $val ?>" class="blue"><h4>Modificar fotografía</h4></a>
 		<a href="?pr=mod_inmuebles_usuario&val=<?php echo $val ?>" class="blue"><h4>Rotacion de inmuebles</h4></a>
-		<a href="?pr=mod_puesto_usuario&val=<?php echo $val ?>" class="blue"><h4>Cambio de puesto</h4></a>
+		<?php 
+			if ($puesto != "Us-cliente") {
+				?>
+				<a href="?pr=mod_puesto_usuario&val=<?php echo $val ?>" class="blue"><h4>Cambio de puesto</h4></a>
+				<?php
+			}
+		?>
 		<a href="?pr=mod_password_usuario&val=<?php echo $val ?>" class="blue"><h4>Recuperacion de contraseña</h4></a>
 		<br>
 		<?php 
@@ -91,6 +105,9 @@
 				$ruta_return = "?pr=listado&val=$inmueble_asign";
 			}
 			if ($puesto == 'supervisor') {
+				$ruta_return = "?pr=listado";
+			}
+			if ($puesto == "Us-cliente") {
 				$ruta_return = "?pr=listado";
 			}
 		?>
@@ -113,7 +130,7 @@
 		</script>
 		";
 	}
-	if ($puesto == 'supervisor') {
+	if ($puesto == 'supervisor' or $puesto == "Us-cliente") {
 		echo "
 		<script>
 		$(document).keydown(function(event){

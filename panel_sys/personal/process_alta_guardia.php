@@ -117,8 +117,8 @@
 
 					'$fecha',
 					'$fecha',
-					'$fecha',
-					'$fecha',
+					'$fecha_hora',
+					'$fecha_hora',
 					'$fecha',
 					
 					'00',
@@ -143,17 +143,16 @@
 					$insertar_datos = consulta_gen("UPDATE usuarios SET identificador = '$identificador',usuario = '$nombreUsuario',pass_xc='$pass_xc' WHERE id_usuario = '$id_usuario'");
 					echo "El nuevo guardia ah sido registrado exitosamente junto a los inmuebles - Contraseña: $pass_xc";
 
-						$tipo_img=$_FILES[$key]['type'];
-						if ($tipo_img == 'png') {$type_imagen = 'png';}
-						if ($tipo_img == 'jpeg') {$type_imagen = 'jpg';}
-						$resultado = @move_uploaded_file($_FILES['files']["tmp_name"], "personal_img/".$identificador.$tipo_imagen);
-						if ($resultado) {
-							
-						}
-						else{
-							echo "La fotografia no pudo subirse tendra que subirla aparte";
-						}
-						include("../../qr/phpqrcode/qrlib.php");
+					$tipo_img=$_FILES[$key]['type'];
+					if ($tipo_img == 'png') {$type_imagen = 'png';}
+					if ($tipo_img == 'jpeg') {$type_imagen = 'jpg';}
+					$resultado = @move_uploaded_file($_FILES['files']["tmp_name"], "personal_img/".$identificador.$tipo_imagen);
+					if ($resultado) {
+					}
+					else{
+						echo "La fotografia no pudo subirse tendra que subirla aparte";
+					}
+					include("../../qr/phpqrcode/qrlib.php");
  
 					$url = "https://gruposelta.com.mx/security/personal.php?acceso_qr=$identificador";
 					$ruta_qr = "personal_img/qr_$identificador.png";

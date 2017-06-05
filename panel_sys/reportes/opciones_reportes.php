@@ -53,6 +53,12 @@ $(document).keydown(function(event){
 		<br>
 		<a href="?rep=general" class="link_black">
             <div class="panel-body panel_cl">
+                 <h4>Estado de la Empresa</h4> 
+            </div>    
+        </a>
+		<!--
+		<a href="?rep=general" class="link_black">
+            <div class="panel-body panel_cl">
                  <h4>Reportes generales</h4> 
             </div>    
         </a>
@@ -80,6 +86,6 @@ $(document).keydown(function(event){
             <div class="panel-body panel_cl">
                  <h4>Historial de reportes</h4> 
             </div>    
-        </a>
+        </a>-->
 	</div>
 </div>

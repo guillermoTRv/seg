@@ -49,7 +49,7 @@
 <style> .calendar-color{font-size:1.3em;} .calendar-color:hover{color:red;}</style>
 <div class="row">
 	<div class="col-md-11">
-				<form class="form-inline form-busqueda">
+				<!--<form class="form-inline form-busqueda">
 				  <div class="form-group">
 				    <input type="text" class="form-control input_busqueda" name="valor_txt" placeholder="Busqueda rapida">
 				  </div>
@@ -57,7 +57,7 @@
 				   <button type="button" class="btn btn-default btn-buscar-user" data-toggle="modal" data-target="">Buscar y administrar horario</button></div>
 				</form>
 				<div class="m_v"></div>
-				<br>
+				<br>-->
 				<li style="display:inline-block;">
 					<p style="background-color:#fff;padding:3px 6px 3px 6px;border:solid 1px #E6E6E6;border-radius:3px;font-size:1.1em"><a href="" class="select_a">Seleccione un inmueble(shift) <span class="icon-circle-down"></span></a></p>
 					<ul class="ul_menu" style="display:none; position: absolute; list-style:none;background-color:#f2f2f2;padding:0px;">

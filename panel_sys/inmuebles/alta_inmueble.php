@@ -13,7 +13,7 @@
 					<label>Nombre del inmueble</label>
 				</div>
 				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="name_txt">
+					<input type="text" class="input_inline element_ol" name="name_txt" maxlength="124">
 				</div>
 			</div>
 			<div class="group_inline">
@@ -21,15 +21,7 @@
 					<label>Calle</label>
 				</div>
 				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="calle_txt">
-				</div>
-			</div>
-			<div class="group_inline">
-				<div class="label_inline">
-					<label>Número interior</label>
-				</div>
-				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="num_int_txt">
+					<input type="text" class="input_inline element_ol" name="calle_txt" maxlength="124">
 				</div>
 			</div>
 			<div class="group_inline">
@@ -37,7 +29,15 @@
 					<label>Número exterior</label>
 				</div>
 				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="num_ext_txt">
+					<input type="text" class="input_inline element_ol" name="num_ext_txt" pattern="[0-9]{1,3}" maxlength="3">
+				</div>
+			</div>
+			<div class="group_inline">
+				<div class="label_inline">
+					<label>Número interior</label>
+				</div>
+				<div class="type_inline">
+					<input type="text" class="input_inline element_ol" name="num_int_txt" pattern="[0-9]{1,3}" maxlength="3" title="Solo se admiten caracteres númericos">
 				</div>
 			</div>
 			<div class="group_inline">
@@ -45,7 +45,7 @@
 					<label>Colonia</label>
 				</div>
 				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="colonia_txt">
+					<input type="text" class="input_inline element_ol" name="colonia_txt" maxlength="124">
 				</div>
 			</div>
 			<div class="group_inline">
@@ -53,7 +53,7 @@
 					<label>Codigo Postal</label>
 				</div>
 				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="postal_txt">
+					<input type="text" class="input_inline element_ol" name="postal_txt" pattern="[0-9]{5}" maxlength="5">
 				</div>
 			</div>
 			<div class="group_inline">
@@ -61,23 +61,39 @@
 						<label>Entidad Federativa</label>
 					</div>
 					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="entidad_txt">
+						<input type="text" class="input_inline element_ol" name="entidad_txt" maxlength="124">
 					</div>
-				</div>
-				<div class="group_inline">
+			</div>
+			<div class="group_inline">
 					<div class="label_inline">
 						<label>Municipio/Delegación</label>
 					</div>
 					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="demarcacion_txt">
+						<input type="text" class="input_inline element_ol" name="demarcacion_txt" maxlength="124">
 					</div>
+			</div>
+			<div class="group_inline">
+				<div class="label_inline">
+					<label>Fecha Inicio contrato</label>
 				</div>
+				<div class="type_inline">
+					<input type="text" class="input_inline element_ol" name="postal_txt" pattern="[0-9]{5}" maxlength="5">
+				</div>
+			</div>
+			<div class="group_inline">
+				<div class="label_inline">
+					<label>Fecha Finalización contrato</label>
+				</div>
+				<div class="type_inline">
+					<input type="text" class="input_inline element_ol" name="postal_txt" pattern="[0-9]{5}" maxlength="5">
+				</div>
+			</div>
 			<div class="group_inline">
 				<div class="label_inline">
 					<label>Referencias</label>
 				</div>
 				<div class="type_inline">
-					<input type="text" class="input_inline element_ol" name="referencias_txt">
+					<input type="text" class="input_inline element_ol" name="referencias_txt" maxlength=124>
 				</div>
 			</div>
 			<div class="group_inline">
@@ -85,7 +101,7 @@
 					<label>Codigo Autorización</label>
 				</div>
 				<div class="type_inline">
-					<input type="password" class="input_inline element_ol" name="autorizacion_txt">
+					<input type="password" class="input_inline element_ol" name="autorizacion_txt" maxlength="24">
 				</div>
 			</div>
 			<div class="group_inline">

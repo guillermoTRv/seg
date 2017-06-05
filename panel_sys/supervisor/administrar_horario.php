@@ -46,7 +46,7 @@
 ?>
 <div class="row" style="border-bottom:2px solid #6E6E6E;margin-right:60px">
 	<div class="col-md-2">
-		<img src="panel_sys/personal/personal_img/<?php echo $val ?>" alt="imagen" style="width: 175px;height:175px;border:1px solid #222;border-radius:9px;">
+		<img src="panel_sys/personal/personal_img/<?php echo $val ?>.png" alt="imagen" style="width: 175px;height:175px;border:1px solid #222;border-radius:9px;">
 	</div>
 	<div class="col-md-8">
 		<h3>Administrar horario para el personal - <?php echo $nombre_completo ?></h3>
@@ -71,7 +71,8 @@
 						<th>Entrada</th>
 						<th>Salida</th>
 						<th>Estado</th>
-						<th>Modificar</th>
+						<!--<th>Modificar</th>-->
+						<th>Definir</th>
 					</tr>
 				</thead>
 				<tbody>

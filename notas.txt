@@ -1,0 +1,19 @@
+se tiene que crear una tabla para registrar los siguientes movimientos
+#cambios de supervisor para los inmuebles
+#cambios de turno para los guardias
+#cambios de inmubles para guardias etc registrar cambios muchos cambios en tablas
+#registrar penalizacion por inasitencias y retardos
+
+#cuando un guardia tenga las anteriores cosas inasistencias y retardos se cambiara el color del foquito del guardia
+#un supervisor podra reportar a un guardia
+#los reportes contra guardias seran permamentes y estaran siempre en alguna parte de la base de datos.
+
+#entonces cuando se abra un inmueble se podra tambien observar los supervisores que han pasado por dicho inmueble y los tal ves tambien ver los guardias, tambien tendremos que agregar los distintos turnos que maneja y la fecha de inicio y finalizacion de contrato
+
+#tambien agregar algo por si es necesario marcar un reporte como darle seguimiento hasta que todo este bien o algo asi y que este tenga que ser supervisado desde el perfil del guardia o supervisor
+
+#tambien poner cuando se marque atendido un reporte el tipo de solucion que se le dio
+
+#personal/historial_reportes.php
+aqui pondremos una paginacion ya que al abrir esta seccion se mostraran todos los reportes hechos por el guardia, y tambien se podra buscar exacto por fecha o bien por rango de fechas.
+

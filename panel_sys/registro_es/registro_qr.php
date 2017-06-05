@@ -12,13 +12,13 @@
 			$nombre_completo = $nombre." ".$apellido_p." ".$apellido_m;
 			$puesto     = $q_personal['puesto'];
 		    $empresa    = $q_personal['empresa'];
-			echo $fecha_hoy   = date("Y-m-d");
-			echo $jornada_dia = consulta_val ("SELECT * FROM jornadas_trabajo 	WHERE fecha_entrada = '$fecha_hoy' and identificador = '$qr'");
+			$fecha_hoy   = date("Y-m-d");
+			$jornada_dia = consulta_val ("SELECT * FROM jornadas_trabajo 	WHERE fecha_entrada = '$fecha_hoy' and identificador = '$qr'");
 
 		?>
 		<?php 
 
-			if ($jornada_dia == 0) {
+			if ($jornada_dia == 0 && $puesto == "guardia") {
 				include("panel_sys/registro_es/vista_no_labora.php");
 			}
 			else{
@@ -40,7 +40,7 @@
 						$cont_checklist     = consulta_val("SELECT null FROM checklist_jornada WHERE id_registro_es = '$id_registro_es'");
 						$estado_checklist   = consulta_tx("SELECT estado FROM checklist_jornada WHERE id_registro_es = '$id_registro_es'","estado");
 
-						if ($cont_checklist == 0) {
+						if ($cont_checklist == 0 && $puesto == "guardia" ) {
 							?>
 							<img src="https://gruposelta.com.mx/security/panel_sys/personal/personal_img/<?php echo $qr ?>" alt="imagen" style="width: 200px;height:200px;border:1px solid #222;border-radius:9px;">
 							<h3>

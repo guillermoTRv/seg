@@ -112,8 +112,8 @@
 
 					'$fecha',
 					'$fecha',
-					'$fecha',
-					'$fecha',
+					'$fecha_hora',
+					'$fecha_hora',
 					'$fecha',
 					
 					'00',

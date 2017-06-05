@@ -1,7 +1,12 @@
 <?php 
 	include("../../funciones.php");
 	$identificador = sanitizar("identificador_txt");
+	
 	$inmueble      = sanitizar("inmueble_slc");
+	if ($inmueble == '') {
+		$inmueble = consulta_tx("SELECT inmueble_asign FROM usuarios  WHERE identificador = '$identificador'","inmueble_asign");
+	}
+
 	$puesto        = sanitizar("puesto_txt");
 	$name_inmueble = consulta_tx("SELECT name_inmueble FROM inmuebles WHERE id_inmueble = '$inmueble'","name_inmueble");
 	$insertar_registro  = consulta_gen("INSERT INTO registros_es(

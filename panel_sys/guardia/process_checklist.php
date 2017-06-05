@@ -31,12 +31,16 @@
 				$valor_coment = sanitizar($variable_coment);
 
 				$detalle_ck = $valor_categoria."-".$valor_situacion;
-				$insert_estado_inm = consulta_gen("INSERT INTO estado_inmuebles(id_proveniente,modo,detalle,detalle_ck,status) values(
+				$insert_estado_inm = consulta_gen("INSERT INTO estado_inmuebles(id_inmueble,identificador,id_proveniente,modo,detalle,detalle_ck,status,fecha_registro) values(
+				'$id_inmueble',
+				'$identificador',
 				'$id_check_j',
 				'checklist',
 				'$valor_coment',
 				'$detalle_ck',
-				'revisar')");
+				'revisar',
+				'$fecha_hora'
+				)");
 				$autorizar_estado = 1;
 
 			}

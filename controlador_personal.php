@@ -28,6 +28,9 @@
 		if ($type_personal == "supervisor" && $personal_get == "hr") {
 			include("panel_sys/supervisor/administrar_horario.php");
 		}
+		if ($type_personal == "guardia" && $personal_get == "mi_horario") {
+			include("panel_sys/guardia/mi_horario.php");
+		}
 	}
 
 

@@ -33,7 +33,7 @@
 				<td>Por definir</td>
 				<td><?php saber_dia($fecha_calendario);echo $secuencia ?></td>
 				<td><?php mes_castellano($month) ?></td>
-				<td>Por <?php echo $mes_entrada ?></td>
+				<td>Por definir</td>
 				<td>Por definir</td>
 				<td>Por definir</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='' data-toggle="modal" data-target="#<?php echo $secuencia ?>" class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a></td>

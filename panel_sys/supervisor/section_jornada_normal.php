@@ -27,8 +27,8 @@
 		<td><?php mes_castellano($month) ?></td>
 		<td><?php echo $hora_entrada ?></td>
 		<td><?php echo $hora_salida ?> <?php echo $mensaje_salida ?></td>
-		<td></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='' data-toggle="modal" data-target="#<?php echo $secuencia ?>" class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a></td>
+		<td>En proceso</td>
+		<td><!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='' data-toggle="modal" data-target="#<?php echo $secuencia ?>" class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a>--></td>
 	</tr>
 	<?php	
 	include("panel_sys/supervisor/modal_form_horario_dos.php");

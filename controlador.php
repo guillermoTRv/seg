@@ -51,6 +51,9 @@
 		if ($personal_get == 'mod_password_usuario') {
 			include("panel_sys/personal/modificar_password_usuario.php");	
 		}
+		if ($personal_get == "historial_reportes") {
+			include("panel_sys/personal/historial_reportes.php");
+		}
 	}
 	if ($inmuebles_get != '') {
 		if ($inmuebles_get == 'listado') {
@@ -89,7 +92,7 @@
 			include("panel_sys/reportes/opciones_reportes.php");
 		}
 		if ($reportes_get == 'general') {
-			include("panel_sys/reportes/general_reportes.php");
+			include("panel_sys/reportes/reportes_generales.php");
 		}
 		if ($reportes_get == 'personal') {
 			include("panel_sys/reportes/personal_reportes.php");

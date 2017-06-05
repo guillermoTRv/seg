@@ -1,4 +1,11 @@
- <?php include("funciones.php") ?>
+ <?php 
+    include("funciones.php"); 
+    session_start();
+    if ($_SESSION['type_user'] != 'admi') {
+        header("Location: ./");
+    }
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +31,8 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav">
-                <div style="margin:9px 17px 9px 8px;">
-                    <img src="ico/logo.png" class="img-responsive" style="margin-right:20px">    
+                <div style="margin:12px 20px 12px 12px;">
+                    <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
                 </div>
                 <hr>
             </ul>
@@ -39,11 +46,11 @@
                           <p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>
                           <div class="col-md-10" id="clientes">
                                 
-                                <a href="process_cliente.php?cl=0" class="link_black">
+                                <!--<a href="process_cliente.php?cl=0" class="link_black">
                                     <div class="panel-body panel_cl">
                                          <h4>Información en general todos los clientes</h4> 
                                     </div>    
-                                </a>
+                                </a>-->
                                 <?php 
                                     $q_clientes =  mysqli_query($q_sec,"SELECT * FROM clientes order by id_cliente asc");
                                     while ($array = mysqli_fetch_array($q_clientes)) {

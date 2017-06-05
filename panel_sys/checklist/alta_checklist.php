@@ -81,12 +81,12 @@
 			}
 			else{
 				?>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<button class="btn btn-default a_uno" type="button">
 						<h4>Alta de Categoria para el cliente - <?php echo $name_cliente; ?></h4>
 					</button>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<button class="btn btn-default a_dos" type="button">
 						<h4>Alta de Situacion para el cliente - <?php echo $name_cliente; ?></h4>
 					</button>

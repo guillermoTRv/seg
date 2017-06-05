@@ -35,21 +35,30 @@
 		</h3>
 
 			<form method="POST" enctype="multipart/form-data" class="form_es">
-				<h3>Seleccione el inmueble para el cual hara su registro</h3>
-				<select class="inmueble_slc form-control" name="inmueble_slc">
-					<option value="">Seleccione inmueble</option>
-					<?php 
-						$q_inmuebles = mysqli_query($q_sec,"SELECT id_inmueble,name_inmueble FROM inmuebles WHERE cliente = '$empresa'");
-						if ($type_personal == "supervisor") {
-							$q_inmuebles = mysqli_query($q_sec,"SELECT id_inmueble,name_inmueble FROM inmuebles WHERE supervisor = '$num_user'");
-						}
-						while ($array = mysqli_fetch_array($q_inmuebles)) {
-							$name_inmueble = $array['name_inmueble'];
-							$id_inmueble  = $array['id_inmueble'];
-							echo "<option value='$id_inmueble'> $name_inmueble </option>";
-						}
+				<?php
+					if ($puesto == "guardia") {
+						echo "";
+					}  
+					if ($puesto == "supervisor"){
 					?>
-				</select>
+					<h3>Seleccione el inmueble para el cual hara su registro</h3>
+					<select class="inmueble_slc form-control" name="inmueble_slc">
+						<option value="">Seleccione inmueble</option>
+						<?php 
+							$q_inmuebles = mysqli_query($q_sec,"SELECT id_inmueble,name_inmueble FROM inmuebles WHERE cliente = '$empresa'");
+							if ($type_personal == "supervisor") {
+								$q_inmuebles = mysqli_query($q_sec,"SELECT id_inmueble,name_inmueble FROM inmuebles WHERE supervisor = '$num_user'");
+							}
+							while ($array = mysqli_fetch_array($q_inmuebles)) {
+								$name_inmueble = $array['name_inmueble'];
+								$id_inmueble  = $array['id_inmueble'];
+								echo "<option value='$id_inmueble'> $name_inmueble </option>";
+							}
+						?>
+					</select>
+					<?php
+					}
+				?>
 				<input type="hidden" name="identificador_txt" value="<?php echo $qr ?>">
 				<input type="hidden" name="puesto_txt" value="<?php echo $puesto ?>">
 				<br>

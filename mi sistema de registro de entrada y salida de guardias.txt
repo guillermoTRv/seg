@@ -1,0 +1,50 @@
+#control manejo de turnos 
+
+8 horas 
+6 horas
+12 horas
+variable teniendo que ser mayor la jornada a 6 
+
+El sistema no dejara registrar al elemento cuando no esta asignado ese dia para laborar 
+El sistema no dejara registrar al elemento cuando no este a la hora en que inica su turno
+El sistema solo dejara registrar al elemento cuando falten 15 minutos para su ingreso solo asi podra iniciar su turno 
+Caso extraordinario, el elemento podra ingresar con horas de anticipacion sin que este asignado asi en el sistema solo cuando el supervisor lo autorice o mejor que haga el cambio desde su sistema, o mas bien que ingrese un codiigo sin necesidad de primero haberlo cambiado en su panel y que despues en su panel se le advierta de lo sucedido
+El sistema tendra que tener control de retardos
+
+
+
+el sistema mandara como jornada no completas cuando no se cumpla con el tiempo que tiene establecido el sistema 
+Se estableceran varios mensajes para los siguientes casos que pueden y seran generados 
+Si entra y sale del sistema de inmediato 'que cumplio pocos minutos'
+Si no cumple con su turno "aun faltan minutos u horas para que su jornada se termine"
+Si cumple con su tiempo "Correcto salir normal del sistema"
+Si se pasa de las horas "Generaste horas extra"
+
+Si asi se requiriera el usuario para poder registrar salida necesita completar una o varias actividades de registro en el sistema. Y solo asi podra salir del sistema 
+
+Cada uno de esos mensajes iran a parar al perfil del supervisor con distintas clases de alertas 
+1- Si entro y salio en minutos una alerta naranja 
+2- Si no completo su turno, una alerta amarilla
+3- Si no asistio una alerta roja
+4- Si cumplio con su turno una alerta verde 
+5- Si el sistema registro que tuvo horas extra de mas alerta azul(ver abajo)
+
+##Horas extra
+Solo se autorizaran las primeras 2 horas extra, para las demas se necesita autorizacion, sin embargo existira un registro de la hora de salida correcta que registro el usuario
+La autorizacion de horas extra no podra superponerse con el siguiente turno que tenga el guardia, debera existir un espacio entre turno y turno de 2 horas. 
+Podra autorizarse cuando se definan los horarios las horas extra. 
+
+
+el sistema podra superponer jornadas en un mismo dia solo si la diferencia entre una y otra es mayor a 6 horas 
+
+Tendra que existir una separacion entra cada turno de al menos horas 
+Podran integrarse opciones Vamonos con algo mas sencillo no nada de situaciones extra y complejas 
+Vamos a basarnos en el echo de que no hay turnos y horas extra extrañamente señaladas y que rebasan jornadas de 24 horas, ya que estos detalles podran ser integrados dependiendo las especificaciones de cada empresa, de mientras yo pondre basicamente los limites va. 
+
+#El Registro de los horarios 
+Turnos que existiran - 6,8 y 12 horas. + hora de comida 
+Opcion para que me de horas con minutos 
+
+
+Los sistemas de control de inventario podrian hacerse con apps 
+

@@ -40,179 +40,13 @@
 	<div class="col-md-10">
 		<form method="post" enctype="multipart/form-data" class="control_inline">
 			<div id="1" class="fr">
-
-				<h3 style="margin-bottom:0px">Datos Generales</h3><hr style="border-color:#686868;width:91.3%;float:left;margin-bottom:25px ">
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Nombre</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="name_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Apellido paterno</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="apellido_uno_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Apellido materno</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="apellido_dos_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Fecha de nacimiento</label>
-					</div>
-					<div class="type_inline">
-						<input type="date" class="input_inline element_ol" name="fecha_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Curp</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="curp_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Telefono 1</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="tel_uno_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Telefono 2</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="tel_dos_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						</div>
-					<div class="type_inline">
-						<button type="button" class="btn btn-default boton_sig element_ol">Siguiente <span class="icon-arrow-right"></span></button>
-					</div>
-				</div>
+				<?php include("panel_sys/personal/combo_form_generales.php") ?>
 			</div>
 			<div id="2" style="display:none">
-				<h3 style="margin-bottom:0px">Datos hubicacion</h3><hr style="border-color:#333;width:91.3%;float:left;margin-bottom:25px ">
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Calle</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="calle_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Número exterior</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="num_ext_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Número interior</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="num_int_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Colonia</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="colonia_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Codigo Postal</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="postal_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Entidad Federativa</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="entidad_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Municipio/Delegación</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="demarcacion_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-					</div>
-					<div class="type_inline">
-						<button type="button" class="btn btn-default boton_atras"><span class="icon-arrow-left"></span> Atras</button>
-					</div>
-					<div class="type_inline">
-						<button type="button" class="btn btn-default boton_sig element_ol">Siguiente <span class=" icon-arrow-right"></span></button>
-					</div>
-				</div>
+				<?php include("panel_sys/personal/combo_form_ubicacion.php") ?>
 			</div>
 			<div id="3" style="display:none">
-				<h3 style="margin-bottom:0px">Datos Fisicos</h3><hr style="border-color:#333;width:91.3%;float:left;margin-bottom:25px ">
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Peso(kg)</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="peso_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Estatura(formato 0.00 Medición-Metros)</label>
-					</div>
-					<div class="type_inline">
-						<input type="text" class="input_inline element_ol" name="altura_txt">
-					</div>
-				</div>
-				<div class="group_inline">
-					<div class="label_inline">
-						<label>Fotografia del elemento(Solo formato jpg menor a 4mb)</label>
-					</div>
-					<div class="label_inline">
-						<input type="file" id="files" name="files"/>
-				      	<output id="list"></output>
-					</div>
-				</div>
-
-				<div class="group_inline">
-					<div class="label_inline">
-					</div>
-					<div class="type_inline">
-						<button type="button" class="btn btn-default boton_atras"><span class=" icon-arrow-left"></span> Atras</button>
-					</div>
-					<div class="type_inline">
-						<button type="button" class="btn btn-default boton_sig element_ol">Siguiente <span class=" icon-arrow-right"></span></button>
-					</div>
-				</div>
+				<?php include("panel_sys/personal/combo_form_aspecto.php") ?>
 			</div>
 			<div id="4" style="display:none">
 				<h3 style="margin-bottom:0px">Datos Laborales</h3><hr style="border-color:#414141;width:91.3%;float:left;margin-bottom:25px ">
@@ -241,9 +75,10 @@
 					<li class="li_select">
 						<p class="p_select element_ol"><span class="icon-circle-down"></span> Seleccione una opción</p>
 						<ul class="ul_menu">
-							<li><p>8 Horas fjo</p></li>
-							<li><p>12 Horas variable</p></li>
-							<li><p>12 Horas fijo</p></li>
+							<li><p>8 Horas</p></li>
+							<li><p>12 Horas</p></li>
+							<li><p>24 Horas</p></li>
+							<li><p>Disponibilidad de horario</p></li>
 						</ul>
 						<input type="hidden" name="jornada_txt" value="">
 					</li>	

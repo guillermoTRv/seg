@@ -44,7 +44,7 @@
 				<td><?php mes_castellano($month) ?></td>
 				<td><?php echo $hora_entrada_uno ?></td>
 				<td><?php echo $hora_salida_uno ?></td>
-				<td><strong>Jornada doble</strong></td>
+				<td><strong>En Jornada doble</strong></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='' data-toggle="modal" data-target="#<?php echo $secuencia ?>" class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a></td>
 			</tr>
 			<tr class="info"> 
@@ -53,8 +53,8 @@
 				<td><?php mes_castellano($month) ?></td>
 				<td><?php echo $hora_entrada_dos ?></td>
 				<td><?php echo $hora_salida_dos ?></td>
-				<td><strong>Jornada doble</strong></td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='' data-toggle="modal" data-target="#<?php echo $secuencia ?>" class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a></td>
+				<td><strong>En Jornada doble</strong></td>
+				<td><!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='' data-toggle="modal" data-target="#<?php echo $secuencia ?>" class='btn_cambio' style='color:#5296E9'><span class='icon-cog'></span></a>--></td>
 			</tr>
 			<?php
 			include("panel_sys/supervisor/modal_form_horario_dos.php");

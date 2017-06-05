@@ -51,6 +51,15 @@
                                       $supervisor_inm = $nombre." ".$apellido_p." ".$apellido_m;
                                       
                                   }
+                                  $status = $array['status'];
+                                  if ($status == 11) {
+                                      $color = "#f0ad4e";
+                                  }
+                                  else{
+                                      $color = "green";
+                                  }
+
+
 
                                   echo "
                                     <tr id='$id_inmueble'>
@@ -66,7 +75,7 @@
                                       </td>
                                       <td>
                                         <center>
-                                          &nbsp;&nbsp;&nbsp;<span class='icon-radio-checked' style='color:green'></span>&nbsp;&nbsp;&nbsp;
+                                          &nbsp;&nbsp;&nbsp;<span class='icon-radio-checked' style='color:$color'></span>&nbsp;&nbsp;&nbsp;
                                         </center>
                                       </td>
                                     </tr>
