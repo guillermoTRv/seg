@@ -16,4 +16,11 @@ se tiene que crear una tabla para registrar los siguientes movimientos
 
 #personal/historial_reportes.php
 aqui pondremos una paginacion ya que al abrir esta seccion se mostraran todos los reportes hechos por el guardia, y tambien se podra buscar exacto por fecha o bien por rango de fechas.
+tambien me tiene que enumrar si es el reporte 1 2 3 4 10 20 40 que ha hecho ese elemento
+tambien el boton para regresar hacia atras
+si no tiene nada registrado poner que no tiene nada registrado
 
+#personal/historial_asistencias.php
+aqui tambien que me muestre la lista completa, opcion para hacer repo puntuales, por rango
+enumeracion
+tambien el boton para regresar hacia atras

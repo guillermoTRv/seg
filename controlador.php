@@ -1,5 +1,5 @@
 <?php 
-	if ($personal_get == '' && $inmuebles_get =='' && $checklist_get == '' && $costos_get == '' && $reportes_get == '') {
+	if ($personal_get == '' && $inmuebles_get =='' && $checklist_get == '' && $costos_get == '' && $reportes_get == '' && $clientes_get == '') {
 		include("panel_sys/general_clientes.php");
 	}
 	if ($personal_get != '') {
@@ -54,6 +54,12 @@
 		if ($personal_get == "historial_reportes") {
 			include("panel_sys/personal/historial_reportes.php");
 		}
+		if ($personal_get == "historial_asistencias") {
+			include("panel_sys/personal/historial_asistencias.php");
+		}
+		if ($personal_get == "costos_personal") {
+			include("panel_sys/personal/costos_personal.php");
+		}
 	}
 	if ($inmuebles_get != '') {
 		if ($inmuebles_get == 'listado') {
@@ -104,6 +110,9 @@
 			# code...
 		}
 	}
-	if ($costos_get != '') {
+	if ($clientes_get != '') {
+		if ($clientes_get == 'alta') {
+			include("panel_sys/clientes/alta_cliente.php");
+		}
 	}
 ?>

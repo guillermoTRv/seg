@@ -274,6 +274,7 @@
                             <li><a href="?pr=opciones_alta">Alta personal</a></li>
                             <li><a href="?pr=baja">Baja personal</a> </li>
                             <li><a href="?pr=modificar_personal">Modificar personal</a> </li>
+                            <li><a href="?pr=costos_personal">Costos personal</a></li>
                             <!--<li><a href="?pr=horarios">Administacion de horarios</a></li>-->
                         </ul>
                     </li>
@@ -306,7 +307,13 @@
                             <li><a href="?rep=costos">Historial de reportes</a> </li>
                         </ul>
                     </li>
+                    <li class="li_nav">
+                        <a href="./cliente.php" class="title_a" data="./cliente.php"><span class="icon-exit"></span> Vista general</a>
+                    </li>
+                    
+                    
                 </div>
+
                 <br>
                 <p style="text-align: center;font-size:1.1em">
                 <span class="label label-default" id="jaja">Control de menu: Desactivado</span>   

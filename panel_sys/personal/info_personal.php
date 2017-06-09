@@ -49,7 +49,7 @@
 			if ($puesto != "Us-cliente") {
 				?>
 				<a href="?pr=historial_reportes&val=<?php echo $identificador ?>" class="blue"><h4>Ver historial de reportes de este elemento</h4></a>
-				<a href="" class="blue"><h4>Ver historial de asistencia de este elemento</h4></a>
+				<a href="?pr=historial_asistencias&val=<?php echo $identificador ?>" class="blue"><h4>Ver historial de asistencia de este elemento</h4></a>
 				<?php
 			}
 		?>

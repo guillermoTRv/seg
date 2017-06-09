@@ -23,7 +23,6 @@
         height:400px;
         border-radius:50%;
         background-color:#ECF0F1;
-        margin-top:20px
     }
     </style>
 
@@ -41,21 +40,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand"><span class="glyphicon glyphicon-calendar"></span> Administracion Sala de juntas</a>
+                <a class="navbar-brand"><span class="glyphicon glyphicon-calendar"></span> Administración Salas de juntas - Sala No.1</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <!--<ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">Ver todos los horarios</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#">Alta sala de juntas</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Alta Usuario</a>
                     </li>
-                </ul>
+                </ul>-->
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -64,30 +63,59 @@
 
     <!-- Page Content -->
     <div class="container-fluid">
-
         <div class="row">
-            <div class="col-lg-12">
-                <div class="reloj" style="position:absolute;" style="color:#009999">
-                    <p style="position: absolute; left: 48%; top: 0%;font-size:1.4em"><strong>12</strong></p>
-                    <p style="position: absolute; left: 72%; top: 6.3%;font-size:1.4em"><strong>1</strong></p>
-                    <p style="position: absolute; left: 89.6%; top: 23%;font-size:1.4em"><strong>2</strong></p>                    
+            <div class="col-md-4 col-sm-5" style="height: 420px;background-color" >
+                    <div style="margin-left:10%;margin-right:10%;margin-top:5%">
+                    <div style="width: 400px;height: 400px;background-color:#ECF0F1;margin:auto;border-radius:50%;position: absolute;">
+                        <p style="position: absolute; left: 48%; top: 0%;font-size:1.4em"><strong>12</strong></p>
+                        <p style="position: absolute; left: 72%; top: 6.3%;font-size:1.4em"><strong>1</strong></p>
+                        <p style="position: absolute; left: 89.6%; top: 23%;font-size:1.4em"><strong>2</strong></p>                    
 
-                    <p style="position: absolute; left: 96.4%; top: 47%;font-size:1.4em"><strong>3</strong></p>
-                    <p style="position: absolute; left: 89.5%; top: 70%;font-size:1.4em"><strong>4</strong></p>
-                    <p style="position: absolute; left: 72%; top: 87.7%;font-size:1.4em"><strong>5</strong></p>
+                        <p style="position: absolute; left: 96.4%; top: 47%;font-size:1.4em"><strong>3</strong></p>
+                        <p style="position: absolute; left: 89.5%; top: 70%;font-size:1.4em"><strong>4</strong></p>
+                        <p style="position: absolute; left: 72%; top: 87.7%;font-size:1.4em"><strong>5</strong></p>
         
-                    <p style="position: absolute; left: 49%; top: 94%;font-size:1.4em"><strong>6</strong></p>
-                    <p style="position: absolute; left: 25%; top: 87.5%;font-size:1.4em"><strong>7</strong></p>
-                    <p style="position: absolute; left: 7.3%; top: 70%;font-size:1.4em"><strong>8</strong></p>
-                    
-                    <p style="position: absolute; left: 1%; top: 47%;font-size:1.4em"><strong>9</strong></p>
-                    <p style="position: absolute; left: 6.9%; top: 23.5%;font-size:1.4em"><strong>10</strong></p>
-                    <p style="position: absolute; left: 23.8%; top: 6.1%;font-size:1.4em"><strong>11</strong></p>
+                        <p style="position: absolute; left: 49%; top: 94%;font-size:1.4em"><strong>6</strong></p>
+                        <p style="position: absolute; left: 25%; top: 87.5%;font-size:1.4em"><strong>7</strong></p>
+                        <p style="position: absolute; left: 7.3%; top: 70%;font-size:1.4em"><strong>8</strong></p>
+                        
+                        <p style="position: absolute; left: 1%; top: 47%;font-size:1.4em"><strong>9</strong></p>
+                        <p style="position: absolute; left: 6.9%; top: 23.5%;font-size:1.4em"><strong>10</strong></p>
+                        <p style="position: absolute; left: 23.8%; top: 6.1%;font-size:1.4em"><strong>11</strong></p>
+                        <canvas id="myCanvas" width="400" height="400">No soporta</canvas>
+                    </div>
+                    </div>
+                    <!--<div class="reloj" style="position:absolute;">
+                        <p style="position: absolute; left: 48%; top: 0%;font-size:1.4em"><strong>12</strong></p>
+                        <p style="position: absolute; left: 72%; top: 6.3%;font-size:1.4em"><strong>1</strong></p>
+                        <p style="position: absolute; left: 89.6%; top: 23%;font-size:1.4em"><strong>2</strong></p>                    
 
-                    <canvas id="myCanvas" width="400" height="400">No soporta</canvas>
-                </div>
+                        <p style="position: absolute; left: 96.4%; top: 47%;font-size:1.4em"><strong>3</strong></p>
+                        <p style="position: absolute; left: 89.5%; top: 70%;font-size:1.4em"><strong>4</strong></p>
+                        <p style="position: absolute; left: 72%; top: 87.7%;font-size:1.4em"><strong>5</strong></p>
+            
+                        <p style="position: absolute; left: 49%; top: 94%;font-size:1.4em"><strong>6</strong></p>
+                        <p style="position: absolute; left: 25%; top: 87.5%;font-size:1.4em"><strong>7</strong></p>
+                        <p style="position: absolute; left: 7.3%; top: 70%;font-size:1.4em"><strong>8</strong></p>
+                        
+                        <p style="position: absolute; left: 1%; top: 47%;font-size:1.4em"><strong>9</strong></p>
+                        <p style="position: absolute; left: 6.9%; top: 23.5%;font-size:1.4em"><strong>10</strong></p>
+                        <p style="position: absolute; left: 23.8%; top: 6.1%;font-size:1.4em"><strong>11</strong></p>
+
+                        <canvas id="myCanvas" width="400" height="400">No soporta</canvas>
+                    </div>-->
+                
+            </div>
+            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                <h3 style="text-align: center;color:#34495E;font-size: 1.9em;margin-bottom: 15px">Sala No.1</h3>
+                
+                <button type="button" class="btn btn-primary btn-lg btn-block">Agendar Sala</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Horarios de las Salas de Juntas</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Historia de Agendacion</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Modificar Agendacion</button>
+            </div>
+            <br><br>
         </div>
-        <br><br>
     </div>
                 
     <script src="js/jquery.js"></script>

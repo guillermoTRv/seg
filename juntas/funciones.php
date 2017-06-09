@@ -10,7 +10,7 @@
 		$usuario_s   = "root";
 
 		$password_s  = "123qwezxc";
-		$bd_s        = "security";
+		$bd_s        = "juntas";
 	}
 
 	if ($type_produccion == "serv") {
@@ -18,7 +18,7 @@
 		$usuario_s     = "gruposel_dev";
 
 		$password_s    = "123qweaszxc";
-		$bd_s          = "gruposel_security";
+		$bd_s          = "gruposel_juntas";
 	}
 
 	$nombre_mi_empresa = "Gideas";

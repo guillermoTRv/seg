@@ -13,7 +13,7 @@
 ?>
 <div class="row">
 	<div class="col-md-10">
-		<h3>Historial de reportes para el Guardia: <strong><?php echo $nombre_completo ?></strong></h3>
+		<h3>Historial de Reportes Ext. para el Guardia: <strong><?php echo $nombre_completo ?></strong></h3>
 		<h3>
 			Identificador: <strong><?php echo $identificador ?> </strong> &nbsp; Nombre de usuario: <strong><?php echo $usuario ?></strong>
 		</h3>

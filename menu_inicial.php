@@ -20,10 +20,17 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/estilos_general.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="ico/style.css">
+    <link rel="stylesheet" href="css/estilos_clientes.css">
+
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300" rel="stylesheet"> 
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script  type="text/javascript" src="js/jquery.js"></script>
     <script  type="text/javascript" src="js/fns_menu.js"></script>
+<script  type="text/javascript" src="js/fnxxx_personal.js"></script>
+    <script  type="text/javascript" src="js/js.js"></script>
 </head>
 
 <body>
@@ -35,6 +42,32 @@
                     <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
                 </div>
                 <hr>
+                <div class="menu_pr">
+                    <li class="li_nav">
+                        <a class="title_a" data="?cl=listado"><span class="icon-library"></span> Vista Clientes</a>
+                    </li> 
+                    <li class="nav">
+                        <a class="title_a"><span class=" icon-list2"></span> Listado Clientes</a>
+                    </li>
+                    <li class="nav">
+                        <a class="title_a"><span class=" icon-upload3"></span> Alta Clientes</a>
+                    </li>
+                    <li class="nav">
+                        <a class="title_a"><span class="icon-cogs"></span> Modificar Clientes</a>
+                    </li>
+                    <li class="nav">
+                        <a class="title_a"><span class=" icon-cancel-circle"></span> Baja Clientes</a>
+                    </li>
+                </div>   
+                <br>
+                <p style="text-align: center;font-size:1.1em">
+                <span class="label label-default" id="jaja">Control de menu: Desactivado</span>   
+                </p>
+                <p style="text-align: center;">
+                    <a href="#" data-toggle="modal" data-target="#instruccionesModal"> 
+                    <span class="label label-default" id="jaja">Instrucciones del menu</span>    
+                    </a> 
+                </p>
             </ul>
         </div>
         <?php 

@@ -1,5 +1,5 @@
 function ajax_login(){
-    var url="process_login.php";
+        var url="process_login.php";
         $.ajax({
             type:"POST",
             url:url,

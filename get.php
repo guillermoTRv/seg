@@ -5,6 +5,7 @@
 	$checklist_get = sanitizar_get('ck');
 	$costos_get    = sanitizar_get('cos');
 	$reportes_get  = sanitizar_get('rep');
+	$clientes_get  = sanitizar_get('cl');
 	$val           = sanitizar_get("val");
 	
 ?>
