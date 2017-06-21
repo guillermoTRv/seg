@@ -7,52 +7,14 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="../ico/style.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
   <!-- remember, jQuery is completely optional -->
   <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
   <script type='text/javascript' src='js/jquery.particleground.js'></script>
   <script type='text/javascript' src='js/demo.js'></script>
-  
-  <style>
-    body 
-    {
-        background-color:#000;
-        color:#fff;
-        font-family: 'Nunito Sans', sans-serif;
-        padding-left:20px;
-        padding-right:20px;
-    }  
-    .input_blue{
-        border:1px solid rgb(8,141,198);
-        -webkit-box-shadow: 0px 0px 4px 2px rgba(0,155,219,1);
-        -moz-box-shadow: 0px 0px 4px 2px rgba(0,155,219,1);
-        box-shadow: 0px 0px 4px 2px rgba(0,155,219,1);
-        color: rgba(0,155,219,1);
-        font-size: 1.14em;
-        font-family: 'Nunito Sans', sans-serif;
-        font-weight:bold;
 
-    }
-    .input_blue:focus {
-        -webkit-box-shadow: 0px 0px 4px 2px rgba(0,155,219,1);
-        -moz-box-shadow: 0px 0px 4px 2px rgba(0,155,219,1);
-        box-shadow: 0px 0px 4px 2px rgba(0,155,219,1);  
-    }
-    .caja{
-        border:2px solid #009bdb;
-        -webkit-box-shadow: 0px 0px 10px 5px rgba(61,166,255,1);
-        -moz-box-shadow: 0px 0px 10px 5px rgba(61,166,255,1);
-        box-shadow: 0px 0px 10px 5px rgba(61,166,255,1);
-        
-        padding:35px 20px 20px 20px;
-        border-radius:10px;
-    }
-    .colores{
-        background-color:green;
-    }
-  </style>
 </head>
 
 <body>

@@ -1,0 +1,13 @@
+##alta usuario
+falta validar campos vacios, validar que no se repita registro.
+tambien opcion para que se pueda agregar otro usuario, osea que me habilite el boton y me limpie el form
+
+##logiin
+si un usario tiene iniciada su sesion no puede acceder desde otro dispositivo mobil
+
+##alta sala juntas
+lo mismo que en alta usuario
+cuando se de de alta una sala de juntas, poner campos para que se restrinja el horario de uso
+
+##reserva salas
+tambien tener la opcion para que al terminar una reservacion se pueda hacer otra

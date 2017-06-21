@@ -1,0 +1,23 @@
+##alta usuario
+falta validar campos vacios, validar que no se repita registro.
+tambien opcion para que se pueda agregar otro usuario, osea que me habilite el boton y me limpie el form
+
+##logiin
+si un usario tiene iniciada su sesion no puede acceder desde otro dispositivo mobil
+
+##alta sala juntas
+lo mismo que en alta usuario
+cuando se de de alta una sala de juntas, poner campos para que se restrinja el horario de uso
+
+##reserva salas
+tambien tener la opcion para que al terminar una reservacion se pueda hacer otra
+
+##la parte de detalles tambien podriamos hacerla como snaks, agregar punto por punto
+
+##general-horario restringir cuando haya dias festivos o cuando no se labore
+
+##Despues se podria hacer que el horario tambien sea un slide
+
+##validacion para que no me acepte en caso de que se seleccione la ultima hora, minutos 00 iguales carajo
+
+##si la sala se reserva cuando se envia el form validar desde el pros

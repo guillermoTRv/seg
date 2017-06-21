@@ -1,3 +1,17 @@
+<script>
+    var device = navigator.userAgent
+    if (device.match(/Iphone/i)|| device.match(/Ipod/i)|| device.match(/Android/i)|| device.match(/J2ME/i)|| device.match(/BlackBerry/i)|| device.match(/iPhone|iPad|iPod/i)|| device.match(/Opera Mini/i)|| device.match(/IEMobile/i)|| device.match(/Mobile/i)|| device.match(/Windows Phone/i)|| device.match(/windows mobile/i)|| device.match(/windows ce/i)|| device.match(/webOS/i)|| device.match(/palm/i)|| device.match(/bada/i)|| device.match(/series60/i)|| device.match(/nokia/i)|| device.match(/symbian/i)|| device.match(/HTC/i))
+    { 
+        window.location = "./administrador_mobil.php";
+
+    }
+    else
+    {
+
+    }
+</script>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,63 +25,117 @@
 
     <title>Administración de salas de juntas</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ico/style.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200" rel="stylesheet">
     <style>
-    body {
-        padding-top: 70px;
-        background-color:#3498DC;
+    body 
+    {
+        padding: 70px 15px 40px 15px;
+        background-color:#000;
+        color:#fff;
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    .caja{
+        -webkit-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        -moz-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        border-radius:15px; 
+        font-size: 1.1em;
+        font-family: 'Nunito Sans', sans-serif;
+        padding: 20px
+
+    }
+    .linea{
+        -webkit-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        -moz-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+    }
+    .btn_ventana{
+        font-weight:bold;
+    }
+    .vertical{
+        -webkit-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        -moz-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        
+        width: 1px; /* Line width */
+        background-color:white; /* Line color */
+        height: 100%; /* Override in-line if you want specific height. */
+        float: left; 
+        height:300px;
+        margin-right: 20px;
     }
     </style>
 
 </head>
 
 <body>
-
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container" style="margin-left: 10px">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand"><span class="glyphicon glyphicon-calendar"></span> Us Administrador Salas de juntas</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <iframe src="https://calendar.google.com/calendar/embed?src=jm6fm9bhfd43p1dn17lo787f8s%40group.calendar.google.com&ctz=America/Mexico_City" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                <!--<ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Ver todos los horarios</a>
-                    </li>
-                    <li>
-                        <a href="#">Alta sala de juntas</a>
-                    </li>
-                    <li>
-                        <a href="#">Alta Usuario</a>
-                    </li>
-                </ul>-->
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 col-sm-5" style="height: 420px;background-color" >
-                    
-            </div>
-        </div>
+            <div class="col-md-10 col-md-offset-1 caja">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h3>12-21-2017</h3>
+                        <h3 style="font-weight:bold">Panel de Administración - Grupo Gideas</h3>
+                        <hr class="linea">
+                        <button type="button" class="btn btn-default btn-lg btn-block btn_ventana" data-toggle="modal" data-target="#myModal">Alta Usuario</button>
+                        <button type="button" class="btn btn-default btn-lg btn-block btn_ventana">Alta Sala de Juntas </button>
+                        <button type="button" class="btn btn-default btn-lg btn-block btn_ventana">Informacion Salas de Juntas</button>
+                    </div>
+                    <div class="col-md-6">
+                        <!--<div class="vertical"></div>-->
+                    </div>          
+                </div>
+            </div> 
+        </div> 
     </div>
-                
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document" style="margin-top:100px;"> 
+        <div class="modal-content" style="background-color:black;border:1px solid white;-webkit-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);-moz-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);
+        box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);margin-left:30px;margin-right:30px">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">Alta de Usuario</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-   
+    <script>
+        $(".btn_login").click(function(){
+            if ($("#usuario").val() != '' && $("#pass").val() != '') {
+                var url="process_login.php";
+                $(".btn_login").prop("disabled",true)
+                $.ajax({
+                    type:"POST",
+                    url:url,
+                    data:$(".form_login").serialize(),
+
+                    success:function(data){
+                        $(".mens").html(data)
+                      
+                    }
+                });
+                return false;
+            }
+            else{
+                alert("Llene los campos del formulario")
+                $(".btn_login").prop("disabled",false)
+            }
+        });
+    </script>
+
 </body>
 
 </html>
