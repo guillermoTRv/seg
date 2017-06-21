@@ -158,10 +158,10 @@
             $(".select_inicio_min").append("<option value=''>Min</option>")
             $(".select_fin_hrs").append("<option value=''>Hrs</option>")
             $(".select_fin_min").append("<option value=''>Min</option>")
-            var tipo_horario = $(".disponible").data("tipo")
+            var tipo_horario = $(this).data("tipo")
             if (tipo_horario == "total") {
-                var hora_inicio = $(".disponible").data("horainicio")
-                var hora_fin    = $(".disponible").data("horafin")
+                var hora_inicio = $(this).data("horainicio")
+                var hora_fin    = $(this).data("horafin")
                 for(i = hora_inicio; i < hora_fin; i++){
                     if (i < 10 && i != hora_inicio) {
                       i_hora = "0" + i
@@ -181,7 +181,57 @@
                     $(".select_inicio_min").append("<option value='"+i+"'>"+i_hora+" min</option>") 
                     $(".select_fin_min").append("<option value='"+i+"'>"+i_hora+" min</option>")                     
                 }
+            }
+            if (tipo_horario == "con") {
+                var hrs_ini_data = $(this).data("hrsin")
+                var min_ini_data = $(this).data("minin")
+                var hrs_fin_data = $(this).data("hrsfin")
+                var min_fin_data = $(this).data("minfin")
 
+                var mentira_ini = "0"+hrs_ini_data
+                var mentira_fin = "0"+hrs_fin_data
+                var mentira_minini = "0"+min_ini_data
+                var mentira_minfin = "0"+min_fin_data
+                if (mentira_ini.length < 3) {
+                    hrs_ini_data = "0"+hrs_ini_data
+                }
+                if (mentira_fin.length < 3) {
+                    hrs_fin_data = "0"+hrs_fin_data
+                }
+                if (mentira_minini < 3) {
+                    min_ini_data = "0"+min_ini_data
+                }
+                if (mentira_minfin < 3) {
+                    min_fin_data = "0"+min_fin_data
+                }
+
+                $(".select_inicio_hrs").html("<option value='"+hrs_ini_data+"'>"+hrs_ini_data+" Hrs</option>")
+                $(".select_inicio_min").html("<option value='"+min_ini_data+"'>"+min_ini_data+" Min</option>")
+                $(".select_fin_hrs").html("<option value='"+hrs_fin_data+"'>"+hrs_fin_data+" Hrs</option>")
+                $(".select_fin_min").html("<option value='"+min_fin_data+"'>"+min_fin_data+" Min</option>")
+
+
+                var hora_inicio = $(this).data("horainicio")
+                var hora_fin    = $(this).data("horafin")
+                for(i = hora_inicio; i < hora_fin; i++){
+                    if (i < 10 && i != hora_inicio) {
+                      i_hora = "0" + i
+                    }
+                    else{
+                      i_hora = i
+                    }
+                    $(".select_inicio_hrs").append("<option value='"+i+"'>"+i_hora+" hrs</option>") 
+                }
+                for(i = 0; i <= 55; i++){
+                    if (i < 10) {
+                      i_hora = "0" + i
+                    }
+                    else{
+                      i_hora = i
+                    }
+                    $(".select_inicio_min").append("<option value='"+i+"'>"+i_hora+" min</option>") 
+                    $(".select_fin_min").append("<option value='"+i+"'>"+i_hora+" min</option>")                     
+                }
             }
 
         })
@@ -216,25 +266,6 @@
                     $(".select_fin_hrs").append("<option value='"+i+"'>"+i_hora+" hrs</option>")            
                 }
             }
-            var select_uno  = $(".select_inicio_hrs").val()
-            var select_dos  = $(".select_inicio_min").val()
-            var select_tres = $(".select_fin_hrs").val()
-            var select_four = $(".select_fin_min").val()
-            var id_sala     = $(".input_name_sala").val()
-            var dia_fecha   = $(".input_dia").val()
-            if (select_uno!='' && select_dos!='' && select_tres!='' && select_four!='') {
-                if (select_uno != $select_tres && select_dos != select_four) {
-                    if (select_dos != select_four || select_uno != select_tres) {
-                        $.ajax({
-                            type:"GET",
-                            url:"reservas/process_info_dia_miReserva.php?hrs_ini="+select_uno+"&min_ini="+select_dos+"&hrs_fin="+select_tres+"&min_fin="+select_four+"&sala="+id_sala+"&fecha="+dia_fecha+"",
-                            success:function(data){
-                                $(".cajota").html(data)
-                            }
-                        });                 
-                    }                
-                }              
-            }
 
         })
 
@@ -246,16 +277,47 @@
             var id_sala     = $(".input_name_sala").val()
             var dia_fecha   = $(".input_dia").val()
             if (select_uno!='' && select_dos!='' && select_tres!='' && select_four!='') {
-                alert(select_tres)
-                    if (select_dos != select_four || select_uno != select_tres) {
+                if (select_dos != select_four || select_uno != select_tres) {
+                    var minutos_inicio = parseFloat(select_dos/60)
+                    var tiempo_inicio = parseFloat(select_uno)+minutos_inicio
+                    var minutos_fin  = parseFloat(select_four/60)
+                    var tiempo_final = parseFloat(select_tres)+minutos_fin
+                    
+                    if (tiempo_final > tiempo_inicio) {
                         $.ajax({
                             type:"GET",
                             url:"reservas/process_info_dia_miReserva.php?hrs_ini="+select_uno+"&min_ini="+select_dos+"&hrs_fin="+select_tres+"&min_fin="+select_four+"&sala="+id_sala+"&fecha="+dia_fecha+"",
                             success:function(data){
                                 $(".cajota").html(data)
+                                $(".mens_horario").html("")
+
+                                var cont_input_hrs_ini = $(".input_hrs_ini").length
+                                var cont_input_hrs_fin = $(".input_hrs_fin").length
+                                var cont_input_min_ini = $(".input_min_ini").length
+                                var cont_input_min_fin = $(".input_min_fin").length
+
+                                if (cont_input_hrs_ini==0 && cont_input_hrs_fin==0 && cont_input_min_ini==0 && cont_input_min_fin==0) {
+                                    $(".form_oculto").append("<input type='text' name='hrs_ini_txt' class='input_hrs_ini' value='"+select_uno+"'>")
+                                    $(".form_oculto").append("<input type='text' name='min_ini_txt' class='input_min_ini' value='"+select_dos+"'>")
+                                    $(".form_oculto").append("<input type='text' name='hrs_fin_txt' class='input_hrs_fin' value='"+select_tres+"'>")
+                                    $(".form_oculto").append("<input type='text' name='min_fin_txt' class='input_min_fin' value='"+select_four+"'>")
+                                }
+                                else{
+                                    $(".input_hrs_ini").val(select_uno)
+                                    $(".input_min_ini").val(select_dos)
+                                    $(".input_hrs_fin").val(select_tres)
+                                    $(".input_min_fin").val(select_four)
+                                }
                             }
                         });                 
                     }
+                    else{
+                        $(".mens_horario").html("<p>La hora de inicio no puede ser mayor a la hora de finalización</p>")
+                    }    
+                }
+                else{
+                    $(".mens_horario").html("<p>La hora de inicio no puede ser igual a la hora de finalización</p>")
+                }
             }
         })
 
@@ -263,7 +325,10 @@
             $(".principal .form_dos").remove()
             $(".principal .form_uno").show()
             $(".input_dia").remove()
-            $(".input_inicio").remove()
+            $(".input_hrs_ini").remove()
+            $(".input_min_ini").remove()
+            $(".input_hrs_fin").remove()
+            $(".input_min_fin").remove()
             $(".input_fin").remove()
             return false
         });
@@ -449,19 +514,22 @@
             if (dia == undefined) {
                 dia = 'Obligatorio - Registre el dia para su reserva'
             }
-            var hora_inicio = $(".input_inicio").val()
-            if (hora_inicio == undefined) {
-                hora_inicio = "Obligatorio - Registre la hora de inicio"
+            var hora_inicio = $(".input_hrs_ini").val()
+            var min_inicio  = $(".input_min_ini").val()
+            if (hora_inicio == undefined && min_inicio == undefined) {
+                mens_hora_inicio = "Obligatorio - Registre la hora de inicio"
             }
             else{
-                hora_inicio = hora_inicio+"hrs"
+                mens_hora_inicio = "Hora de inicio: "+hora_inicio+"hrs "+min_inicio+" min"
             }
-            var hora_fin    = $(".input_fin").val()
-            if (hora_fin == undefined) {
-                hora_fin = "Obligatorio - Registre la hora de finalización"
+            
+            var hora_fin = $(".input_hrs_fin").val()
+            var min_fin  = $(".input_min_fin").val() 
+            if (hora_fin == undefined && min_fin == undefined) {
+                mens_hora_fin = "Obligatorio - Registre la hora de finalización"
             }
             else{
-                hora_fin = hora_fin+"hrs"
+                mens_hora_fin = "Hora de finalización: "+hora_fin+"hrs "+min_fin+" min"
             }
             var conf_snaks  = $(".input_conf_snaks").val()
             var detalles    = $(".input_detalles_juntas").val()
@@ -471,8 +539,8 @@
             
             $(".sala_info").html("Sala: "+name_sala)
             $(".dia_info").html("Fecha: "+dia)
-            $(".inicio_hora_info").html("Hora de inicio: "+hora_inicio+"")
-            $(".fin_hora_info").html("Hora de finalización: "+hora_fin+"")
+            $(".inicio_hora_info").html(mens_hora_inicio)
+            $(".fin_hora_info").html(mens_hora_fin)
             $(".snaks_info").html("Snaks: "+conf_snaks)
             $(".detalles_info").html("Detalles: "+detalles)
 
@@ -573,11 +641,6 @@
             window.location.href = "usuario.php"
         })    
     </script>
-    <style> 
-        @media screen and (max-width:800px){
-            body{font-size: .7em;}   
-        }
-    </style>        
 </body>
 
 </html>

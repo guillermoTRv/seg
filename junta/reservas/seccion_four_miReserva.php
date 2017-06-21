@@ -15,9 +15,9 @@
 	</div>-->
 	<?php
 	?>
-	<div class='disponible' style="display:inline-block;height:30px;width:<?php echo $oper_e ?>%;background-color:purple;margin-right:-5px;border:1px solid black">
-		  	<p class="p_hora_mens"><?php echo $hrs_fin."-".$rango_redon_for."-".round($oper_e,3) ?></p>
+	<div class='disponible' <?php echo $datas_con ?> style="display:inline-block;height:30px;width:<?php echo $oper_e ?>%;background-color:purple;margin-right:-5px;border:1px solid black">
+		  	<p class="p_hora_mens">R</p>
 	</div>
-	<div class='disponible' style="display:inline-block;height:30px;width:<?php echo $oper_g ?>%;background-color:brown;margin-right:-5px;border:1px solid black">
-		  	<p class="p_hora_mens"><?php echo $oper_e."-".$width_ultimo."-".round($oper_g,3) ?></p>
+	<div class='disponible' <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $oper_g ?>%;background-color:brown;margin-right:-5px;border:1px solid black">
+		  	<p class="p_hora_mens">Disponible</p>
 	</div>

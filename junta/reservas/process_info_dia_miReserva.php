@@ -26,6 +26,9 @@
 	$oper_a = $rango_turno - $rango_redon;
 	$width_ultimo = $width*$oper_a;
 	$consulta_disponibilidad = consulta_val("SELECT * FROM reservas_juntas WHERE id_sala ='$id_sala' and dia = '$dia'");
+	$datas      = "data-tipo='total' data-horainicio='$hora_inicio_turno' data-horafin='$hora_fin_turno'";
+	$horas_data = "data-hrsIn='$hrs_inicio' data-minIn='$min_inicio' data-hrsFin='$hrs_fin' data-minFin='$min_fin'";
+	$datas_con  = "data-tipo='con' data-horainicio='$hora_inicio_turno' data-horafin='$hora_fin_turno' $horas_data";
 	if ($consulta_disponibilidad == 0 ) {
 		?>
 		<div style="height:22px;width:100%;background-color:"><?php
@@ -50,7 +53,7 @@
 			}
 			if ($hrs_inicio >= $rango_redon_for) {
 			?>
-			<div class="disponible" data-tipo='total' data-horainicio="<?php echo $hora_inicio_turno ?>" data-horafin="<?php echo $hora_fin_turno ?>" style="display:inline-block;height:30px;width:100%;background-color:brown;margin-right:-4px;border:1px solid black">
+			<div class="disponible" <?php echo $datas ?> style="display:inline-block;height:30px;width:100%;background-color:brown;margin-right:-4px;border:1px solid black">
 			  	<p class="p_hora_mens" style=>Disponible</p>
 			</div>
 			<?php
@@ -79,8 +82,8 @@
 			}
 			if ($hrs_inicio < $rango_redon_for && $tiempo_fin <= $rango_redon_for) {
 			?>
-			<div class="disponible" data-tipo='total' data-horainicio="<?php echo $hora_inicio_turno ?>" data-horafin="<?php echo $hora_fin_turno ?>" style="display:inline-block;height:30px;width:<?php echo $width_ultimo ?>%;background-color:brown;margin-right:-4px;border:1px solid black">
-			  	<p class="p_hora_mens" style=>Dispbbbonible</p>
+			<div class="disponible" <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $width_ultimo ?>%;background-color:brown;margin-right:-4px;border:1px solid black">
+			  	<p class="p_hora_mens" style=>Disponible</p>
 			</div>
 			<?php
 			}

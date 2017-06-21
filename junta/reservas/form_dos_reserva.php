@@ -85,42 +85,44 @@
         <h3 class="modal-title" id="myModalLabel">Defina el horario de su reserva</h3>
       </div>
       <div class="modal-body">
-        <div class="row" style="padding:15px">
-          <div class="col-xs-4" style="margin-right: -15px">
+        <div class="row" style="padding:13px">
+          <div class="col-md-4" style="margin-right: -15px;margin-top:12px">
             <label style="font-size:1.3em;font-weight: lighter"><span class="icon-play2"></span> Comienza </label>
           </div>
-          <div class="col-xs-3">
-            <select name="" id="" class="form-control input_blue select_inicio_hrs">
+          <div class="col-md-3" style="margin-top:12px">
+            <select name="" id="" class="form-control input_blue select_inicio_hrs select_horario_ajax">
                 <option value="">Hrs</option>
             </select>
           </div>
-          <div class="col-xs-3">
+          <div class="col-md-3" style="margin-top:12px">
             <select name="" id="" class="form-control input_blue select_inicio_min select_horario_ajax">
                 <option value="">Min</option>
               </select>
           </div>
         </div>
-        <div class="row" style="padding:15px">
-          <div class="col-xs-4" style="margin-right: -15px">
+        <div class="row" style="padding:13px">
+          <div class="col-md-4" style="margin-right: -15px;margin-top:12px">
             <label style="font-size:1.3em;font-weight: lighter"><span class="icon-stop"></span> Termina </label>
           </div>
-          <div class="col-xs-3">
+          <div class="col-md-3" style="margin-top:12px">
             <select name="" id="" class="form-control input_blue select_fin_hrs select_horario_ajax">
                 <option value="">Hrs</option>
             </select>
           </div>
-          <div class="col-xs-3">
+          <div class="col-md-3" style="margin-top:12px">
             <select name="" id="" class="form-control input_blue select_fin_min select_horario_ajax">
                 <option value="">Min</option>
               </select>
           </div>
         </div>
-        
+        <div class="row">
+          <div class="col-md-12 mens_horario"></div>
+        </div>
   
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-close" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em"> Cerrar Ventana</button>
-        <button type="button" class="btn btn-primary btn_registrar" style="font-weight:bold;font-size: 1.1em">Registrar Reserva</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em">Aceptar</button>
       </div>
     </div>
   </div>

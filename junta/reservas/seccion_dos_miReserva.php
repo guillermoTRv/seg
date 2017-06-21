@@ -11,13 +11,13 @@
 	}
 	if ($oper_b != 0) {
 	?>
-	<div class='disponible' style="display:inline-block;height:30px;width:<?php echo $oper_b ?>%;background-color:brown;margin-right:-5px;border:1px solid black">
-		  	<p class="p_hora_mens"><?php echo $hrs_inicio."-".$rango_redon_for."-".round($oper_b,3) ?></p>
+	<div class='disponible' <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $oper_b ?>%;background-color:brown;margin-right:-5px;border:1px solid black">
+		  	<p class="p_hora_mens">Disponible</p>
 	</div>
 	<?php
 	}
 	?>
-	<div class='disponible' style="display:inline-block;height:30px;width:<?php echo $oper_f ?>%;background-color:purple;margin-right:-5px;border:1px solid black">
-		  	<p class="p_hora_mens"><?php echo $hrs_fin."-".$rango_redon_for."-".round($oper_f,3) ?></p>
+	<div class='disponible' <?php echo $datas_con ?> style="display:inline-block;height:30px;width:<?php echo $oper_f ?>%;background-color:purple;margin-right:-5px;border:1px solid black">
+		  	<p class="p_hora_mens">R</p>
 	</div>
 	
