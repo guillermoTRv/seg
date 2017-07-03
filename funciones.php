@@ -1,6 +1,6 @@
 <?php 
 	
-	$type_produccion = "serv";
+	$type_produccion = "local";
 
 	if ($type_produccion == "local") {
 		$ruta = "http://localhost/seg/";

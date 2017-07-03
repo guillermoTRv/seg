@@ -44,13 +44,13 @@
                 <hr>
                 <div class="menu_pr">
                     <li class="li_nav">
-                        <a class="title_a" data="?cl=listado"><span class="icon-library"></span> Vista Clientes</a>
+                        <a class="title_a" href="./menu_inicial.php" data=""><span class="icon-library"></span> Vista Clientes</a>
                     </li> 
                     <li class="nav">
-                        <a class="title_a"><span class=" icon-list2"></span> Listado Clientes</a>
+                        <a class="title_a" href="?cont=listado"><span class=" icon-list2"></span> Listado Clientes</a>
                     </li>
                     <li class="nav">
-                        <a class="title_a"><span class=" icon-upload3"></span> Alta Clientes</a>
+                        <a class="title_a" href="?cont=alta"><span class=" icon-upload3"></span> Alta Clientes</a>
                     </li>
                     <li class="nav">
                         <a class="title_a"><span class="icon-cogs"></span> Modificar Clientes</a>
@@ -74,31 +74,9 @@
             include("vistas_principales/nav_datos.php");
         ?>
         <div class="container">   
-                 <div style="margin-top:20px">
+                <div style="margin-top:20px">
                         <div class="row">
-                          <p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>
-                          <div class="col-md-10" id="clientes">
-                                
-                                <!--<a href="process_cliente.php?cl=0" class="link_black">
-                                    <div class="panel-body panel_cl">
-                                         <h4>Información en general todos los clientes</h4> 
-                                    </div>    
-                                </a>-->
-                                <?php 
-                                    $q_clientes =  mysqli_query($q_sec,"SELECT * FROM clientes order by id_cliente asc");
-                                    while ($array = mysqli_fetch_array($q_clientes)) {
-                                           $id_cliente   = $array['id_cliente'];
-                                           $name_cliente = $array['name_cliente'];
-                                           echo "
-                                                <a href='process_cliente.php?cl=$id_cliente' class='link_black'>
-                                                    <div class='panel-body panel_cl'>
-                                                        <h4>$name_cliente</h4>
-                                                    </div>    
-                                                </a>
-                                           ";
-                                    }
-                                ?>
-                          </div>  
+                            <?php include("controlador_menu_inicial.php"); ?>  
                         </div>
                 </div>
         </div>

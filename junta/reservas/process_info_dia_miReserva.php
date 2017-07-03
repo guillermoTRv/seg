@@ -2,11 +2,7 @@
 	include("../funciones.php");
 	$id_sala = sanitizar_get("sala");
 	$dia   = sanitizar_get("fecha");
-	function saber_dia($nombredia) {
-	    $dias = array('', 'Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
-	    $fecha_l = $dias[date('N', strtotime($nombredia))];
-	    return $fecha_l;
-	}
+
     
     $hrs_inicio = sanitizar_get("hrs_ini");
     $min_inicio = sanitizar_get("min_ini");

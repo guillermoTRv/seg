@@ -21,3 +21,9 @@ tambien tener la opcion para que al terminar una reservacion se pueda hacer otra
 ##validacion para que no me acepte en caso de que se seleccione la ultima hora, minutos 00 iguales carajo
 
 ##si la sala se reserva cuando se envia el form validar desde el pros
+
+##considerar que no se podria reservar salas inmediatamente despues de que una haya sido reservada
+
+##contemplar que se podria ver como 12:12 12:40 y asi 
+
+##mensajes cuando se da de alta una hora- que indique en el cuadro del horario la hora en que epezara y en la que comezara su junta

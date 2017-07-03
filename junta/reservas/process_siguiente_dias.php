@@ -1,19 +1,18 @@
 <?php 
 	include("../funciones.php");
-	$id_sala = sanitizar("sala_txt");
+	$id_sala    = sanitizar_get("valor_sala");
+  $primer_dia = sanitizar_get("primer_dia");
   
-
-
-      $dia           = date("d");
+      $dia           = substr($primer_dia,8,2);
       $year          = date("Y");
-      $month         = date("n");
+      echo $month         = substr($primer_dia,5,2);
       if ($month < 10) {
-        $month = "0".$month;
+        //$month = "0".$month;
       }
       $ultimoDiaMes  = date("d",(mktime(0,0,0,$month+1,1,$year)-1));  
-      $fin_conteo    = $dia + 7;
+      $fin_conteo    = $dia + 9;
       $i_next        = 0;
-      for ($i=$dia; $i < $fin_conteo; $i++) {
+      for ($i=$dia+2; $i < $fin_conteo; $i++) {
         
         if ($i <= $ultimoDiaMes) {
           $fecha_calendario = $year."-".$month."-".$i;

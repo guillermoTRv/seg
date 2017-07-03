@@ -1,22 +1,32 @@
 <style>
-  .caja_hora{margin-right:-4px;display:inline-block;height:100px;width:10%;background-color:white;border:1px solid black;}
-  .p_hora{color:black}
-  .p_hora_mens{color:white;font-weight: bold;margin-left:5px}
+  #calendar {
+    font-family:Arial;
+    font-size:12px;
+  }
+  #calendar caption {
+    text-align:left;
+    padding:5px 10px ;
+    background-color:#003366;
+    color:#fff;
+    font-weight:bold;
+}
 
-  .caja_nueva{display:inline-block;height:100px;width:12.3%;background:white;margin-right:1px;}
-  .caja_nueva_right{display:inline-block;height:100px;width:12.3%;background:white;}
-  .flecha    {display:inline-block;height:30px;width:6.6%;border-right:1px solid black;text-align:center;}
-  .caja_dia
-    {
-        display:inline-block;width:12.8%;height:100px;background-color:white;border:1px solid black;color:rgba(1,1,1,.8);font-weight: bold;padding:4px
-    }
-    @media screen and (max-width:800px){
-        .caja_dia
-        {
-            display:inline-block;width:12%;height:100px;background-color:white;border:1px solid black;color:rgba(1,1,1,.8);font-weight: bold;padding:4px
-        }
-    }
+#calendar th {
+    background-color:#006699;
+    color:#fff;
+    width:65px;
+    text-align: center;
+}
 
+#calendar td {
+    text-align:center;
+    padding:8px 10px;
+    background-color:#6e6e6e;
+}
+
+#calendar .hoy {
+    background-color:red;
+}
 
 
 </style>
@@ -26,44 +36,19 @@
 
 
 
-<div style="width: 100%">
-  <div style="display:inline-block;color: black;">
-    <span class="icon-arrow-left" style="background-color:white;font-size: 1.1em;border-radius:50%;padding:5px"></span>
-  </div>
-  <div class="dias_semana" style="display:inline">
-   
-  </div>
-  <!--<div class='caja_dia'>L <br> 13 <p style="color:green;"><strong>3R</strong></p></div>
-  <div class="caja_dia">M <br> 14 <p style="color:blue;"><strong>L</strong></p></div>-->
-  <div style="display:inline-block;color: black;">
-    <span class="icon-arrow-right" style="background-color:white;font-size: 1.1em;border-radius:50%;padding:5px"></span>
+<div class="row">
+  <div class="col-md-6"> 
+    <div class="input-group">
+      <span class="input-group-addon input-lg icon-calendar "></span>
+      <input type="text" class="form-control input-lg input_fecha_ventana" placeholder="Seleccione Fecha" aria-describedby="basic-addon1" style="cursor: pointer;font-weight: bold;">
+    </div>
   </div>
 </div>
-
-
-
 <p  class="horas_disponibilidad"></p>
 <div class="horarios">
   
 </div>
-<form class="form-horizontal form_alta_usuario" method="POST" enctype="multipart/form-data" style="margin-top:27px">
-    <!--<div class="form-group">
-        <label class="col-lg-2 col-md-3 control-label" style="font-size:1.3em;font-weight: lighter"><span class="icon-play2"></span> Comienza </label>
-        <div class="col-sm-6">
-          <select name="" id="" class="form-control input_blue select_inicio_hora">
-            <option value="">Seleccione un día</option>
-          </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-lg-2 col-md-3 control-label" style="font-size:1.3em;font-weight: lighter"><span class="icon-stop"></span> Termina </label>
-        <div class="col-sm-6">
-            <select name="" id="" class="form-control input_blue select_fin_hora">
-            <option value=""></option>
-          </select>
-        </div>
-    </div>-->
-    
+<form class="form-horizontal form_alta_usuario" method="POST" enctype="multipart/form-data" style="margin-top:27px"> 
     <div class="form-group">
         <div class="col-md-6">
             <button type="button" class="btn btn-default btn-block btn_sig_alta_sala" style="border:2px solid rgb(8,141,198);font-size:1.2em;font-weight:bold;">Siguiente - Especificaciones</button>
@@ -75,6 +60,13 @@
 <button type="button" class="btn btn-primary btn-lg btn_emergente" data-toggle="modal" data-target="#myHorarios" style="display: none">
   Launch demo modal
 </button>
+<button type="button" class="btn btn-primary btn-lg btn_emergente_fecha" data-toggle="modal" data-target="#myfecha" style="display: none">
+  Launch demo modal
+</button>
+<button type="button" class="btn btn-primary btn-lg btn_emergente_fechaSe" data-toggle="modal" data-target="#myHorariosSe" style="display: none">
+  Launch demo modal
+</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myHorarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -119,6 +111,210 @@
           <div class="col-md-12 mens_horario"></div>
         </div>
   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-close" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em"> Cerrar Ventana</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myHorariosSe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="margin-top:100px;">
+    <div class="modal-content" style="margin:20px;background-color: black;border: 1px solid rgb(8,141,198);-webkit-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);-moz-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:white" aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Defina el horario de su reserva</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row" style="padding:13px">
+          <div class="col-md-4" style="margin-right: -15px;margin-top:12px">
+            <label style="font-size:1.3em;font-weight: lighter"><span class="icon-play2"></span> Comienza </label>
+          </div>
+          <div class="col-md-3" style="margin-top:12px">
+            <select name="" id="" class="form-control input_blue select_inicio_hrsSe select_horario_ajaxSe">
+                <option value="">Hrs</option>
+            </select>
+          </div>
+          <div class="col-md-3" style="margin-top:12px">
+            <select name="" id="" class="form-control input_blue select_inicio_minSe select_horario_ajaxSe">
+                <option value="">Min</option>
+              </select>
+          </div>
+        </div>
+        <div class="row" style="padding:13px">
+          <div class="col-md-4" style="margin-right: -15px;margin-top:12px">
+            <label style="font-size:1.3em;font-weight: lighter"><span class="icon-stop"></span> Termina </label>
+          </div>
+          <div class="col-md-3" style="margin-top:12px">
+            <select name="" id="" class="form-control input_blue select_fin_hrsSe select_horario_ajaxSe">
+                <option value="">Hrs</option>
+            </select>
+          </div>
+          <div class="col-md-3" style="margin-top:12px">
+            <select name="" id="" class="form-control input_blue select_fin_minSe select_horario_ajaxSe">
+                <option value="">Min</option>
+              </select>
+          </div>
+        </div>
+        <div class="inputs">  
+        </div>
+        <div class="row">
+          <div class="col-md-12 mens_horarioSe" style="text-align: center;"></div>
+        </div>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-close" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em"> Cerrar Ventana</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myfecha" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="margin-top:100px;">
+    <div class="modal-content" style="margin:20px;background-color: black;border: 1px solid rgb(8,141,198);-webkit-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);-moz-box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);box-shadow: 0px 0px 12px 5px rgba(0,155,219,1);">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:white" aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel"><p class="name_sala_ventana" style="display:inline"></p> - Seleccione el día de su reserva</h3>
+      </div>
+      <div class="modal-body">
+        <?php $month=date("n"); ?>
+        <div class="calendario" data="<?php echo $month ?>">  
+          <?php
+
+            # definimos los valores iniciales para nuestro calendario
+
+
+            $year=date("Y");
+
+            $diaActual=date("j");
+
+             
+
+            # Obtenemos el dia de la semana del primer dia
+
+            # Devuelve 0 para domingo, 6 para sabado
+
+            $diaSemana=date("w",mktime(0,0,0,$month,1,$year));
+
+            # Obtenemos el ultimo dia del mes
+
+            $ultimoDiaMes=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
+
+             
+
+            $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+
+            "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+
+          ?>
+          <center>
+            
+              <table id="calendar">
+
+                <caption style="margin-top:20px"><h4><?php echo $meses[$month]." ".$year?><span class=" icon-circle-right siguiente_mes" style="cursor:pointer;margin-left:15px"></span></h4></caption>
+
+                <tr>
+
+                  <th>Lun</th>
+                  <th>Mar</th>
+                  <th>Mie</th>
+                  <th>Jue</th>
+                  <th>Vie</th>
+                  <th>Sab</th>
+                  <th>Dom</th>
+
+                </tr>
+
+                <tr bgcolor="silver">
+
+                  <?php
+
+                  $last_cell=$diaSemana+$ultimoDiaMes;
+
+                  // hacemos un bucle hasta 42, que es el máximo de valores que puede
+
+                  // haber... 6 columnas de 7 dias
+
+                  for($i=1;$i<=42;$i++)
+
+                  {
+
+                    if($i==$diaSemana)
+
+                    {
+
+                      // determinamos en que dia empieza
+
+                      $day=1;
+
+                    }
+
+                    if($i<$diaSemana || $i>=$last_cell)
+
+                    {
+
+                      // celca vacia
+
+                      echo "<td>&nbsp;</td>";
+
+                    }else{
+
+                      // mostramos el dia
+
+                      if($day==$diaActual){
+                        $fecha_calendario_data = $year."-".$month."-".$day;
+                        echo "<td data='$fecha_calendario_data' style='background-color:#A4A4A4' class='caja_dia'>$day</td>";
+                      }
+
+                      else{
+
+                        if ($day < $diaActual) {
+                          echo "<td>$day</td>";                        
+                        }
+                        if ($day > $diaActual) {
+                          $fecha_calendario_data = $year."-".$month."-".$day;
+                          echo "<td data='$fecha_calendario_data' style='background-color:#A4A4A4' class='caja_dia'>$day</td>";  
+                        }
+
+                      }
+
+                        
+
+                      $day++;
+
+                    }
+
+                    // cuando llega al final de la semana, iniciamos una columna nueva
+
+                    if($i%7==0)
+
+                    {
+
+                      echo "</tr><tr>\n";
+
+                    }
+
+                  }
+
+                ?>
+
+                </tr>
+
+              </table>
+            
+          </center>
+        </div>
+      <div class="row">
+      <p class="mensaje_fecha" style="text-align:center;margin-top: 15px">
+        
+      </p>
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-close" data-dismiss="modal" style="font-weight:bold;font-size: 1.1em"> Cerrar Ventana</button>

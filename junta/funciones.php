@@ -95,5 +95,39 @@
 		return $var_sn;
 	}
 
+
+	function saber_dia($nombredia) {
+		$dias = array('', 'Lunes','Martes','Miercoles','Jueves','Viernes','Sabado', 'Domingo');
+		$fecha_l = $dias[date('N', strtotime($nombredia))];
+		return $fecha_l;
+	}
+	function mes_castellano($mes_valor){
+		$meses = array(Enero=>'01', Febrero=>'02', Marzo=>'03', Abril=>'04', Mayo=>'05',Junio=>'06',Julio=>'07',Agosto=>'08',Septiembre=>'09',Octubre=>'10',Noviembre=>'11',Diciembre=>'12');
+		foreach($meses as $mes_nombre=>$mes_num){
+			if ($mes_valor == $mes_num) {
+				echo $mes_nombre;
+				return false;
+			}
+		}
+	}
+	function mes($mes_valor){
+		$meses = array(Enero=>'01', Febrero=>'02', Marzo=>'03', Abril=>'04', Mayo=>'05',Junio=>'06',Julio=>'07',Agosto=>'08',Septiembre=>'09',Octubre=>'10',Noviembre=>'11',Diciembre=>'12');
+		foreach($meses as $mes_nombre=>$mes_num){
+			if ($mes_valor == $mes_num) {
+				return $mes_nombre;
+				return false;
+			}
+		}
+	}
+	function tiempo($tiempo){
+		if ($tiempo < 10) {
+			$tiempo = "0".$tiempo;
+			return $tiempo;
+		}
+		else{
+			return $tiempo;
+		}
+	}
+	$esp = "<br>";
 	
 ?>

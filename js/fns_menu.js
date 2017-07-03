@@ -4,7 +4,7 @@ $(document).keydown(function(event){
     var activo_menu = $(".activo_menu").length;
     if (activo_menu == 0) {        
         var select =  $(".select").length;
-        event.preventDefault();  
+        //event.preventDefault();  
         if (event.which == 40) {
             if (select == 0) {
                 $("#clientes .panel-body:first").removeClass("panel_cl");

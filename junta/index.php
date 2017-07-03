@@ -50,10 +50,10 @@
                   <div class="form-group" style="margin-top:37px;margin-bottom:20px">
                     <div class="col-sm-offset-4 col-sm-6">
                       <button type="button" class="btn btn-default btn-block btn_login" style="border:2px solid rgb(8,141,198);font-size:1.2em;font-weight:bold;">Ingresar</button>
-                       <div class="mens" style="font-size:1.1em;font-weight: bold;"></div>  
+                       <div class="mens" style="font-size:1.1em;font-weight: bold;"></div> 
+                       <br><h4 style="font-weight: bold;"><a href="pantalla.php">Demo Pantallas estatus de las salas de juntas</a></h4>
                     </div>
                   </div>
-
                 </form>
                
             </div>
