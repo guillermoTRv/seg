@@ -45,28 +45,29 @@
 		if($vali == 0){
 			?>
 				<h4><span class=" icon-pushpin"></span> Reserva más proxima - <?php echo $mens_restante ?></h4>
-				<p class="p_info">Sala: <?php echo $sala ?> - Fecha: <?php echo saber_dia($fecha_cons)." $dia de ".mes($mes) ?> </p>
+				<p >Sala: <?php echo $sala ?> - Fecha: <?php echo saber_dia($fecha_cons)." $dia de ".mes($mes) ?> </p>
 				
 			<?php			
 		}
 		else{
 			?>
 				<h4><span class=" icon-pushpin"></span> Sala: <?php echo $sala." - ".$mens_restante ?> </h4>
-				<p class="p_info">Fecha: <?php echo saber_dia($fecha_cons)." $dia de ".mes($mes) ?></p>
+				<p>Fecha: <?php echo saber_dia($fecha_cons)." $dia de ".mes($mes) ?></p>
 			<?php
 		}
 
 		?>
-		<p class="p_info"><span class="icon-play2"></span> Comienza:<?php echo $hora_armada_inicio ?> - &nbsp;<span class="icon-stop"></span> Termina <?php echo $hora_armada_fin ?></p>
+		<p><span class="icon-play2"></span> Comienza:<?php echo $hora_armada_inicio ?> - &nbsp;<span class="icon-stop"></span> Termina <?php echo $hora_armada_fin ?></p>
 		<!--<h4><span class="icon-history"></span>mes_restante</h4>-->
-		<p class="p_info"><span class="glyphicon glyphicon-list-alt"></span> Detalles: <?php echo $detalles ?></p>
-		<p class="p_info"><span class="glyphicon glyphicon-apple"></span> 
+		<p><span class="glyphicon glyphicon-list-alt"></span> Detalles: <?php echo $detalles ?></p>
+		<p><span class="glyphicon glyphicon-apple"></span> 
 			Snaks: 
 			<?php 
 				if($snaks == "si" ){include("lista_snaks.php");}
 				if($snaks == "no"){ echo "No";}	
 			?> 
-		</p><!--
+		</p>
+		<p>Cancelar reservacion - Modificar reservacion</p><!--
 		<p>¿Todo listo para la junta? <span class="glyphicon glyphicon-unchecked"></span> Si - <span class="glyphicon glyphicon-unchecked"></span> No</p>
 		<p>Usted dejo una nota de que es lo que hacia falta</p>
 		<br>-->

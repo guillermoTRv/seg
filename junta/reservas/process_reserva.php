@@ -15,10 +15,17 @@
 	$tiempo_inicio = $hora_inicio+($min_inicio/60);
 	$tiempo_fin    = $hora_fin+($min_fin/60);
 
-
+	if ($hora_inicio < 10) {
+		$hora_inicio = "0".$hora_inicio;
+	}
+	if ($min_inicio < 10) {
+		$min_inicio = "0".$min_inicio;
+	}
+    $fecha_fregona = $fecha." ".$hora_inicio.":".$min_inicio.":00";
+ 
 
 	if ($pass_consulta == $pass_xc) {
-		$insertar_reserva = consulta_gen("INSERT INTO reservas_juntas(id_sala,id_usuario,dia,hora_inicio,min_inicio,tiempo_inicio,hora_finalizacion,min_fin,tiempo_fin,snaks,detalles,estado) VALUES('$id_sala','$id_usuario','$fecha','$hora_inicio','$min_inicio','$tiempo_inicio','$hora_fin','$min_fin','$tiempo_fin','$conf_snaks','$detalles_txt','en proceso')");
+		$insertar_reserva = consulta_gen("INSERT INTO reservas_juntas(id_sala,id_usuario,dia,hora_inicio,min_inicio,tiempo_inicio,fecha_inicio,hora_finalizacion,min_fin,tiempo_fin,snaks,detalles,estado) VALUES('$id_sala','$id_usuario','$fecha','$hora_inicio','$min_inicio','$tiempo_inicio','$fecha_fregona','$hora_fin','$min_fin','$tiempo_fin','$conf_snaks','$detalles_txt','en proceso')");
 		if ($conf_snaks == "si") {
 			$id_reserva = consulta_tx("SELECT id_reserva FROM reservas_juntas WHERE id_usuario = '$id_usuario' order by id_reserva desc","id_reserva");
 			$snak_first = sanitizar("snak_last");

@@ -27,3 +27,11 @@ tambien tener la opcion para que al terminar una reservacion se pueda hacer otra
 ##contemplar que se podria ver como 12:12 12:40 y asi 
 
 ##mensajes cuando se da de alta una hora- que indique en el cuadro del horario la hora en que epezara y en la que comezara su junta
+
+##el usuario podra evaluar al final sus juntas
+
+##en todos los calendarios fallara cuando el siguiente mes sea en un año nuevo 
+
+##el calendario de administrador ponerle una restriccion para que pueda ir atras solo a los meses en los que trabajo el sistema
+
+##paginaciones para el numero de juntas hechas por un usuario y para el numero de reservaciones hechas en una sala, esto en informacion modificiacion baja usuario y salas

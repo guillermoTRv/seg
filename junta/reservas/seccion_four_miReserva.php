@@ -15,9 +15,9 @@
 	</div>-->
 	<?php
 	?>
-	<div class='disponible' <?php echo $datas_con ?> style="display:inline-block;height:30px;width:<?php echo $oper_e ?>%;background-color:purple;margin-right:-5px;border:1px solid black">
-		  	<p class="p_hora_mens">R</p>
+	<div class='disponible' <?php echo $datas_con ?> style="display:inline-block;height:30px;width:<?php echo $oper_e ?>%;background-color:rgb(129, 218, 245);margin-right:-5px;border:1px solid black;padding-left:2px;padding-top: 1px">
+		  	<p class="p_hora_mens"><span class='icon-user-check'></span></p>
 	</div>
-	<div class='disponible' <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $oper_g ?>%;background-color:brown;margin-right:-5px;border:1px solid black">
-		  	<p class="p_hora_mens">Disponible</p>
+	<div class='disponible' <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $oper_g ?>%;background-color:brown;margin-right:-5px;border:1px solid black;padding-left:2px;padding-top: 1px">
+		  	<p class="p_hora_mens"><span class='icon-checkmark'></span></p>
 	</div>

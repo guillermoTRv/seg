@@ -21,7 +21,7 @@
 		$bd_s          = "gruposel_juntas";
 	}
 
-	$nombre_mi_empresa = "Gideas";
+	$empresa = "Su Empresa";
 
 
 	global $q_sec;
@@ -100,6 +100,11 @@
 		$dias = array('', 'Lunes','Martes','Miercoles','Jueves','Viernes','Sabado', 'Domingo');
 		$fecha_l = $dias[date('N', strtotime($nombredia))];
 		return $fecha_l;
+	}
+	function num_dia($dia_num){
+		$diasnum = array('', '1','2','3','4','5','6','7');
+		$fecha_num = $diasnum[date('N', strtotime($dia_num))];
+		return $fecha_num;
 	}
 	function mes_castellano($mes_valor){
 		$meses = array(Enero=>'01', Febrero=>'02', Marzo=>'03', Abril=>'04', Mayo=>'05',Junio=>'06',Julio=>'07',Agosto=>'08',Septiembre=>'09',Octubre=>'10',Noviembre=>'11',Diciembre=>'12');

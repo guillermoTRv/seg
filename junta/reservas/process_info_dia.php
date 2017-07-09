@@ -3,6 +3,8 @@
 	include("espacios.php");
 	$id_sala =  sanitizar("sala_txt");
 	$dia     =  sanitizar("dia_txt");
+	$valor_info = sanitizar("valor_info");
+	
 
 	$consulta_horarios = consulta_array("SELECT hora_inicio,hora_fin FROM salas_juntas WHERE id_sala = '$id_sala'");
 	$hora_inicio_turno = $consulta_horarios['hora_inicio'];
@@ -21,7 +23,11 @@
 		$mensaje_horarios  = "La sala esta disponible para cualquier hora en turno";
 		//$horas = for ($i=$hora_inicio; $i < $hora_fin ; $i++) { echo "<br>".$i;}
 		echo "<h3>$mensaje_horarios</h3>";
-		echo "<p margin-bottom:10px;>Espacios marrón disponibles - Click en ellos</p>";
+		if ($valor_info == "si") {
+		}
+		else{
+			echo "<p margin-bottom:10px;>Espacios marrón disponibles - Click en ellos</p>";
+		}
 		
 		?>
 		<div class="cajota"><div style="height:22px;width:100%;background-color:"><?php
@@ -36,8 +42,8 @@
 		?>
 		</div>
 		<div style="height:20px;width:100%;background-color:">
-			<div class='disponible' data-tipo='total' data-horainicio="<?php echo $hora_inicio_turno ?>" data-horafin="<?php echo $hora_fin_turno ?>" style="display:inline-block;height:30px;width:100%;background-color:brown;margin-right:-4px;border:1px solid black">
-			  	<p class="p_hora_mens">Disponible</p>
+			<div class='disponible' data-tipo='total' data-horainicio="<?php echo $hora_inicio_turno ?>" data-horafin="<?php echo $hora_fin_turno ?>" style="display:inline-block;height:30px;width:100%;background-color:brown;margin-right:-4px;padding-left: 2px;padding-top: 1px">
+			  	<p class="p_hora_mens"><span class='icon-checkmark'></span></p>
 			</div>
 		</div>
 		<br><?php
@@ -53,17 +59,21 @@
 		?>
 		</div>
 		<div style="height:20px;width:100%;">
-			<div class="disponible" data-tipo='total' data-horainicio="<?php echo $hora_inicio_turno ?>" data-horafin="<?php echo $hora_fin_turno ?>" style="display:inline-block;height:30px;width:<?php echo $width_ultimo ?>%;background-color:brown;margin-right:-4px;border:1px solid black">
-			  	<p class="p_hora_mens" style=>Disponible</p>
+			<div class="disponible" data-tipo='total' data-horainicio="<?php echo $hora_inicio_turno ?>" data-horafin="<?php echo $hora_fin_turno ?>" style="display:inline-block;height:30px;width:<?php echo $width_ultimo ?>%;background-color:brown;margin-right:-4px;padding-left:2px;padding-top:1px">
+			  	<p class="p_hora_mens"><span class='icon-checkmark'></span></p>
 			</div>
 		</div></div>
-		<br><?php
+		<?php
 		
 	}
 	else{
 		$memo = 0;
 		echo "<h3>Ocupada para los siguientes horarios</h3>";
-		echo "<p margin-bottom:10px;>Espacios marrón disponibles - Click en ellos</p>";
+		if ($valor_info == "si") {
+		}
+		else{
+			echo "<p margin-bottom:10px;>Espacios marrón disponibles - Click en ellos</p>";
+		}
 		?>
 		<div class="cajota"><div style="height:22px;width:100%;background-color:"><?php
 			for ($i=$hora_inicio_turno; $i < $rango_redon_for ; $i++) { 

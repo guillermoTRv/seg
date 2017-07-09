@@ -1,38 +1,10 @@
 <style>
-  #calendar {
-    font-family:Arial;
-    font-size:12px;
-  }
-  #calendar caption {
-    text-align:left;
-    padding:5px 10px ;
-    background-color:#003366;
-    color:#fff;
-    font-weight:bold;
-}
-
-#calendar th {
-    background-color:#006699;
-    color:#fff;
-    width:65px;
-    text-align: center;
-}
-
-#calendar td {
-    text-align:center;
-    padding:8px 10px;
-    background-color:#6e6e6e;
-}
-
-#calendar .hoy {
-    background-color:red;
-}
 
 
 </style>
 <a href="" class="regresar_dos_reserva" style="font-weight: bold;"><span class="icon-reply"></span> Regresar</a>
 <h3>2 - Selección de Fecha y Hora </h3>
-<h3 style="font-weight:bold;" class="name_sala_form"></h3>
+<h4 style="font-weight:bold;" class="name_sala_form"></h4>
 
 
 
@@ -45,9 +17,10 @@
   </div>
 </div>
 <p  class="horas_disponibilidad"></p>
-<div class="horarios">
+<div class="horarios" style="font-size:1.1em">
   
 </div>
+<br>
 <form class="form-horizontal form_alta_usuario" method="POST" enctype="multipart/form-data" style="margin-top:27px"> 
     <div class="form-group">
         <div class="col-md-6">
@@ -77,6 +50,7 @@
         <h3 class="modal-title" id="myModalLabel">Defina el horario de su reserva</h3>
       </div>
       <div class="modal-body">
+        <span>Seleccione primero la hora</span>
         <div class="row" style="padding:13px">
           <div class="col-md-4" style="margin-right: -15px;margin-top:12px">
             <label style="font-size:1.3em;font-weight: lighter"><span class="icon-play2"></span> Comienza </label>
@@ -129,6 +103,7 @@
         <h3 class="modal-title" id="myModalLabel">Defina el horario de su reserva</h3>
       </div>
       <div class="modal-body">
+        <span>Seleccione primero la hora</span>
         <div class="row" style="padding:13px">
           <div class="col-md-4" style="margin-right: -15px;margin-top:12px">
             <label style="font-size:1.3em;font-weight: lighter"><span class="icon-play2"></span> Comienza </label>
@@ -186,41 +161,27 @@
         <?php $month=date("n"); ?>
         <div class="calendario" data="<?php echo $month ?>">  
           <?php
-
             # definimos los valores iniciales para nuestro calendario
-
-
             $year=date("Y");
 
             $diaActual=date("j");
-
-             
-
             # Obtenemos el dia de la semana del primer dia
-
             # Devuelve 0 para domingo, 6 para sabado
 
             $diaSemana=date("w",mktime(0,0,0,$month,1,$year));
-
             # Obtenemos el ultimo dia del mes
 
             $ultimoDiaMes=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
 
-             
-
             $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
-
             "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-
           ?>
           <center>
             
               <table id="calendar">
 
                 <caption style="margin-top:20px"><h4><?php echo $meses[$month]." ".$year?><span class=" icon-circle-right siguiente_mes" style="cursor:pointer;margin-left:15px"></span></h4></caption>
-
                 <tr>
-
                   <th>Lun</th>
                   <th>Mar</th>
                   <th>Mie</th>
@@ -228,23 +189,15 @@
                   <th>Vie</th>
                   <th>Sab</th>
                   <th>Dom</th>
-
                 </tr>
-
                 <tr bgcolor="silver">
-
                   <?php
 
                   $last_cell=$diaSemana+$ultimoDiaMes;
-
                   // hacemos un bucle hasta 42, que es el máximo de valores que puede
-
                   // haber... 6 columnas de 7 dias
-
                   for($i=1;$i<=42;$i++)
-
                   {
-
                     if($i==$diaSemana)
 
                     {
@@ -258,17 +211,20 @@
                     if($i<$diaSemana || $i>=$last_cell)
 
                     {
-
                       // celca vacia
-
                       echo "<td>&nbsp;</td>";
 
                     }else{
 
                       // mostramos el dia
-
                       if($day==$diaActual){
-                        $fecha_calendario_data = $year."-".$month."-".$day;
+                        if ($day < 10) {
+                          $day_pon = "0".$day;
+                        }
+                        else{
+                          $day_pon = $day;
+                        }
+                        $fecha_calendario_data = $year."-".$month."-".$day_pon;
                         echo "<td data='$fecha_calendario_data' style='background-color:#A4A4A4' class='caja_dia'>$day</td>";
                       }
 
@@ -278,36 +234,30 @@
                           echo "<td>$day</td>";                        
                         }
                         if ($day > $diaActual) {
-                          $fecha_calendario_data = $year."-".$month."-".$day;
+                                                  if ($day < 10) {
+                          $day_pon = "0".$day;
+                          }
+                          else{
+                            $day_pon = $day;
+                          }
+                          $fecha_calendario_data = $year."-".$month."-".$day_pon;
                           echo "<td data='$fecha_calendario_data' style='background-color:#A4A4A4' class='caja_dia'>$day</td>";  
                         }
 
                       }
 
-                        
-
                       $day++;
-
                     }
-
                     // cuando llega al final de la semana, iniciamos una columna nueva
-
                     if($i%7==0)
-
                     {
-
                       echo "</tr><tr>\n";
-
                     }
-
                   }
-
                 ?>
-
                 </tr>
 
               </table>
-            
           </center>
         </div>
       <div class="row">

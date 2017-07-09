@@ -5,31 +5,31 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label" style="font-size:1.3em;font-weight: lighter"><span class="glyphicon glyphicon-asterisk"></span>Nombre </label>
                     <div class="col-sm-6">
-                      <input type="text" name="nombre_txt" class="form-control input_blue" id="usuario" autocomplete="off" >
+                      <input type="text" name="nombre_txt" class="form-control input_blue nombre_txt" id="usuario" autocomplete="off" >
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" style="font-size:1.3em;font-weight: lighter"><span class="glyphicon glyphicon-asterisk"></span>Apellidos </label>
                     <div class="col-sm-6">
-                      <input type="text" name="apellidos_txt" class="form-control input_blue" id="usuario" autocomplete="off">
+                      <input type="text" name="apellidos_txt" class="form-control input_blue apellidos_txt" id="usuario" autocomplete="off">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" style="font-size:1.3em;font-weight: lighter"><span class="glyphicon glyphicon-user" style=""></span> Usuario</label>
                     <div class="col-sm-6">
-                      <input type="text" name="usuario_txt" class="form-control input_blue" id="usuario" autocomplete="off">
+                      <input type="text" name="usuario_txt" class="form-control input_blue usuario_txt" id="usuario" autocomplete="off">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" style="font-size:1.3em;font-weight: lighter"><span class="glyphicon glyphicon-envelope" style=""></span> Correo </label>
                     <div class="col-sm-6">
-                      <input type="mail" name="correo_txt" class="form-control input_blue" id="usuario" autocomplete="off">
+                      <input type="mail" name="correo_txt" class="form-control input_blue correo_txt" id="usuario" autocomplete="off">
                     </div>
                   </div>
                   <div class="form-group" style="margin-top:18px">
                     <label class="col-sm-2 control-label" style="font-size:1.3em;font-weight: lighter"><span class=" icon-key"></span> Password</label>
                     <div class="col-sm-6">
-                      <input type="password" name="password_txt" class="form-control input_blue" id="pass">
+                      <input type="password" name="password_txt" class="form-control input_blue password_txt" id="pass">
                     </div>
                   </div>
                  
@@ -43,7 +43,13 @@
                 </form>
 <script>
   $(document).on("click",".btn_alta_usuario",function(){
-    if ($(".input_blue").val() != ''){
+    var nombre = $(".nombre_txt").val(); 
+    var apellidos = $(".apellidos_txt").val(); 
+    var usuario = $(".usuario_txt").val(); 
+    var correo = $(".correo_txt").val();
+    var pass = $(".password_txt").val();
+    //alert(nombre+"-"+apellidos+""+usuario+""+correo+"")
+    if (nombre !='' && apellidos !='' && usuario!='' && correo !='' && pass !=''){
           $(".btn_alta_usuario").prop("disabled",true)
           $.ajax({
           type:"POST",
@@ -51,18 +57,25 @@
           data:$(".form_alta_usuario").serialize(),
           success:function(data){
             if (data == 00) {
-              $(".mens").html("El registro se llevo correctamente. Para ver la información del nuevo usuario dirigase al apartado listado de la información")
+              $(".mens").html("El registro se llevo correctamente. Para ver la información del nuevo usuario dirigase al apartado Información, Modificación y Baja de Usuarios <br> <a class='otro_user' href=''>Registrar otro usuario </a>")
+                return false
             }
             else{
-              alert("Ocurrio un error - Consulte a sistemas")
               $(".btn_alta_usuario").prop("disabled",false)
             }
+            alert(data)
             
           }
       });
     }
     else{
-      alert("llene todos los campos del formulario")
+      alert("Llene todos los campos del formulario")
     }
-  });
+  }) 
+  $(document).on("click",".otro_user",function(event){
+    event.preventDefault()
+    $(".input_blue").val("")
+    $(".mens").html("")
+    $(".btn_alta_usuario").prop("disabled",false)
+  })
 </script>

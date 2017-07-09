@@ -49,8 +49,8 @@
 			}
 			if ($hrs_inicio >= $rango_redon_for) {
 			?>
-			<div class="disponible" <?php echo $datas ?> style="display:inline-block;height:30px;width:100%;background-color:brown;margin-right:-4px;border:1px solid black">
-			  	<p class="p_hora_mens" style=>Disponible</p>
+			<div class="disponible" <?php echo $datas ?> style="display:inline-block;height:30px;width:100%;background-color:brown;margin-right:-4px;border:1px solid black;padding-left: 2px;padding-top: 1px">
+			  	<p class="p_hora_mens"><span class='icon-checkmark'></span></p>
 			</div>
 			<?php
 			}
@@ -78,8 +78,8 @@
 			}
 			if ($hrs_inicio < $rango_redon_for && $tiempo_fin <= $rango_redon_for) {
 			?>
-			<div class="disponible" <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $width_ultimo ?>%;background-color:brown;margin-right:-4px;border:1px solid black">
-			  	<p class="p_hora_mens" style=>Disponible</p>
+			<div class="disponible" <?php echo $datas ?> style="display:inline-block;height:30px;width:<?php echo $width_ultimo ?>%;background-color:brown;margin-right:-4px;border:1px solid black;padding-left:2px;padding-top: 1px">
+			  	<p class="p_hora_mens"><span class='icon-checkmark'></span></p>
 			</div>
 			<?php
 			}

@@ -64,7 +64,7 @@
 								$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 								$ancho_ultimo_brown = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
 								echo brown($ancho_primer_brow,"",$hora_inicio_turno,"00",$hora_ini,$min_ini);
-								echo blue($ancho_blue,"");
+								echo blue($ancho_blue,"",$hora_inicio_turno,"00",$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 								echo brown($ancho_ultimo_brown,"",$hora_inicio_turno,"00",$hora_ini,$min_ini);
 
 
@@ -83,7 +83,7 @@
 								$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 								$ancho_ultimo_brown = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
 								echo brown($ancho_primer_brow,"",$hora_inicio_turno,"00",$hora_ini,$min_ini);
-								echo blue($ancho_blue,"");
+								echo blue($ancho_blue,"",$hora_inicio_turno,"00",$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 								echo brown($ancho_ultimo_brown,"",$hora_inicio_turno,"00",$hora_ini,$min_ini);
 							}							
 							else{
@@ -104,7 +104,7 @@
 								$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 								$ancho_ultimo_brown = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
 								echo brown($ancho_primer_brown,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_ini);
-								echo blue($ancho_blue,"");
+								echo blue($ancho_blue,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 								echo brown($ancho_ultimo_brown,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_ini);
 							}
 							else{
@@ -125,7 +125,7 @@
 								$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 								$ancho_ultimo_brown = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
 								echo brown($ancho_primer_brown,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_ini);
-								echo blue($ancho_blue,"");
+								echo blue($ancho_blue,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 								echo brown($ancho_ultimo_brown,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_ini);
 							}
 							else{
@@ -159,7 +159,7 @@
 									$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 									$ancho_ultimo_brown = ($rango_redon_for-$tiempo_fin_blue)*100/$ancho_cien;
 									echo brown($ancho_primer_brown,"<span class='aqui'></span>",$hora_fin,$min_fin,$rango_redon_for,"00");	
-									echo blue($ancho_blue,"");
+									echo blue($ancho_blue,"<span class='aqui_hay'></span>",$hora_fin,$min_fin,$rango_redon_for,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 									if ($ancho_ultimo_brown!=0) {
 									echo brown($ancho_ultimo_brown,"<span class='aqui'></span>",$hora_fin,$min_fin,$rango_redon_for,"00");
 									}
@@ -173,7 +173,7 @@
 											$ancho_blue = ($rango_redon_for-$tiempo_inicio_blue)*100/$ancho_cien;
 											//$ancho_ultimo_brown = ($rango_redon_for-$tiempo_fin_blue)*100/$ancho_cien;
 											echo brown($ancho_primer_brown,"<span class='aqui'></span>",$hora_fin,$min_fin,$rango_redon_for,"00");	
-											echo blue($ancho_blue,"");
+											echo blue($ancho_blue,"<span clas='aqui_hay'></span>",$hora_fin,$min_fin,$rango_redon_for,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 											if ($ancho_ultimo_brown!=0) {
 											//echo brown($ancho_ultimo_brown,"<span class='aqui'></span>",$hora_fin,$min_fin,$rango_redon_for,"00");
 											}
@@ -197,7 +197,7 @@
 						$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 						$ancho_ultimo_brown = ($rango_redon_for-$tiempo_fin_blue)*100/$ancho_cien;
 						echo brown($ancho_primer_brown,"<span class='aqui total_brown'></span>",$hora_inicio_turno,"00",$rango_redon_for,"00");
-						echo blue($ancho_blue,"");
+						echo blue($ancho_blue,"<span clas='aqui_hay'></span>",$hora_inicio_turno,"00",$rango_redon_for,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 						if ($ancho_ultimo_brown != 0) {
 							echo brown($ancho_ultimo_brown,"<span class='aqui total_brown'></span>",$hora_inicio_turno,"00",$rango_redon_for,"00");
 						}
@@ -208,7 +208,7 @@
 							$ancho_primer_brown = ($tiempo_inicio_blue-$hora_inicio_turno)*100/$ancho_cien;
 							$ancho_blue = ($rango_redon_for-$tiempo_inicio_blue)*100/$ancho_cien;
 							echo brown($ancho_primer_brown,"<span class='aqui total_brown'></span>",$hora_inicio_turno,"00",$rango_redon_for,"00");
-							echo blue($ancho_blue,"");
+							echo blue($ancho_blue,"<span clas='aqui_hay'></span>",$hora_inicio_turno,"00",$rango_redon_for,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 						}
 						else{
 							echo brown(100,"<span class='aqui total_brown'></span>",$hora_inicio_turno,"00",$rango_redon_for,"00");
@@ -261,7 +261,7 @@
 						    if ($tiempo_inicio_blue < $rango_redon_for && $tiempo_fin_blue>$rango_redon_for) {
 						    	$ancho_blue = ($tiempo_fin_blue-$rango_redon_for)*100/$ancho_cien;
 						    	$ancho_brown = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
-						    	echo blue($ancho_blue,"");
+						    	echo blue($ancho_blue,"<span class='aqui_hay'></span>",$rango_redon_for,"00",$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 						    	echo brown($ancho_brown,"<span class='aqui'></span>",$rango_redon_for,"00",$hora_ini,$min_ini);
 
 						    }
@@ -271,7 +271,7 @@
 							    	$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 							    	$ancho_ultimo_brown = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
 							    	echo brown($ancho_primer_brown,"<span class='aqui'></span>",$rango_redon_for,"00",$hora_ini,$min_ini);
-							    	echo blue($ancho_blue,"");
+							    	echo blue($ancho_blue,"<span class='aqui_hay'></span>",$rango_redon_for,"00",$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 							    	echo brown($ancho_ultimo_brown,"<span class='aqui'></span>",$rango_redon_for,"00",$hora_ini,$min_ini);
 							    }
 							    else{
@@ -287,7 +287,7 @@
 								$ancho_blue = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 								$ancho_ultimo_brown = ($tiempo_inicio - $tiempo_fin_blue)*100/$ancho_cien;
 								echo brown($ancho_primer_brown,"",$rango_redon_for,"00",$hora_ini,$min_ini);
-								echo blue($ancho_blue,"");
+								echo blue($ancho_blue,"",$rango_redon_for,"00",$hora_ini,$min_ini,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 								echo brown($ancho_ultimo_brown,"",$rango_redon_for,"00",$hora_ini,$min_ini);
 							}
 							else{
@@ -306,7 +306,7 @@
 						$ancho_two = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 						$ancho_tre = ($tiempo_inicio-$tiempo_fin_blue)*100/$ancho_cien;
 						echo brown($ancho_uno,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_fin);
-						echo blue($ancho_two,"");
+						echo blue($ancho_two,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_fin,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 						echo brown($ancho_tre,"",$salida_hora_fin,$salida_min_fin,$hora_ini,$min_fin);	
 					}
 					else{
@@ -331,7 +331,7 @@
 						$ancho_two = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
 						$ancho_tre = ($hora_fin_turno-$tiempo_fin_blue)*100/$ancho_cien;
 						echo brown($ancho_uno,"",$hora_fin,$min_ini,$hora_fin_turno,00);
-						echo blue($ancho_two,"");
+						echo blue($ancho_two,"",$hora_fin,$min_ini,$hora_fin_turno,00,$hrs_ini,$min_ini,$hrs_fin,$min_fin);
 						echo brown($ancho_tre,"",$hora_fin,$min_ini,$hora_fin_turno,00);
 					}
 					else{
@@ -343,15 +343,37 @@
 			if ($num_consulta == 0) {
 				if ($var_continue == "si") {
 					if ($tiempo_inicio_blue < $rango_redon_for && $tiempo_fin_blue >=$rango_redon_for  ) {
-						echo "string";
+						$ancho_blue = ($tiempo_fin_blue-$rango_redon_for)*100/$ancho_cien;
+						$ancho_two  = ($hora_fin_turno-$tiempo_fin_blue)*100/$ancho_cien;
+						echo blue($ancho_blue,"<span class='aqui_hay'></span>",$rango_redon_for,"00",$hora_fin_turno,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
+						echo brown($ancho_two,"<span class='aqui total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00"); 
 					}
-					if ($tiempo_inicio_blue >= $rango_redon_for && $tiempo_fin_blue) {
-						echo "kansfkjanf";
+					else{
+						if ($tiempo_inicio_blue >= $rango_redon_for) {
+							$ancho_uno = ($tiempo_inicio_blue-$rango_redon_for)*100/$ancho_cien;
+							$ancho_two = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
+							$ancho_tre = ($hora_fin_turno-$tiempo_fin_blue)*100/$ancho_cien;
+							echo brown($ancho_uno,"<span class='aqui total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+							echo blue($ancho_two,"<span class='aqui_hay'></span>",$rango_redon_for,"00",$hora_fin_turno,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
+							echo brown($ancho_tre,"<span class='aqui total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+						}
+						else{
+							echo brown(100,"<span class='aqui total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+						}
 					}
-					echo brown(100,"<span class='aqui total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
 				}
 				else{
-					echo brown(100,"<span class='total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+					if ($tiempo_inicio_blue>=$rango_redon_for && $tiempo_fin_blue <=$hora_fin_turno) {
+						$ancho_uno = ($tiempo_inicio_blue-$rango_redon_for)*100/$ancho_cien;
+						$ancho_two = ($tiempo_fin_blue-$tiempo_inicio_blue)*100/$ancho_cien;
+						$ancho_tre = ($hora_fin_turno-$tiempo_fin_blue)*100/$ancho_cien;
+						echo brown($ancho_uno,"<span class='total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+						echo blue($ancho_two,"<span class='aqui_hay'></span>",$rango_redon_for,"00",$hora_fin_turno,"00",$hrs_ini,$min_ini,$hrs_fin,$min_fin);
+						echo brown($ancho_tre,"<span class='total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+					}
+					else{
+						echo brown(100,"<span class='total_brown'></span>",$rango_redon_for,"00",$hora_fin_turno,"00");
+					}
 				}
 				
 			}

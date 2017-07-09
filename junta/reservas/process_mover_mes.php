@@ -104,8 +104,12 @@
 
 
                       if ($plan == "atras" && $resta_mes == 0) {
-                      		if($day==$diaActual){
-		                        $fecha_calendario_data = $year."-".$month."-".$day;
+                      	$memo = $day;
+                        if ($day < 10) {
+                          $memo = "0".$day;
+                        }
+                        if($day==$diaActual){
+		                        $fecha_calendario_data = $year."-".$month."-".$memo;
 		                        echo "<td data='$fecha_calendario_data' style='background-color:#A4A4A4' class='caja_dia'>$day</td>";
 		                    }
 		                    else{
@@ -113,13 +117,13 @@
 		                          echo "<td>$day</td>";                        
 		                        }
 		                        if ($day > $diaActual) {
-		                          $fecha_calendario_data = $year."-".$month."-".$day;
+		                          $fecha_calendario_data = $year."-".$month."-".$memo;
 		                          echo "<td data='$fecha_calendario_data' style='background-color:#A4A4A4' class='caja_dia'>$day</td>";  
 		                        }
 		                    }
                       }
                       else{
-                      	  $memo = $day;
+                      	$memo = $day;
 	                      if ($day < 10) {
 	                      	$memo = "0".$day;
 	                      }

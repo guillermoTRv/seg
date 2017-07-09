@@ -2,7 +2,7 @@
 <h3>Reservacion Sala de Juntas</h3>
 <hr class="linea">
 <h4 style="font-weight: bold;">
-  1 - Seleccione la Sala que desea reservar. Tenga en cuenta la disponibilidad de horario de cada sala   
+  1 - Seleccione la Sala que desea reservar   
 </h4>
 <?php  
   include("../funciones.php");
@@ -11,7 +11,21 @@
       $name_sala = $array['name_sala'];
       $id_sala   = $array['id_sala'];
       ?>
-        <p class="boton_sala" id='<?php echo $id_sala ?>' data="<?php echo $name_sala ?>"><?php echo $name_sala ?></p>
+        <div class="boton_sala" id='<?php echo $id_sala ?>' data="<?php echo $name_sala ?>"><?php echo $name_sala ?> -&nbsp;
+          <?php 
+            $consulta_equipo = mysqli_query($q_sec,"SELECT * FROM equipo_salas WHERE id_sala = '$id_sala' order by id_equipo asc");
+            $num_equipo = consulta_val("SELECT NULL FROM equipo_salas WHERE id_sala = '$id_sala'");
+            $coma = 1;
+            while ($array_equipo = mysqli_fetch_array($consulta_equipo)) {
+              $name_equipo = $array_equipo['name_equipo'];
+              echo " $name_equipo";
+              if ($coma != $num_equipo) {
+                echo ",";
+              }
+              $coma++;
+            }
+          ?>
+        </div>
       <?php
   }
 ?>

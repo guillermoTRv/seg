@@ -44,3 +44,10 @@ CREATE TABLE snaks(
 	snak varchar(40),
 	primary key(id_snak)
 )ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE equipo_salas(
+	id_equipo INT NOT NULL AUTO_INCREMENT,
+	id_sala INT NOT NULL,
+	name_equipo varchar(60) NOT NULL,
+	primary key(id_equipo)
+)ENGINE=MyISAM DEFAULT CHARSET=latin1;

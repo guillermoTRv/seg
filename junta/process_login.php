@@ -12,7 +12,7 @@
 		}
 	}
 	else{
-		$consulta_user = consulta_val("SELECT null FROM usuarios WHERE usuario = '$usuario' or correo = '$usuario'");
+		$consulta_user = consulta_val("SELECT null FROM usuarios WHERE pass_xc = '$password' and (usuario = '$usuario' or correo = '$usuario')");
 		if ($consulta_user == 1) {
 			session_start();
 			$consulta_session = consulta_array("SELECT * FROM usuarios WHERE usuario = '$usuario' or correo = '$usuario'");

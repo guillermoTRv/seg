@@ -4,10 +4,10 @@
 	$id_sala       = sanitizar("sala_txt");
 	$consulta_disponibilidad = consulta_val("SELECT * FROM reservas_juntas WHERE id_sala ='$id_sala' and dia = '$dia_fecha'");
 	if ($consulta_disponibilidad == 0) {
-		$mensaje_horarios  = "La sala esta disponible para cualquier hora en turno $dia_fecha";
+		$mensaje_horarios  = "La sala esta disponible para cualquier hora en turno";
 	}
 	else{
-		$mensaje_horarios = "Ocupada para los siguientes horarios";
+		$mensaje_horarios = "La sala presenta ocupación en los horarios que se le presentan a continuación";
 	}
 
 	$oper_a = strlen($dia_fecha);

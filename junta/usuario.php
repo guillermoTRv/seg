@@ -8,6 +8,11 @@
     $usuarios  = $consulta_us['usuario'];
     $correo    = $consulta_us['correo'];
     $nombre_completo = $nombre." ".$apellidos;  
+    $mes_enc = date("m");
+    $dia_enc = date("d");
+    if ($_SESSION['id_usuario'] == '') {
+        header("Location: ./");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,25 +42,25 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="menu">
-                            <h3 style="display:inline;float:left" ><?php echo $fecha ?> - Grupo Gideas</h3>
+                            <h3 style="display:inline;float:left" ><?php echo saber_dia($fecha)." $dia_enc de ".mes($mes_enc) ?> - Grupo <?php echo $empresa ?></h3>
                             <h3 style="display:inline;float:right;font-weight: bold;"><a href="./logout.php"><span class="glyphicon glyphicon-share"></span> Salir</a></h3>
                             <br><br>
                             <h3 style="font-weight:bold"><?php echo $nombre_completo ?> - Uso sala de Juntas</h3>
                             <?php include("info_reserva_cercana.php"); ?>
                             <?php include("info_mis_reservaciones.php"); ?>
-                            <?php include("info_salas_uso.php"); ?>
+                            
                             <hr class="linea">
                             <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="reserva_sala">Reservar una sala</button>
                             <!--<button type="button" class="btn btn-default btn-lg btn-block btn_ventana" data="alta_juntas">Alta Sala de Juntas</button>-->
-                            <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_juntas">Información detallada Salas de Juntas</button>
-                            <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_usuarios">Modificar mis datos</button>
+                            <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_salas">Información Horarios Salas de Juntas</button>
+                            <!--<button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_usuarios">Modificar mis datos</button>-->
                             <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_usuarios">Historial de mis reservas</button>
                         
                             <hr class="linea">
                         </div>
                         <div class="principal">
                         </div>
-                        <form class="form_oculto" method="POST" enctype="multipart/form-data" style="display:none ">
+                        <form class="form_oculto" method="POST" enctype="multipart/form-data" style="display:none;">
                             
                         </form>
                         <input type="hidden" value="<?php echo $id_usuario_session ?>" class="id_usuario">
@@ -86,6 +91,14 @@
                 $(".principal").html("<br><br><br><center><span class=' icon-spinner' style='font-size:8em;'></span></center><br><br><br>")
                 $(".principal").load("vista_mis_reservaciones.php")
             }
+            if (seccion == "cancelar-modificar") {
+                $(".principal").html("<br><br><br><center><span class=' icon-spinner' style='font-size:8em;'></span></center><br><br><br>")
+                $(".principal").load("vista_cancelar_modificar.php");
+            }
+            if (seccion == "info_salas") {
+                $(".principal").html("<br><br><br><center><span class=' icon-spinner' style='font-size:8em;'></span></center><br><br><br>")
+                $(".principal").load("usuario/info_salas.php")
+            }
         })
         $(document).on("click",".regresar_general",function(event){
             event.preventDefault()
@@ -100,6 +113,8 @@
             $(".menu").show()
             return false
         });
+        $(document).on("click",".no_modal",function(){
+        });     
         $(document).on("click",".boton_sala",function(){
             $(".form_uno").hide()
             var name_sala = $(this).attr("data")
@@ -417,12 +432,87 @@
                             var data_min_ini = $(".aqui:first").parent().parent().data("minini")
                             var data_hrs_fin = $(".aqui:last").parent().parent().data("horafin")
                             var data_min_fin = $(".aqui:last").parent().parent().data("minfin")
-                            alert(data_hrs_ini+"..."+data_min_ini+"..."+data_hrs_fin+"..."+data_min_fin)
+                            //alert(data_hrs_ini+"..."+data_min_ini+"..."+data_hrs_fin+"..."+data_min_fin)
                             ////////comienza modificacion////////////////
                             $(".aqui").parent().parent().data("horaini",data_hrs_ini)
                             $(".aqui").parent().parent().data("minini",data_min_ini)
                             $(".aqui").parent().parent().data("horafin",data_hrs_fin)
                             $(".aqui").parent().parent().data("minfin",data_min_fin)
+                            var hrs_ini = parseInt($(this).data("horaini"))
+                            var min_ini = parseInt($(this).data("minini"))
+                            var hrs_fin = parseInt($(this).data("horafin"))
+                            var min_fin = parseInt($(this).data("minfin"))
+                            var tiempo_inicio = parseFloat(hrs_ini)+(parseFloat(min_ini)/60)
+                            var tiempo_final  = parseFloat(hrs_fin)+(parseFloat(min_fin/60))
+
+
+                        }
+                    }   
+                    var limit_hrs_ini = parseInt(hrs_fin)-parseInt(hrs_ini)
+                    //alert(parseInt(limit_hrs_ini)+"....."+parseInt(hrs_ini))
+                    //alert("hora ->"+limit_hrs_ini+"inicio ->"+hrs_ini)
+                    var for_secu = parseInt(limit_hrs_ini)+parseInt(hrs_ini)-1
+                    if (min_fin == 0) {  
+                        for (i=(hrs_ini);i<=for_secu;i++) {
+                            //$(".select_inicio_hrsSe").data( key, value );
+                            $(".select_inicio_hrsSe").append("<option class='opt_ini_hrs'>"+i+"</option>")
+                        }
+                    }    
+                    else{
+                        var for_secu = parseInt(limit_hrs_ini)+parseInt(hrs_ini)
+                        for (i=hrs_ini;i<=for_secu;i++) {
+                            //$(".select_inicio_hrsSe").data( key, value );
+                            $(".select_inicio_hrsSe").append("<option class='opt_ini_hrs'>"+i+"</option>")
+                        }
+                    }
+                }
+
+            }
+            if (tipo_espacio == "blue") {
+                var hrs_ini = parseInt($(this).data("horaini"))
+                var min_ini = parseInt($(this).data("minini"))
+                var hrs_fin = parseInt($(this).data("horafin"))
+                var min_fin = parseInt($(this).data("minfin"))
+
+                var hrs_ini_info = parseInt($(this).data("infohoraini"));
+                var min_ini_info = parseInt($(this).data("infominini"));
+                var hrs_fin_info = parseInt($(this).data("infohorafin"));
+                var min_fin_info = parseInt($(this).data("infominfin"));
+
+                $(".select_horario_ajaxSe").html("")
+                $(".select_inicio_hrsSe").html("<option value='"+hrs_ini_info+"'>"+hrs_ini_info+"</option>")
+                $(".select_inicio_minSe").html("<option value='"+min_ini_info+"'>"+min_ini_info+"</option>")
+                $(".select_fin_hrsSe").html("<option value='"+hrs_fin_info+"'>"+hrs_fin_info+"</option>")
+                $(".select_fin_minSe").html("<option value='"+min_fin_info+"'>"+min_fin_info+"</option>")
+                
+                var tiempo_inicio = parseFloat(hrs_ini)+(parseFloat(min_ini)/60)
+                var tiempo_final  = parseFloat(hrs_fin)+(parseFloat(min_fin/60))
+
+                $(".btn_emergente_fechaSe").trigger("click")
+                //alert(hrs_ini+"...."+min_ini+"..."+hrs_fin+"...."+min_fin+"-----"+tiempo_inicio+"-----------"+tiempo_final)
+                if ((tiempo_final - tiempo_inicio)  < .5) {
+                    alert("Solo se pueden reservar espacios que sean mayores a media hora")
+                }
+                else{
+                    var esp_salto = $(this).find(".aqui_hay").length
+                    if (esp_salto == 1) {
+                        var saltos_totales = $(".aqui").length
+                        if (saltos_totales >= 2) {    
+                            var data_hrs_ini = $(".aqui:first").parent().parent().data("horaini")
+                            var data_min_ini = $(".aqui:first").parent().parent().data("minini")
+                            var data_hrs_fin = $(".aqui:last").parent().parent().data("horafin")
+                            var data_min_fin = $(".aqui:last").parent().parent().data("minfin")
+                            //alert(data_hrs_ini+"..."+data_min_ini+"..."+data_hrs_fin+"..."+data_min_fin)
+                            ////////comienza modificacion////////////////
+                            $(".aqui").parent().parent().data("horaini",data_hrs_ini)
+                            $(".aqui").parent().parent().data("minini",data_min_ini)
+                            $(".aqui").parent().parent().data("horafin",data_hrs_fin)
+                            $(".aqui").parent().parent().data("minfin",data_min_fin)
+
+                            $(".aqui_hay").parent().parent().data("horaini",data_hrs_ini)
+                            $(".aqui_hay").parent().parent().data("minini",data_min_ini)
+                            $(".aqui_hay").parent().parent().data("horafin",data_hrs_fin)
+                            $(".aqui_hay").parent().parent().data("minfin",data_min_fin)
                             var hrs_ini = parseInt($(this).data("horaini"))
                             var min_ini = parseInt($(this).data("minini"))
                             var hrs_fin = parseInt($(this).data("horafin"))
@@ -602,7 +692,23 @@
                         url:"reservas/process_info_espacios.php?hrs_ini="+hrs_ini+"&min_ini="+min_ini+"&hrs_fin="+hrs_fin+"&min_fin="+min_fin+"&sala="+id_sala+"&fecha="+dia_fecha+"",
                         success:function(data){
                             $(".cajota").html(data)
-                            
+                            var cont_input_hrs_ini = $(".input_hrs_ini").length
+                            var cont_input_hrs_fin = $(".input_hrs_fin").length
+                            var cont_input_min_ini = $(".input_min_ini").length
+                            var cont_input_min_fin = $(".input_min_fin").length
+
+                            if (cont_input_hrs_ini==0 && cont_input_hrs_fin==0 && cont_input_min_ini==0 && cont_input_min_fin==0) {
+                                $(".form_oculto").append("<input type='text' name='hrs_ini_txt' class='input_hrs_ini' value='"+hrs_ini+"'>")
+                                $(".form_oculto").append("<input type='text' name='min_ini_txt' class='input_min_ini' value='"+min_ini+"'>")
+                                $(".form_oculto").append("<input type='text' name='hrs_fin_txt' class='input_hrs_fin' value='"+hrs_fin+"'>")
+                                $(".form_oculto").append("<input type='text' name='min_fin_txt' class='input_min_fin' value='"+min_fin+"'>")
+                            }
+                            else{
+                                $(".input_hrs_ini").val(hrs_ini)
+                                $(".input_min_ini").val(min_ini)
+                                $(".input_hrs_fin").val(hrs_fin)
+                                $(".input_min_fin").val(min_fin)
+                            }
                         }
                     })
 
@@ -904,6 +1010,7 @@
                             url:"reservas/process_reserva.php",
                             data:$(".form_oculto").serialize(),
                             success:function(data){
+                                //alert(data)
                                 if (data == 00) {
                                     $(".btn-close").trigger("click")
                                     $(".memo").remove()
