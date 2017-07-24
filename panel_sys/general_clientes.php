@@ -41,7 +41,7 @@
                                   $demarcacion   = $array['demarcacion'];
                                   $identificador = $array['identificador'];
 
-                                  $direccion     = "Calle ".$calle." #".$num_exterior." Colonia".$colonia." ".$demarcacion." ".$entidad;
+                                  $direccion     = "Calle ".$calle." #".$num_exterior." Colonia ".$colonia." ".$demarcacion." ".$entidad;
                                   
                                   $conteo        = consulta_val("SELECT id_usuario FROM usuarios WHERE inmueble_asign='$id_inmueble'");
                                     

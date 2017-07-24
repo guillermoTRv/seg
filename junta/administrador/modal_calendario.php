@@ -12,6 +12,8 @@
           }
           else{
             $consulta = mysqli_query($q_sec,"SELECT * FROM reservas_juntas WHERE id_sala ='$id_sala' and dia='$fecha_calendario' order by fecha_inicio asc");
+            $count_num = consulta_val("SELECT * FROM reservas_juntas WHERE id_sala ='$id_sala' and dia='$fecha_calendario'");
+            $num = 1;  
               while($consulta_array = mysqli_fetch_array($consulta)){
                 $usuario = consulta_array("SELECT nombre,apellidos FROM usuarios WHERE id_usuario = '".$consulta_array['id_usuario']."'");
                 $nombre = $usuario['nombre'];
@@ -22,8 +24,14 @@
                 $min_fin = tiempo($consulta_array['min_fin']);
                 ?>
                 <p>Usuario: <?php echo $nombre." ".$apellidos ?></p>
-                <p>Hora de inicio: <?php echo $hora_inicio.":".$min_inicio." hrs" ?>&nbsp;&nbsp;&nbsp;Hora de finalización:<?php echo $hora_finalizacion.":".$min_fin ?></p><hr>
+                <p>Hora de inicio: <?php echo $hora_inicio.":".$min_inicio." hrs" ?>&nbsp;&nbsp;&nbsp;Hora de finalización:<?php echo $hora_finalizacion.":".$min_fin ?></p>
                 <?php
+
+                if ($num != $count_num) {
+                  echo "<hr>";
+                }
+                $num ++;
+
               }
           }
         ?>

@@ -24,15 +24,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administración de salas de juntas</title>
+    <title>Administración salas de juntas</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../ico/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200" rel="stylesheet">
     <link rel="stylesheet" href="css/juntas.css">
+    <link rel="shortcut icon" href="fonts/logo.png">
 </head>
 
 <body>
@@ -42,8 +45,8 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="menu">
-                            <h3 style="display:inline;float:left" ><?php echo saber_dia($fecha)." $dia_enc de ".mes($mes_enc) ?></h3>
-                            <h3 style="display:inline;float:right;font-weight: bold;"><a href="./logout.php"><span class="glyphicon glyphicon-share"></span> Salir</a></h3>
+                            <h3 class="info_fecha"><?php echo saber_dia($fecha)." $dia_enc de ".mes($mes_enc) ?></h3>
+                            <h3 class="boton_salir"><a href="./logout.php"><span class="glyphicon glyphicon-share"></span> Salir</a></h3>
                             <br><br>
                             <h3 style="font-weight:bold">Panel de Administración - Grupo <?php echo $empresa ?></h3>
                             <hr class="linea">
@@ -52,7 +55,7 @@
                             
                             <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="calendario_juntas">Calendarios Salas de Juntas</button>
 
-                            <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_usuarios">Información, Modificacion y Baja de Usuarios</button>
+                            <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_usuarios">Información, Modificación y Baja de Usuarios</button>
                             
                             <button type="button" class="btn btn-default btn-lg btn-block btn_ventana letra" data="info_salas">Información, Modificación y Baja de Salas</button>
                          
@@ -118,7 +121,6 @@
             var name_sala  = $(this).data("namesala")
             var mes        = $(this).data("mes")
             var tipo       = $(this).data("tipo")
-            alert(valor_sala+"-"+name_sala+"-"+mes)
             $.ajax({
                 type:"GET",
                 url:"administrador/process_calendario_mover.php?id_sala="+valor_sala+"&name_sala="+name_sala+"&mes="+mes+"&tipo="+tipo,
@@ -132,7 +134,90 @@
                 }
             })
         });
-        
+        $(document).on("click",".eliminar_usuario",function(){
+            var id_usuario = $(this).attr("data")
+            if (confirm("¿Desea dar de baja a este usuario?") == true) {
+                $.ajax({
+                    type:"GET",
+                    url:"administrador/process_eliminar_usuario.php?id_usuario="+id_usuario+"",
+                    success:function(data){
+                        alert("EL usuario ha sido dado de baja")
+                        $(".principal").load("administrador/info_usuarios.php",400)
+                    }
+                })
+            } 
+            else {
+                
+            }
+        })
+        $(document).on("click",".modicar_usuario",function(){
+            var id_usuario = $(this).attr("data")
+            $.ajax({
+                    type:"GET",
+                    url:"administrador/vista_modificar_usuario.php?id_usuario="+id_usuario+"",
+                    success:function(data){
+                        $(".principal").html(data)
+                    }
+            })
+        })
+        $(document).on("click",".regresar_mod",function(){
+            $(".principal").load("administrador/info_usuarios.php",400)
+            return false
+        })
+        $(document).on("click",".btn_modificar_usuario",function(){
+            var nombre = $(".nombre").val()
+            var apellidos = $(".apellidos").val()
+            var correo = $(".correo").val()
+            var usuario = $(".usuario").val()
+            if (nombre != '' && apellidos != '' && correo != '' && usuario != '') {
+                $.ajax({
+                    type:"POST",
+                    url:"administrador/process_modificar_usuario.php",
+                    data:$(".form_modificar_usuario").serialize(),
+                    success:function(data){
+                        if (data == "si") {
+                            alert("Los datos se modificaron exitosamente")
+                            $(".principal").load("administrador/info_usuarios.php")
+                        }
+                    }
+                })
+            }
+            else{
+                alert("Los campos nombre, apellidos, correo y usuario son obligatorios")
+            }
+        })
+        $(document).on("click",".eliminar_sala",function(){
+            var id_sala = $(this).attr("data")
+            if (confirm("¿Desea dar de baja a esta sala?") == true) {
+                $.ajax({
+                    type:"GET",
+                    url:"administrador/process_eliminar_sala.php?id_sala="+id_sala+"",
+                    success:function(data){
+                        alert("EL sala ha sido dado de baja")
+                        $(".principal").load("administrador/info_salas.php",400)
+                    }
+                })
+            } 
+            else {
+                
+            }
+        })
+        $(document).on("click",".change_sala",function(){
+            var id_sala = $(this).attr("data")
+            $.ajax({
+                type:"GET",
+                url:"administrador/vista_modificar_sala.php?id_sala="+id_sala+"",
+                success:function(data){
+                    $(".principal").html(data)
+                }
+            })
+            
+        })
+        $(document).on("click",".regresar_mod_sala",function(){
+            $(".principal").load("administrador/info_salas.php",400)
+            return false
+        })
+
     </script>
 
 </body>

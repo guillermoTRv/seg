@@ -46,6 +46,21 @@
 		<h4>Direccion: <?php echo $direccion ?></h4>
 		<h4>Plantilla: #<?php echo $conteo ?> Elementos</h4>
 		<h4>Referencia: <?php echo $referencia ?></h4>
+		<h4>Horarios de Trabajo: 
+		<?php 
+			$cont_hrs = consulta_val("SELECT * FROM horarios_inmuebles WHERE id_inmueble ='$id_inmueble' order by hora asc");
+			$num_hrs = 1;
+			$consulta_hrs = mysqli_query($q_sec,"SELECT * FROM horarios_inmuebles WHERE id_inmueble ='$id_inmueble' order by hora asc");
+			while ($array_hrs = mysqli_fetch_array($consulta_hrs)) {
+				$horario = $array_hrs['hora'];
+				echo "<strong>$horario hrs</strong> ";
+				if ($num_hrs != $cont_hrs) {
+					echo "-";
+				}
+				$num_hrs ++ ;
+			}
+		?>
+		</h4> 
 		<h4><strong>Estado:</strong> <span class='icon-radio-checked' style='color:<?php echo $color ?>;font-size:.8em'></span> </h4>
 		<!--<a href="" class="blue"><h4>Ver historial de Checklist generados</h4></a>-->
 		<!--<a href="" class="blue"><h4><span class="icon-file-text"></span> Ver historial de reportes extraordinarios</h4></a>-->

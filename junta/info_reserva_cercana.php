@@ -25,7 +25,7 @@
 				$mens_cercano = "Falta un día para que sea su proxima junta en $sala a las $hora_construida hrs";
 			}
 			if ($restantes > 1) {
-				$mens_cercano = "Faltan $restantes dias para que sea su proxima Junta en $sala comience a las $hora_construida hrs";
+				$mens_cercano = "Faltan $restantes dias para que sea su proxima Junta en $sala a las $hora_construida hrs";
 			}
 		}
 	}

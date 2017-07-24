@@ -1,5 +1,6 @@
 <?php 
 	include("../funciones.php");
+	include("../psr/PHPMailer-master/class.phpmailer.php");
 	$pass_xc      = sanitizar("pass_txt");
 	$id_sala      = sanitizar("sala_txt");
 	$id_usuario   = sanitizar("id_usuario_txt");
@@ -30,17 +31,81 @@
 			$id_reserva = consulta_tx("SELECT id_reserva FROM reservas_juntas WHERE id_usuario = '$id_usuario' order by id_reserva desc","id_reserva");
 			$snak_first = sanitizar("snak_last");
 			$snal_last  = sanitizar("snak_first");
+			 
+
 			for ($i=$snak_first; $i <= $snal_last ; $i++) { 
 				$var_snak = sanitizar($i);
 				if ($var_snak == '') {
-					
+					$snaks_mens = "No";
 				}
 				else{
 					$insert_snak = consulta_gen("INSERT INTO snaks(id_reserva,snak) VALUES('$id_reserva','$var_snak')");
+					$snaks_mens .= $var_snak."<br>"; 
+
 				}
 			}
 		}
 		echo 00;
+		$correo    = consulta_tx("SELECT correo FROM usuarios WHERE id_usuario = '$id_usuario'","correo");
+		$name_sala = consulta_tx("SELECT name_sala FROM salas_juntas WHERE id_sala = '$id_sala'","name_sala");
+		
+		$caracteres_fecha = strlen($fecha);
+		if ($caracteres_fecha == 9) {
+		$dia_num   = substr($fecha,7,2);
+		$mes_num   = substr($fecha,5,1);
+		}
+		if ($caracteres_fecha == 10) {
+			$dia_num   = substr($fecha,8,2);
+			$mes_num   = substr($fecha,5,2);
+		}
+		if ($detalles_txt == "") {
+			$mens_detalles = "No hay detalles";
+		}
+		if ($detalles_txt != "") {
+			$mens_detalles = $detalles_txt;
+		}
+
+
+		if (strlen($min_inicio) == 1) {
+			$min_inicio = tiempo($min_inicio);
+		}
+		if (strlen($min_fin) == 1) {
+			$min_fin = tiempo($min_fin);
+		}
+
+
+		$fecha_armada = saber_dia($fecha)." $dia_num de ".mes($mes_num);
+	        $mail = new PHPMailer();
+			$mail->Host = 'gruposelta.com.mx';
+			$mail->From = 'cesar.olivares@gruposelta.com.mx';
+			$mail->FromName = 'Reserva Sala de Juntas';
+			$mail->Subject = "Reserva - $name_sala";
+			$mail->AddAddress("$correo",'Usuario');
+			//$mail->AddAddress('villagran_gg@hotmail.com','Usuario');
+			
+			$body = utf8_decode("
+				<div style='margin-top:-100px'>
+					 <h4>Reserva sala de Juntas - $name_sala</h4>
+					 Fecha: <strong> $fecha_armada</strong>
+					 <br>
+					 Hora de inicio: <strong>$hora_inicio:$min_inicio hrs</strong>
+					 <br>
+					 Hora_finalización: <strong>$hora_fin:$min_fin hrs</strong>
+					 <br>
+					 Detalles: $mens_detalles
+					 <br>
+					 Snaks: <br> <span>$snaks_mens</span>
+			</div>");
+			$mail->Body = $body;
+			#$mail->MsgHTML($mensaje);
+			$mail->IsHTML(true);
+
+			$mail->AltBody = "Reserva Sala de Juntas";
+
+
+			$mail->Send();
+
+
 	}
 	else{
 		echo 11;

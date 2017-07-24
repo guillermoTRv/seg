@@ -35,3 +35,8 @@ tambien tener la opcion para que al terminar una reservacion se pueda hacer otra
 ##el calendario de administrador ponerle una restriccion para que pueda ir atras solo a los meses en los que trabajo el sistema
 
 ##paginaciones para el numero de juntas hechas por un usuario y para el numero de reservaciones hechas en una sala, esto en informacion modificiacion baja usuario y salas
+
+
+##cosas que hace falta en reservas barra 
+->el que lea las horas cuando hay un cambio en espacios
+->las restricciones cuando se toca solo disponible

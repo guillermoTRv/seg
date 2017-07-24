@@ -20,8 +20,8 @@
 			<p class="p_info">Fecha de registro <?php echo substr($fecha_registro,0,10) ?></p>
 			<p class="p_info"><a href="" data-toggle="modal" data-target="#<?php echo $id_usuario ?>">No. Reservaciones - <?php echo $num_reservas ?> (Click ver historial)</a></p>
 			<p>
-			  <button type="button" class="btn btn-primary btn-xs">Modificar</button>
-			  <button type="button" class="btn btn-default btn-xs">Eliminar</button>
+			  <button type="button" class="btn btn-primary btn-xs modicar_usuario" data="<?php echo $id_usuario ?>">Modificar</button>
+			  <button type="button" class="btn btn-default btn-xs eliminar_usuario" data="<?php echo $id_usuario ?>">Eliminar</button>
 			</p>
 			<?php include("modal_reservaciones_usuarios.php"); ?>
 		<?php

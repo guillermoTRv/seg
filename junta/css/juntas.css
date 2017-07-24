@@ -72,6 +72,15 @@ body
     }
 .regresar_sin:hover{text-decoration:none;}
 .regresar_sin:focus{text-decoration:none;}
+
+.regresar_mod{text-align: center;font-weight: bold;text-decoration:none}
+.regresar_mod:hover{text-decoration:none;}
+.regresar_mod:focus{text-decoration:none;}
+
+.regresar_mod_sala{text-align: center;font-weight: bold;text-decoration:none}
+.regresar_mod_sala:hover{text-decoration:none;}
+.regresar_mod_sala:focus{text-decoration:none;}
+
 a{color:#81DAF5;}
 a:hover{text-decoration: none}
 a:focus{text-decoration: none}
@@ -85,32 +94,7 @@ a:focus{text-decoration: none}
             color:rgb(8,141,198);
            
 }
-.boton_sala
-    {
-        cursor: pointer;
-        background-color:white;
-        border-radius:5px;
-        text-align: center;
-        padding:10px 9px 10px 9px;
-        font-weight: bold;
-        font-size:1.15em;
-        width:100%;
-        color:rgba(0,0,0,.8);
-        margin:5px;
-    }
-.boton_info
-    {
-        cursor: pointer;
-        background-color:white;
-        border-radius:5px;
-        text-align: center;
-        padding:10px 9px 10px 9px;
-        font-weight: bold;
-        font-size:1.15em;
-        width:100%;
-        color:rgba(0,0,0,.8);
-        margin:5px;
-    }
+
 .fuerte
     {
         font-weight: bold;
@@ -186,3 +170,15 @@ a:focus{text-decoration: none}
 }
 
 .mover{cursor: pointer;}
+
+.ip{background-color: #d9edf7;color:#d9534f;}
+
+.boton_salir{display:inline;float:right;font-weight: bold;}
+.info_fecha{display:inline;float:left}
+
+@media screen and (max-width:800px){
+    .boton_salir{
+        display:inline;float:right;font-weight: lighter;font-size: 1.1em;
+    }
+    .info_fecha{font-size:1.1em}
+} 

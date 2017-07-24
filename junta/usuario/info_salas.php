@@ -10,8 +10,7 @@
       $name_sala = $array['name_sala'];
       $id_sala   = $array['id_sala'];
       ?>
-        <div class="boton_info" id='<?php echo $id_sala ?>' data="<?php echo $name_sala ?>"><?php echo $name_sala ?>
-        </div>
+      	<button type="button" class="btn btn-default btn-lg btn-block letra boton_info" id='<?php echo $id_sala ?>' data="<?php echo $name_sala ?>"><?php echo $name_sala ?></button>
       <?php
   }
 ?>
@@ -188,3 +187,4 @@
 		var input_dia = $(this).attr("data")
 	})
 </script>
+<br>

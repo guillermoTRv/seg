@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.png">
 
     <title>Nombre cliente</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -34,6 +35,7 @@
     <script  type="text/javascript" src="js/fns_tabla.js"></script>
     <script  type="text/javascript" src="js/fns_atajos.js"></script>
     <script  type="text/javascript" src="js/fns_formm.js"></script>
+    <script  type="text/javascript" src="js/estados.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet"> -->
     <!--  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> -->
     <!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
@@ -260,13 +262,13 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav navbar">
-                <div style="margin:12px 20px 12px 12px;">
-                    <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
-                </div>
-                
+                <?php include("vistas_principales/logo_empresa.php"); ?>
                 <hr>
 
                 <div class="menu_pr">
+                    <li class="li_nav">
+                        <a href="./cliente.php" class="title_a" data="./cliente.php"><span class="icon-share2"></span> Vista general</a>
+                    </li>
                     <li class="li_nav">
                         <a class="title_a" data="?pr=listado"><span class="icon-users"></span> Personal (p)</a>
                         <ul class="list_nav">
@@ -308,9 +310,8 @@
                         </ul>
                     </li>
                     <li class="li_nav">
-                        <a href="./cliente.php" class="title_a" data="./cliente.php"><span class="icon-exit"></span> Vista general</a>
+                        <a href="menu_inicial.php" class="title_a" data="menu_inicial.php"><span class="icon-home"></span> Menu Clientes</a>
                     </li>
-                    
                     
                 </div>
 
@@ -332,20 +333,18 @@
         
         <div style="width: 100%;height:50px;background-color:white;padding-top:15px">
                     <div class="container-fluid">
-                        <div class="col-md-7">
+                        <div class="col-md-9">
                             <p>
                             <strong>
-                                <span class="glyphicon glyphicon-user"></span> Usuario Administrador &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <span class="glyphicon glyphicon-user"></span> Usuario Administrador - <?php echo $name_cliente ?> &nbsp;&nbsp;&nbsp;&nbsp; 
                                 <span class="glyphicon glyphicon-calendar"></span> <?php echo $fecha ?> &nbsp;&nbsp;&nbsp;&nbsp; 
                                 <!--<span class="glyphicon glyphicon-search"></span> <input type="text" style="height:25px;border-top:solid 1px #fff;border-left:solid 1px #fff;border-right:solid 1px #fff;" placeholder="buscar ...">-->
                             </strong>
                             </p>    
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-3">
                             <p>
-                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span class="icon-exit"></span><a href="cliente.php" class="link_black"> Vista general(g)</a> &nbsp;&nbsp;&nbsp; 
-                                <span class="glyphicon glyphicon-list-alt"></span><a href="menu_inicial.php" class="link_black"> Regresar al menu(m) &nbsp;&nbsp;</a> 
+                            <strong>
                                 <span class="glyphicon glyphicon-log-out"></span><a href="logout.php" class="link_black"> Log out(esc)</a></p>       
                             </strong>
                             </p>

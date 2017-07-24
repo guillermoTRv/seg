@@ -133,6 +133,22 @@
 			return $tiempo;
 		}
 	}
+
+	function tiempo_esp($tiempo){
+		if ($tiempo < 10) {
+			if (strlen($tiempo)<2) {
+				$tiempo = "0".$tiempo;
+				return $tiempo;
+			}
+			else{
+				return $tiempo;
+			}
+		}
+		else{
+			return $tiempo;
+		}
+	}
 	$esp = "<br>";
+
 	
 ?>

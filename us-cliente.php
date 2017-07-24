@@ -260,9 +260,7 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav navbar">
-                <div style="margin:12px 20px 12px 12px;">
-                    <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
-                </div>
+                <?php include("vistas_principales/logo_empresa.php"); ?>
                 
                 <hr>
 

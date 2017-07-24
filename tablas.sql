@@ -72,4 +72,32 @@ CREATE TABLE clientes(
 	inicio_contrato date not null,
 	fin_contrato date not null,
 	primary key(id_cliente) 
+)
+
+CREATE TABLE sucursales(
+	id_sucursal INT NOT NULL AUTO_INCREMENT,
+	name_sucursal varchar(100) NOT NULL,
+	calle varchar(100) NOT NULL,
+	num_int int NOT NULL,
+	num_ext int not NULL,
+	colonia varchar(100),
+	postal int(5) not NULL,
+	entidad varchar(40) NOT NULL,
+	demarcacion varchar(100) NOT NULL,
+	longitud varchar(100) NOT NULL,
+	latitud varchar(100) NOT NULL,
+	inicio_op date not null,
+	primary key(id_sucursal)
+)ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE costos(
+	
+	ENGINE=MyISAM DEFAULT CHARSET=latin1;
+)
+
+CREATE TABLE horarios_inmuebles(
+	id_horario_inmueble int not null AUTO_INCREMENT,
+	id_inmueble int not null,
+	hora int not null,
+	primary key (id_horario_inmueble)
 )ENGINE=MyISAM DEFAULT CHARSET=latin1;

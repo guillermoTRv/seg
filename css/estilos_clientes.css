@@ -1,6 +1,9 @@
 	.select{margin:10px;background-color:#dff0d8} 
 	.panel_cl{margin:10px;background-color:#fff;}
     a{text-decoration: none; color:black;}
+    a:hover{text-decoration: none}
+    a:focus{text-decoration: none}
+    .a_blue{color:blue;}
     .title_a{font-size: 1.2em;height:50px;cursor: pointer}
     
 	.list_nav{

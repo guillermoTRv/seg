@@ -3,8 +3,10 @@
 	include("funciones.php");
 	session_start();
 	$id_usuario_session = $_SESSION['id_usuario'];
-	$consulta_reservas = mysqli_query($q_sec,"SELECT * FROM reservas_juntas WHERE id_usuario='$id_usuario_session' and estado ='en proceso' and fecha_inicio>'$fecha_hora' order by dia asc");
+	$consulta_reservas = mysqli_query($q_sec,"SELECT * FROM reservas_juntas WHERE id_usuario='$id_usuario_session' and estado ='en proceso' and fecha_inicio>'$fecha_hora' order by fecha_inicio asc");
 	$vali = 0;
+	$cont_res = consulta_val("SELECT null FROM reservas_juntas WHERE id_usuario='$id_usuario_session' and fecha_inicio>'$fecha_hora'");
+	$num_a    = 1;
 	while ($array = mysqli_fetch_array($consulta_reservas)) {
 		$sala  = consulta_tx("SELECT name_sala FROM salas_juntas WHERE id_sala = '".$array['id_sala']."'","name_sala");
 		$id_reserva     = $array['id_reserva'];
@@ -57,7 +59,7 @@
 		}
 
 		?>
-		<p class="p_info"><span class="icon-play2"></span> Comienza:<?php echo $hora_armada_inicio ?> - &nbsp;<span class="icon-stop"></span> Termina <?php echo $hora_armada_fin ?></p>
+		<p class="p_info"><span class="icon-play2"></span> Comienza: <?php echo $hora_armada_inicio ?> - &nbsp;<span class="icon-stop"></span> Termina: <?php echo $hora_armada_fin ?></p>
 		<!--<h4><span class="icon-history"></span>mes_restante</h4>-->
 		<p class="p_info"><span class="glyphicon glyphicon-list-alt"></span> Detalles: <?php echo $detalles ?></p>
 		<p class="p_info"><span class="glyphicon glyphicon-apple"></span> 
@@ -70,9 +72,12 @@
 		<p>¿Todo listo para la junta? <span class="glyphicon glyphicon-unchecked"></span> Si - <span class="glyphicon glyphicon-unchecked"></span> No</p>
 		<p>Usted dejo una nota de que es lo que hacia falta</p>
 		<br>-->
-		<br>
 		<?php
 		$vali = 1;	
+		if ($num_a != $cont_res) {
+			echo "<hr>";
+		}
+		$num_a++;	
 	}
 
 ?>

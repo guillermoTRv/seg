@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 mens_horario"></div>
+          <div class="col-md-12 mens_horario" style="text-align:center;"></div>
         </div>
   
       </div>

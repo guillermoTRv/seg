@@ -21,12 +21,12 @@
             <div class="snaks" data="agregar_snaks" style="display: inline-block;height: 90px;width: 90px;border-radius:10px;background-color:#81DAF5;;margin-left:10px;font-size:1.1em"><center style="margin-top:24px"><strong>Agregar Snak</strong></center>
             </div>
         </div>-->
-        <div class="col-sm-7 col-xs-9">
-          <input type="text" class="form-control input_blue input_snaks">
-          <div class="lista_snaks" style="margin-top:17px"></div>
-        </div>
-        <div class="col-sm-2 col-xs-3">
-            <a class="btn btn-default btn_snaks" href="" role="button"><strong>Añadir</strong></a>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input type="text" class="form-control input_snaks" placeholder="Agregar Snaks" aria-describedby="basic-addon2" style="font-weight: bold">
+                <span class="input-group-addon btn_snaks" id="basic-addon2" style="font-weight:bolder;cursor:pointer;">Agregar</span>
+            </div>
+            <div class="lista_snaks" style="margin-top:17px"></div>
         </div>
         
     </div>

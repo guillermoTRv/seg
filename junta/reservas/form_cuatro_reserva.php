@@ -1,6 +1,3 @@
-<style>
-  .caja_dia{display:inline-block;width:10%;height:100px;background-color:white;border:1px solid black;color:rgba(1,1,1,.8);font-weight: bold;padding:4px}
-</style>
 <div class="nota_reserva">
     
 </div>

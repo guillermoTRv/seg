@@ -53,7 +53,7 @@
           $(".btn_alta_usuario").prop("disabled",true)
           $.ajax({
           type:"POST",
-          url:"process_alta_usuario.php",
+          url:"administrador/process_alta_usuario.php",
           data:$(".form_alta_usuario").serialize(),
           success:function(data){
             if (data == 00) {

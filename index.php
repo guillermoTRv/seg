@@ -5,6 +5,7 @@
   <title>Logeo</title>
   <link rel="stylesheet" href="ico/style.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="ico/favicon.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300" rel="stylesheet"> 
   <style>
@@ -36,7 +37,7 @@
   	</div>
 
   	<div class="col-xs-10 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 caja_two" style="color:white;background:rgba(110,110,110,.4);padding:17px 24px 17px 24px;border-radius:10px;margin-top:20px">
-  		<img src="ico/logoo.jpg" class="img-responsive" alt="">	
+  		<img src="ico/logo_n.jpg" class="img-responsive" alt="">	
   	</div>
   </div>
 	

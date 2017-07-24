@@ -1,7 +1,7 @@
 <a href="" class="regresar regresar_uno_reserva"><span class="icon-reply"></span> Regresar</a>
-<h3>Reservacion Sala de Juntas</h3>
+<h3>Reservación Sala de Juntas</h3>
 <hr class="linea">
-<h4 style="font-weight: bold;">
+<h4>
   1 - Seleccione la Sala que desea reservar   
 </h4>
 <?php  
@@ -10,8 +10,17 @@
   while ($array  = mysqli_fetch_array($consulta_sala)) {
       $name_sala = $array['name_sala'];
       $id_sala   = $array['id_sala'];
-      ?>
-        <div class="boton_sala" id='<?php echo $id_sala ?>' data="<?php echo $name_sala ?>"><?php echo $name_sala ?> -&nbsp;
+      ?>  
+        <div type="button" style="cursor: pointer;
+        background-color:white;
+        border-radius:5px;
+        text-align: center;
+        padding:10px 9px 10px 9px;
+        font-weight: bold;
+        font-size:1.15em;
+        width:100%;
+        color:rgba(0,0,0,.8);
+        margin-bottom:5px;" class="letra boton_sala" id='<?php echo $id_sala ?>' data="<?php echo $name_sala ?>"><?php echo $name_sala ?>
           <?php 
             $consulta_equipo = mysqli_query($q_sec,"SELECT * FROM equipo_salas WHERE id_sala = '$id_sala' order by id_equipo asc");
             $num_equipo = consulta_val("SELECT NULL FROM equipo_salas WHERE id_sala = '$id_sala'");
@@ -20,7 +29,7 @@
               $name_equipo = $array_equipo['name_equipo'];
               echo " $name_equipo";
               if ($coma != $num_equipo) {
-                echo ",";
+                echo ", ";
               }
               $coma++;
             }
@@ -29,6 +38,7 @@
       <?php
   }
 ?>
+<br>
 
 <!--<p class="boton_sala">Sala 3: Actualmente en Uso(9-11) - Uso(11-1) - Libre(1-4) - Uso(4-5)</p>
 <p class="boton_sala">Sala 3: Actualmente en Uso(9-11) - Uso(11-1) - Libre(1-4) - Uso(4-5)</p>

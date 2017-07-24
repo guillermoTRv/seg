@@ -1,5 +1,5 @@
 <?php 
-	include("funciones.php");
+	include("../funciones.php");
 	$nombre    = sanitizar("nombre_txt");
 	$apellidos = sanitizar("apellidos_txt");
 	$usuario   = sanitizar("usuario_txt");

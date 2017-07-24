@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.png">
     <title>Menu inicial</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -29,8 +30,9 @@
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script  type="text/javascript" src="js/jquery.js"></script>
     <script  type="text/javascript" src="js/fns_menu.js"></script>
-<script  type="text/javascript" src="js/fnxxx_personal.js"></script>
+    <script  type="text/javascript" src="js/fnxxx_personal.js"></script>
     <script  type="text/javascript" src="js/js.js"></script>
+    <script  type="text/javascript" src="js/estados.js"></script>
 </head>
 
 <body>
@@ -38,25 +40,23 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav">
-                <div style="margin:12px 20px 12px 12px;">
-                    <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
-                </div>
+                <?php include("vistas_principales/logo_empresa.php"); ?>
                 <hr>
                 <div class="menu_pr">
                     <li class="li_nav">
-                        <a class="title_a" href="./menu_inicial.php" data=""><span class="icon-library"></span> Vista Clientes</a>
+                        <a class="title_a" href="./menu_inicial.php" data="./menu_inicial.php"><span class="icon-library"></span> Vista Clientes</a>
                     </li> 
                     <li class="nav">
-                        <a class="title_a" href="?cont=listado"><span class=" icon-list2"></span> Listado Clientes</a>
+                        <a class="title_a" href="?cont=listado" data="?cont=listado"><span class=" icon-list2"></span> Listado Clientes</a>
                     </li>
                     <li class="nav">
-                        <a class="title_a" href="?cont=alta"><span class=" icon-upload3"></span> Alta Clientes</a>
+                        <a class="title_a" href="?cont=alta" data="?cont=alta"><span class=" icon-upload3"></span> Alta Clientes</a>
                     </li>
                     <li class="nav">
-                        <a class="title_a"><span class="icon-cogs"></span> Modificar Clientes</a>
+                        <a class="title_a" href="?cont=lista_modificar" data="?cont=lista_modificar"><span class="icon-cogs"></span> Modificar Clientes</a>
                     </li>
                     <li class="nav">
-                        <a class="title_a"><span class=" icon-cancel-circle"></span> Baja Clientes</a>
+                        <a class="title_a" href="?cont=lista_eliminar" data="?cont=lista_eliminar"><span class=" icon-cancel-circle"></span> Baja Clientes</a>
                     </li>
                 </div>   
                 <br>
@@ -73,14 +73,9 @@
         <?php 
             include("vistas_principales/nav_datos.php");
         ?>
-        <div class="container">   
-                <div style="margin-top:20px">
-                        <div class="row">
-                            <?php include("controlador_menu_inicial.php"); ?>  
-                        </div>
-                </div>
+        <div class="container-fluid" style="margin-top:30px;margin-left:50px">  
+            <?php include("controlador_menu_inicial.php"); ?>  
         </div>
-            
     </div>
     
 

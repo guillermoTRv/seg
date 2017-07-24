@@ -31,12 +31,14 @@
 		</div><br>
 		<div class="row">
 			<div class="col-md-6">
-				<label>Municipio/Delegacion</label>
-				<input type="text" class="form-control" name="demarcacion_txt">
+				<label>Entidad Federativa</label>
+				<select class="form-control entidad" name="entidad_txt">
+					<?php include("estados.php") ?>
+				</select>
 			</div>
 			<div class="col-md-6">
-				<label>Entidad Federativa</label>
-				<input type="text" class="form-control" name="entidad_txt">
+				<label>Municipio/Delegacion</label>
+				<select class="form-control municipios" name="demarcacion_txt"></select>
 			</div>
 		</div>	
 		<p style="margin-top:18px;">*Contrato</p>
@@ -61,6 +63,7 @@
 		</div>
 	</form>
 	<h4 class="mens"></h4>
+		<h4><a class="a_blue" href="?cont=listado">Regresar</a></h4>
 </div>
 <script>
 	$(document).on("click",".btn_cliente",function(){
@@ -71,6 +74,7 @@
 			data:$(".form_cliente_alta").serialize(),	
 			success:function(data){
 				$(".mens").html(data)
+				$(".btn-registrar-es").prop( "disabled",false)
 			}
 		})
 	})

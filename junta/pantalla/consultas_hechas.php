@@ -34,7 +34,7 @@
 		$data_prox = $dia_proximo." ".$tiempo_ini_prox;
 
 		$id_usuario_prox    = $proxima['id_usuario'];
-		$usuario_uso_prox   = consulta_array("SELECT nombre, apellidos FROM usuarios WHERE id_usuario='$id_usuario'");
+		$usuario_uso_prox   = consulta_array("SELECT nombre, apellidos FROM usuarios WHERE id_usuario='$id_usuario_prox'");
 		$nombre_armado_prox = $usuario_uso_prox['nombre']." ".$usuario_uso_prox['apellidos'];
 		if ($dia_proxima == $fecha) {
 			$mens_dia = "Hoy a las 2";	

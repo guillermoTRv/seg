@@ -12,7 +12,7 @@
 	}
 	if ($cons_reservaciones > 1) {
 		?>
-			<h3 class="sombra_texto btn_ventana" data="mis_reservaciones"><a href=""><span class="icon-pushpin sombra_textos"></span>   Usted tiene <?php echo $consulta_reservaciones ?> reservaciones a futuro</a> </h3>
+			<h3 class="sombra_texto btn_ventana" data="mis_reservaciones"><a href=""><span class="icon-pushpin sombra_textos"></span>   Usted tiene <?php echo $cons_reservaciones ?> reservaciones a futuro</a> </h3>
 		<?php
 	}
 	##aqui seria donde puedan modificar y eliminar los datos

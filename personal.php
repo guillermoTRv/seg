@@ -36,6 +36,7 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.png">
 
     <title>Personal <?php echo $type_personal_name ?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -74,9 +75,7 @@
         <div id="sidebar-wrapper" style="background-color:#222;padding:0px">
             
             <ul class="sidebar-nav navbar">
-                <div style="margin:12px 20px 12px 12px;">
-                    <img src="ico/logo_n.jpg" class="img-responsive" style="margin-right:20px">    
-                </div>
+                <?php include("vistas_principales/logo_empresa.php"); ?>
                 
                 <hr>
                 <div class="menu_pr">

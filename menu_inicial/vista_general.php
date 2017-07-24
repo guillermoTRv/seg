@@ -1,5 +1,6 @@
+<br>
 <p style="margin-left:20px">##Utilizar las teclas de navegación <span class="glyphicon glyphicon-arrow-up"></span> <span class=" glyphicon glyphicon-arrow-down"></span></p>
-<div class="col-md-10" id="clientes">                                
+<div class="col-md-9" id="clientes">                                
     <!--<a href="process_cliente.php?cl=0" class="link_black">
         <div class="panel-body panel_cl">
             <h4>Información en general todos los clientes</h4> 

@@ -8,9 +8,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="shortcut icon" href="fonts/logo.png">
     <title>Pantalla</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -54,10 +56,9 @@
                                           $name_sala = $array['name_sala'];
                                           $id_sala   = $array['id_sala'];
                                           ?>
-
-                                            <a style="color:black" href="?sala=<?php echo $id_sala ?>">
-                                                <p class="boton_sala"> <?php echo $name_sala ?>
-                                                </p>
+                                            <a class="btn btn-default btn-lg btn-block letra" style="color:black" href="?sala=<?php echo $id_sala ?>">
+                                                <?php echo $name_sala ?>
+                                                
                                             </a>
                                           <?php
                                       }
